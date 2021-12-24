@@ -1,5 +1,7 @@
 # python
 
+> 当前项目使用python@3.9.7
+
 ## 查看 python 版本
 
 > python --version
@@ -30,3 +32,13 @@
 [global]
 index-url = https://mirrors.aliyun.com/pypi/simple
 ```
+
+## 启动应用
+
+> python manage.py runserver
+>
+> 用户页面：http://127.0.0.1:8000
+>
+> 后台管理页面：http://127.0.0.1:8000/admin
+
+[wagtail](./docs/wagtail.md)
