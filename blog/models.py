@@ -4,17 +4,16 @@ from modelcluster.fields import ParentalKey
 from modelcluster.contrib.taggit import ClusterTaggableManager
 
 from taggit.models import TaggedItemBase
-from wagtail.admin import edit_handlers
-from wagtail.admin.templatetags.wagtailadmin_tags import sidebar_collapsed
+# from wagtail.admin import edit_handlers
+# from wagtail.admin.templatetags.wagtailadmin_tags import sidebar_collapsed
 
 from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, TabbedInterface, ObjectList
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
-from wagtail.snippets.edit_handlers import SnippetChooserPanel
+# from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
-from wagtail.snippets.models import register_snippet
 class BlogIndexPage(Page):
     intro = RichTextField(blank=True)
 
@@ -100,19 +99,3 @@ class BlogPageGalleryImage(Orderable):
         ImageChooserPanel('image'),
         FieldPanel('caption')
     ]
-
-
-@register_snippet
-class Advert(models.Model):
-    url = models.URLField(null=True, blank=True)
-    text = models.CharField(max_length=255)
-
-    panels = [
-        FieldPanel('url'),
-        FieldPanel('text'),
-    ]
-
-    def __str__(self):
-        return self.text
-    class Meta:
-        verbose_name_plural = '自定义'

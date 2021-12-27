@@ -10,6 +10,26 @@
 
 ### django template tags and filters<https://docs.djangoproject.com/en/3.1/ref/templates/builtins/>
 
+> When a Django app is added to INSTALLED_APPS, any tags it defines in the conventional location described below are automatically made available to load within templates
+>
+> 默认路径是：Your custom tags and filters will live in a module inside the templatetags directory. The name of the module file is the name you’ll use to load the tags later
+>
+> 自定义 tag 和 filter 会定义在 templatetags 模块中，对应的模块名就是要用到的标签。例如
+
+```plain
+polls/
+  __init__.py
+  models.py
+  templatetags/
+    __init__.py
+    poll_extras.py // 过滤器
+  views.py
+
+  <!-- 加载 -->
+  {% load poll_extras.py %}
+  <!-- polls app必须添加到INSTALLED_APPS -->
+```
+
 #### build-in tag
 
 > tag 的用法，tag 可以接收参数
