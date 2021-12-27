@@ -77,17 +77,17 @@ class BlogPage(Page):
         InlinePanel('gallery_images', label="Gallery images")
     ]
 
-    sidebar_content_panels = [
-        SnippetChooserPanel('advert'),
-        InlinePanel('related_links', label='Related links')
-    ]
+    # sidebar_content_panels = [
+    #     SnippetChooserPanel('advert'),
+    #     InlinePanel('related_links', label='Related links')
+    # ]
 
-    edit_handlers = TabbedInterface([
-        ObjectList(content_panels, heading='Content'),
-        ObjectList(sidebar_content_panels, heading='Sidebar content'),
-        ObjectList(Page.promote_panels, heading='Promote'),
-        ObjectList(Page.settings_panels, heading='Settings', classname='settings')
-    ])
+    # edit_handlers = TabbedInterface([
+    #     ObjectList(content_panels, heading='Content'),
+    #     ObjectList(sidebar_content_panels, heading='Sidebar content'),
+    #     ObjectList(Page.promote_panels, heading='Promote'),
+    #     ObjectList(Page.settings_panels, heading='Settings', classname='settings')
+    # ])
 
 class BlogPageGalleryImage(Orderable):
     page = ParentalKey(BlogPage, on_delete=models.CASCADE, related_name='gallery_images')
@@ -114,3 +114,5 @@ class Advert(models.Model):
 
     def __str__(self):
         return self.text
+    class Meta:
+        verbose_name_plural = '自定义'
