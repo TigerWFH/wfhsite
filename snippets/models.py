@@ -3,6 +3,12 @@ from django.db import models
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.snippets.models import register_snippet
 
+class Banner(models.Model):
+    banner_title = models.CharField(max_length=255, verbose_name="标题")
+    url = models.CharField(max_length=255)
+    class Meta:
+        verbose_name_plural = "轮播图"
+
 @register_snippet
 class Advert(models.Model):
     # 定义表单域
