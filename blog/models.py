@@ -12,13 +12,22 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel, MultiFieldPanel, TabbedInterface, ObjectList
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.search import index
-# from wagtail.snippets.edit_handlers import SnippetChooserPanel
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
 class BlogIndexPage(Page):
     intro = RichTextField(blank=True)
+    advert = models.ForeignKey(
+        'snippets.Advert',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
     content_panels = Page.content_panels + [
-        FieldPanel('intro', classname="full")
+        FieldPanel('intro', classname="full"),
+        SnippetChooserPanel('advert'),
+        InlinePanel('advert_placements', label="Adverts")
     ]
 
     def get_context(self, request):
@@ -27,6 +36,22 @@ class BlogIndexPage(Page):
         context['blogpages'] = blogpages
 
         return context
+
+# snippets集合
+class BlogPageSnippetAdverts(Orderable, models.Model):
+    page = ParentalKey(BlogIndexPage, on_delete=models.CASCADE, related_name='advert_placements')
+    advert = models.ForeignKey('snippets.Advert', on_delete=models.CASCADE, related_name='+')
+
+    class Meta(Orderable.Meta):
+        verbose_name = "advert placement"
+        verbose_name_plural = "advert placements"
+
+    pannels = [
+        SnippetChooserPanel('advert')
+    ]
+
+    def __str__(self):
+        return self.page.title + "->" + self.advert.text
 
 class BlogTagIndexPage(Page):
 
@@ -76,18 +101,7 @@ class BlogPage(Page):
         InlinePanel('gallery_images', label="Gallery images")
     ]
 
-    # sidebar_content_panels = [
-    #     SnippetChooserPanel('advert'),
-    #     InlinePanel('related_links', label='Related links')
-    # ]
-
-    # edit_handlers = TabbedInterface([
-    #     ObjectList(content_panels, heading='Content'),
-    #     ObjectList(sidebar_content_panels, heading='Sidebar content'),
-    #     ObjectList(Page.promote_panels, heading='Promote'),
-    #     ObjectList(Page.settings_panels, heading='Settings', classname='settings')
-    # ])
-
+# 图片集合
 class BlogPageGalleryImage(Orderable):
     page = ParentalKey(BlogPage, on_delete=models.CASCADE, related_name='gallery_images')
     image = models.ForeignKey(
