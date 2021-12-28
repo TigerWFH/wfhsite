@@ -38,5 +38,5 @@ class BookAdmin(ModelAdmin):
 
 # 注册
 modeladmin_register(BannerGroup)
-modeladmin_register(SnippetMenu)
-modeladmin_register(BookAdmin)
+# modeladmin_register(SnippetMenu)
+# modeladmin_register(BookAdmin)

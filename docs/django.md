@@ -1,5 +1,31 @@
 # Django<https://www.jianshu.com/p/3fc79a1e0edb>
 
+## django.contrib.staticfiles
+
+> Websites 一般需要提供 images、javascript、css 等文件，在 Django 中这些文件被称为 static fiels
+
+- `config static fiels`
+
+  - `INSTALLED_APPS增加django.contrib.staticfiles`
+  - `在settings中定义STATIC_URL：`STATIC_URL = 'static/'
+  - `在template中使用static tag构建static files的真实路径`
+
+  ```plain
+    {% load static %}
+    <img src="{% static 'my_app/example.png' %}" alt="MyImage" />
+
+  ```
+
+  - `将静态文件存储到static目录：my_app/static/example.png`
+  - `可以定义一组静态路径`
+
+  ```plain
+    STATICFILES_DIRS = [
+      BASE_DIR / "static",
+      'var/www/static'
+    ]
+  ```
+
 ## template
 
 ### filter 本质就是 python 函数
