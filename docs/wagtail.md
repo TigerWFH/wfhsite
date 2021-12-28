@@ -66,3 +66,15 @@ from wagtail.snippets.models import register_snippet
 > ParentalKey：one-to-many relations
 
 ## InlinePanel<https://docs.wagtail.io/en/v2.15.1/reference/pages/panels.html#inline-panels>
+
+## ModelAdmin<https://docs.wagtail.io/en/v2.15.1/reference/contrib/modeladmin/menu_item.html?highlight=ModelAdminGroup#id2>
+
+- `安装应用`
+
+```python
+INSTALLED_APPS = [
+  'wagtail.contrib.modeladmin'
+]
+```
+
+- `使用`

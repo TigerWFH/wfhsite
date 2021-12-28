@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'blog',
     'snippets',
 
+    'wagtail.contrib.modeladmin',
+    # 'wagtail.contrib.styleguide',
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',

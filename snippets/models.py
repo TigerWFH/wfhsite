@@ -2,7 +2,25 @@ from django.db import models
 
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.snippets.models import register_snippet
+from wagtail.images.edit_handlers import ImageChooserPanel
+    
+class Book(models.Model):
+    title = models.CharField(max_length=255)
+    author = models.CharField(max_length=255)
+    cover_photo = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
 
+# ImageChooserPanel、PageChooserPanel、DocumentChooserPanel
+    panels = [
+        FieldPanel('title'),
+        FieldPanel('author'),
+        ImageChooserPanel('cover_photo')
+    ]
 class Banner(models.Model):
     banner_title = models.CharField(max_length=255, verbose_name="标题")
     url = models.CharField(max_length=255)
