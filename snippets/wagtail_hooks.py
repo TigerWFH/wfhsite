@@ -14,7 +14,7 @@ class BookAdmin(ModelAdmin):
 
 class BannerGroup(ModelAdminGroup):
     menu_label = "Library"
-    menu_icon = 'pilcrow'
+    menu_icon = 'folder-open-inverse'
     # menu_icon = 'fa-cutlery'
     menu_order = 300 # will put in 4th place (000 being 1st, 100 2nd)
     items = (BannerAdmin, BookAdmin)
