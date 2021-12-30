@@ -92,7 +92,6 @@ class BlogPage(Page):
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([
-            FieldPanel('date'),
             FieldPanel('tags'),
         ], heading="Blog information"),
         FieldPanel('date'),
