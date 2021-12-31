@@ -5,11 +5,7 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block extra_css %}
-
-{% comment %}
-Delete the line below if you're just getting started and want to remove the welcome screen!
-{% endcomment %}
-<link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
@@ -25,3 +21,7 @@ Delete the line below if you're just getting started and want to remove the welc
 {{ page.body|richtext }}
 
 {% endblock content %}
+
+{% block extra_js %}
+    <script type="text/javascript" src="{% static 'js/home.js' %}"></script>
+{% endblock %}

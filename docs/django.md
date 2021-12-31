@@ -3,6 +3,10 @@
 ## django.contrib.staticfiles
 
 > Websites 一般需要提供 images、javascript、css 等文件，在 Django 中这些文件被称为 static fiels
+>
+> django.contrib.staticfiles 提供了 static 模板标签
+>
+> 可以直接在对应的 app 下建立 static 目录，书写对应应用的静态文件
 
 - `config static fiels`
 
