@@ -22,6 +22,26 @@
 >
 > /usr/local/opt/mysql@5.7/bin/mysqld_safe --datadir=/usr/local/var/mysql
 
+- `修改账号密码：`mysql_secure_installation
+- `导出配置：`
+
+```plain
+A CA file has been bootstrapped using certificates from the system
+keychain. To add additional certificates, place .pem files in
+  /opt/homebrew/etc/openssl@3/certs
+and run
+  /opt/homebrew/opt/openssl@3/bin/c_rehash
+openssl@3 is keg-only, which means it was not symlinked into /opt/homebrew,
+because macOS provides LibreSSL.
+If you need to have openssl@3 first in your PATH, run:
+  echo 'export PATH="/opt/homebrew/opt/openssl@3/bin:$PATH"' >> ~/.zshrc
+For compilers to find openssl@3 you may need to set:
+  export LDFLAGS="-L/opt/homebrew/opt/openssl@3/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/openssl@3/include"
+For pkg-config to find openssl@3 you may need to set:
+  export PKG_CONFIG_PATH="/opt/homebrew/opt/openssl@3/lib/pkgconfig"
+```
+
 ## mysql 常用命令
 
 > mysqld 是数据库管理系统应用程序服务端；mysql 是数据库管理系统客户端
