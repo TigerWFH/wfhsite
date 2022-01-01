@@ -3,7 +3,8 @@ from django.db import models
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.snippets.models import register_snippet
 from wagtail.images.edit_handlers import ImageChooserPanel
-    
+
+
 class Book(models.Model):
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
@@ -21,11 +22,15 @@ class Book(models.Model):
         FieldPanel('author'),
         ImageChooserPanel('cover_photo')
     ]
+
+
 class Banner(models.Model):
     banner_title = models.CharField(max_length=255, verbose_name="标题")
     url = models.CharField(max_length=255)
+
     class Meta:
         verbose_name_plural = "轮播图"
+
 
 @register_snippet
 class Advert(models.Model):
@@ -40,15 +45,17 @@ class Advert(models.Model):
 
     def __str__(self):
         return self.text
+
     class Meta:
         # snippet的名字，所有的snippet都是统一放在Snippets菜单下，该菜单名不可以修改
         verbose_name_plural = 'Advert'
+
 
 @register_snippet
 class Demo(models.Model):
     name = models.CharField(max_length=255)
     age = models.CharField(max_length=255)
-    
+
     panels = [
         FieldPanel('name'),
         FieldPanel('age')
@@ -56,6 +63,6 @@ class Demo(models.Model):
 
     def __str__(self):
         return self.name
-    
+
     class Meta:
         verbose_name_plural = 'Demo'
