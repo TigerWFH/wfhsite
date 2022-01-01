@@ -8,15 +8,13 @@ from wagtail.images.edit_handlers import ImageChooserPanel
 class Book(models.Model):
     title = models.CharField(max_length=255)
     author = models.CharField(max_length=255)
-    cover_photo = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
+    cover_photo = models.ForeignKey('wagtailimages.Image',
+                                    null=True,
+                                    blank=True,
+                                    on_delete=models.SET_NULL,
+                                    related_name='+')
 
-# ImageChooserPanel、PageChooserPanel、DocumentChooserPanel
+    # ImageChooserPanel、PageChooserPanel、DocumentChooserPanel
     panels = [
         FieldPanel('title'),
         FieldPanel('author'),
@@ -56,10 +54,7 @@ class Demo(models.Model):
     name = models.CharField(max_length=255)
     age = models.CharField(max_length=255)
 
-    panels = [
-        FieldPanel('name'),
-        FieldPanel('age')
-    ]
+    panels = [FieldPanel('name'), FieldPanel('age')]
 
     def __str__(self):
         return self.name
