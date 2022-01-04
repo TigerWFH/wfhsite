@@ -101,6 +101,12 @@ class BlogPage(Page):
     ]
 
 # 图片集合
+# ParentalKey是建立起一对多的关系，且对应的column_name就是related_name
+# By defining a ParentalKey with related_name='related_links', 
+# you set up a one-to-many relation called related_links on BookPage. 
+# This allows you to retrieve all of the BookPageRelatedLinks objects associated with a given BookPage instance (for example, 
+# if your BookPage instance was called page, you could write page.related_links.all()).
+# The InlinePanel declaration then tells Wagtail to make the related_links property editable within the admin.
 class BlogPageGalleryImage(Orderable):
     page = ParentalKey(BlogPage, on_delete=models.CASCADE, related_name='gallery_images')
     image = models.ForeignKey(

@@ -1,5 +1,111 @@
 # Django<https://www.jianshu.com/p/3fc79a1e0edb>
 
+## 查看 migration 文件生成的 sql
+
+> python manage.py sqlmigrate user 0020
+>
+> python manage.py sqlmigrate appName 迁移文件序号
+
+## Django 数据对应关系
+
+> 关系型数据库存在一对多、一对一、多对多的关系
+>
+> 一对一：models.OneToOneField('class_name', on_delete=models.CASCADE)
+>
+> 一对多：models.ForeignKey('class_name', on_delete=models.CASCADE)
+>
+> 多对多：models.ManyToManyField('class_name')
+
+```python
+# 实体：Class(班级)、Teacher(老师)、Student(学生)、StudentDetail(学生信息)
+# Class和Teacher是 多对多 关系
+# Class和Student是 一对多 关系
+# Student和StudentDetail是 一对一 关系
+class Student(models.Model):
+  id = models.AutoField(primary_key=True)
+  sname = models.CharField(max_length=20)
+
+  # 一对多外键
+  cid = models.ForeignKey('Class', on_delete=models.CASCADE)
+  # 一对一外键
+  cid = models.OneToOneField('StudentDetail', on_delete=models.CASCADE)
+
+class StudentDetail(models.Model):
+  id = models.AutoField(primary_key=True)
+  height = models.IntegerField()
+  #...
+
+class Class(models.Model):
+  id = models.AutoField(primary_key=True)
+  cname = models.CharField(max_length=20)
+
+class Teacher(models.Model):
+  id = models.AutoField(primary_key=True)
+  cname = models.CharField(max_length=20)
+
+  # 多对多
+  cid = models.ManyToManyField('Class')
+
+```
+
+## Widgets
+
+> A widget is Django’s representation of an HTML input element. The widget handles the rendering of the HTML, and the extraction of data from a GET/POST dictionary that corresponds to the widget.
+>
+> Whenever you specify a field on a form, Django will use a default widget that is appropriate to the type of data that is to be displayed.
+>
+> built-in Field classes<https://docs.djangoproject.com/en/4.0/ref/forms/fields/#built-in-fields>
+>
+> if you want to use a different widget for a field, you can use the widget argument on the field definition. For example:
+
+```python
+from django import forms
+
+class CommentForm(forms.Form):
+  name = forms.CharField()
+  url = forms.URLField()
+  comment = forms.CharField(widget=forms.Textarea)
+```
+
+## class Field
+
+> Field is an abstract class that represents a database table column.Django uses fields to create the database table (db_type()), to map Python types to database (get_prep_value()) and vice-versa (from_db_value())
+>
+> Field including the field options and field types Django offers
+
+## django field types
+
+- `class AutoField(**options)：`An IntegerField that automatically increments according to available IDs
+- `class BigAutoField(**options)：`
+- `class BigIntegerField(**options)：`
+- `class BinaryField(max_length=None, **options)：`
+- `class BooleanField(**options)：`
+- `class CharField(max_length=None, **options)：`
+- `class DateField(auto_now=False, auto_now_add=False, **options)：`
+- `class DateTimeField(auto_now=False, auto_now_add=False, **options)：`
+- `class DecimalField(max_digits=None, decimal_places=None, **options)：`
+- `class DurationField(**options)：`
+- `class EmailField(max_length=254, **options)：`
+- `class FileField(upload_to=None, max_length=100, **options)：`
+- `class FilePathField(path='', match=None, recursive=False, allow_files=True, allow_folders=False, max_length=100, **options)：`
+- `class FloatField(**options)：`
+- `class ImageField(upload_to=None, height_field=None, width_field=None, max_length=100, **options)：`
+- `class IntegerField(**options)：`
+- `class JSONField(encoder=None, decoder=None, **options)：`
+- `class PositiveBigIntegerField(**options)：`
+- `class PositiveIntegerField(**options)：`
+- `class PositiveSmallIntegerField(**options)：`
+- `class SlugField(max_length=50, **options)：`
+- `class SmallAutoField(**options)：`
+- `class SmallIntegerField(**options)：`
+- `class TextField(**options)：`
+- `class TimeField(auto_now=False, auto_now_add=False, **options)：`
+- `class URLField(max_length=200, **options)：`
+- `class UUIDField(**options)：`
+- `class ForeignKey(to, on_delete, **options)：`
+- `class ManyToManyField(to, **options)：`
+- `class OneToOneField(to, on_delete, parent_link=False, **options)：`
+
 ## django.contrib.staticfiles
 
 > Websites 一般需要提供 images、javascript、css 等文件，在 Django 中这些文件被称为 static fiels

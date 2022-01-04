@@ -78,3 +78,37 @@ INSTALLED_APPS = [
 ```
 
 - `使用`
+
+## Panel Types
+
+> Django’s field types are automatically recognised and provided with an appropriate widget for input
+
+### wagtail.admin.edit_handlers
+
+- `FieldPanel(field_name,classname=None,widget=None,heading='',disable_comments=False)`
+  > This is the panel used for basic Django field types
+- `StreamFieldPanel(field_name, classname=None, widget=None)`
+  > This is the panel used for Wagtail’s StreamField type
+- `MultiFieldPanel(children, heading="", classname=None)`
+  > This panel condenses several FieldPanel s or choosers, from a list or tuple, under a single heading string
+- `InlinePanel(relation_name, panels=None, classname='', heading='', label='', help_text='', min_num=None, max_num=None)`
+  > This panel allows for the creation of a “cluster” of related objects over a join to a separate model, such as a list of related links or slides to an image carousel.
+- `FieldRowPanel(children, classname=None)`
+- `HelpPanel(content='', template='wagtailadmin/edit_handlers/help_panel.html', heading='', classname='')`
+- `PageChooserPanel(field_name, page_type=None, can_choose_root=False)`
+
+### wagtail.images.edit_handlers
+
+- `ImageChooserPanel(field_name)`
+
+### wagtail.contrib.forms.edit_handlers
+
+- `FormSubmissionsPanel`
+
+### wagtail.documents.edit_handlers
+
+- `DocumentChooserPanel(field_name)`
+
+### wagtail.snippets.edit_handlers
+
+- `SnippetChooserPanel(field_name, snippet_type=None)`
