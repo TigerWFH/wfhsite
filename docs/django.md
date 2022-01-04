@@ -16,6 +16,15 @@
 >
 > 多对多：models.ManyToManyField('class_name')
 
+- `ForeignKey(otherModel, on_delete, **options)`
+  > otherModel：关联的表格（主表），默认外键存储的是主表的主键，但可以通过 to_field 修改
+  >
+  > on_delete：CASCADE，当主表的字段被删除时，和它有关的子表字段也会被删除
+  >
+  > db_column：可以指定字段名
+  >
+  > options：to_field，改变关联的字段
+
 ```python
 # 实体：Class(班级)、Teacher(老师)、Student(学生)、StudentDetail(学生信息)
 # Class和Teacher是 多对多 关系
