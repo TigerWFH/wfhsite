@@ -101,7 +101,13 @@ class BlogPage(Page):
     ]
 
 # 图片集合
-# ParentalKey是建立起一对多的关系，且对应的column_name就是related_name
+# ForeignKey(Django)提供一对多
+# OneToOneField(Django)提供一对一
+# ManyToManyField(Django)提供多对多
+#########################################
+# ParentalKey(wagtail)是建立起一对多的关系，且对应的column_name就是related_name
+# 1对多，可以通过配置是否是多方进行控制
+#########################################
 # By defining a ParentalKey with related_name='related_links', 
 # you set up a one-to-many relation called related_links on BookPage. 
 # This allows you to retrieve all of the BookPageRelatedLinks objects associated with a given BookPage instance (for example, 
