@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'search',
     'blog',
     'snippets',
+    'demos',
 
     'wagtail.contrib.modeladmin',
     # 'wagtail.contrib.styleguide',
