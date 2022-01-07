@@ -22,13 +22,25 @@ class Book(models.Model):
     ]
 
 
-class Banner(models.Model):
-    title = models.CharField(max_length=255, verbose_name="标题")
-    type = models.CharField(max_length=255)
-    url = models.CharField(max_length=255)
+class Metadata(models.Model):
+    title = models.CharField(max_length=255, verbose_name="元数据标题")
+    type = models.CharField(max_length=255, blank=True)
+    url = models.URLField()
+    image = models.ForeignKey(
+        'wagtailimages.Image',
+        on_delete=models.CASCADE,
+        related_name='+'
+    )
 
     class Meta:
-        verbose_name_plural = "轮播图资源"
+        verbose_name_plural = "元数据资源"
+
+    panels = [
+        FieldPanel('title'),
+        FieldPanel('type'),
+        ImageChooserPanel('image'),
+        FieldPanel('url')
+    ]
 
 
 @register_snippet

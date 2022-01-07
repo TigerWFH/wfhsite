@@ -1,10 +1,10 @@
 from wagtail.contrib.modeladmin.options import (
     ModelAdmin, ModelAdminGroup, modeladmin_register)
-from snippets.models import Demo, Banner, Book
+from snippets.models import Demo, Metadata, Book
 
 
 class BannerAdmin(ModelAdmin):
-    model = Banner
+    model = Metadata
     list_display = ('title', 'url')
 
 
