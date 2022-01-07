@@ -6,44 +6,43 @@ from wagtail.core.models import Page, Orderable
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, InlinePanel
 from wagtail.images.edit_handlers import ImageChooserPanel
-
+from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
 class HomePage(Page):
     body = RichTextField(blank=True)
-
-    def banner_list(self):
-        banner_list = self.banner.first()
-        print(banner_list)
-        if banner_list:
-            return banner_list
-        else:
-            return None
+    metadata = models.ForeignKey(
+        'snippets.Metadata',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        verbose_name='请选择元数据'
+    )
 
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
+        SnippetChooserPanel('metadata'),
         InlinePanel('banner', label='请选择banner资源')
     ]
 
-class HomeBanner(Orderable):
+class HomeBanner(Orderable, models.Model):
     page = ParentalKey(
         HomePage,
         on_delete=models.SET_NULL,
         related_name='banner',
         null=True
         )
-    title = models.CharField(max_length=20, blank=False)
-    image = models.ForeignKey(
-        'wagtailimages.Image',
+    metadata = models.ForeignKey(
+        'snippets.Metadata',
         on_delete=models.CASCADE,
-        related_name='+'
-        )
-    type = models.CharField(max_length=10, blank=False)
-    url = models.URLField()
+        null=True,
+        related_name='+',
+    )
 
     panels = [
-        FieldPanel('title'),
-        FieldPanel('type'),
-        ImageChooserPanel('image'),
-        FieldPanel('url')
+        SnippetChooserPanel('metadata')
     ]
+
+    def __str__(self):
+        return self.page.title + '->' + self.metadata.title
 

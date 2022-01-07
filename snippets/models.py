@@ -21,7 +21,7 @@ class Book(models.Model):
         ImageChooserPanel('cover_photo')
     ]
 
-
+@register_snippet
 class Metadata(models.Model):
     title = models.CharField(max_length=255, verbose_name="元数据标题")
     type = models.CharField(max_length=255, blank=True)
@@ -31,6 +31,9 @@ class Metadata(models.Model):
         on_delete=models.CASCADE,
         related_name='+'
     )
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         verbose_name_plural = "元数据资源"

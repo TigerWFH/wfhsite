@@ -9,11 +9,21 @@
 {% endblock extra_css %}
 
 {% block content %}
-{% for banner in page.banner.all %}
-    <div>
-        {{ banner.title }}
-    </div>
-{% endfor%}
+<h1>元数据</h1>
+<div>
+    {{ page.metadata.title }}
+</div>
+<h1>banner列表</h1>
+<div>
+    {% for banner in page.banner.all %}
+        <div>
+            <a href="{{ banner.metadata.url}}">
+                {{ banner.metadata.title}}
+            </a>
+        </div>
+    {% endfor %}
+</div>
+
 
 {% adverts %}
 
