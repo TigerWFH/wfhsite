@@ -9,6 +9,11 @@
 {% endblock extra_css %}
 
 {% block content %}
+{% for banner in page.banner.all %}
+    <div>
+        {{ banner.title }}
+    </div>
+{% endfor%}
 
 {% adverts %}
 

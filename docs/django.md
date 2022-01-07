@@ -19,7 +19,14 @@
 - `ForeignKey(otherModel, on_delete, **options)`
   > otherModel：关联的表格（主表），默认外键存储的是主表的主键，但可以通过 to_field 修改
   >
-  > on_delete：CASCADE，当主表的字段被删除时，和它有关的子表字段也会被删除
+  > on_delete：
+  > CASCADE，当主表的字段被删除时，和它有关的子表字段也会被删除
+  > PROJECT，阻止删除并抛出一个ProjectedError
+  > RESTRICT，类似PROJECT
+  > SET_NULL，将ForeignKey设置为null，如果允许设置null值
+  > SET_DEFAULT，
+  > SET()，
+  > DO_NOTHING，
   >
   > db_column：可以指定字段名
   >

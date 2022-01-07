@@ -23,11 +23,12 @@ class Book(models.Model):
 
 
 class Banner(models.Model):
-    banner_title = models.CharField(max_length=255, verbose_name="标题")
+    title = models.CharField(max_length=255, verbose_name="标题")
+    type = models.CharField(max_length=255)
     url = models.CharField(max_length=255)
 
     class Meta:
-        verbose_name_plural = "轮播图"
+        verbose_name_plural = "轮播图资源"
 
 
 @register_snippet

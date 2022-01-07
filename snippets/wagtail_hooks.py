@@ -5,7 +5,7 @@ from snippets.models import Demo, Banner, Book
 
 class BannerAdmin(ModelAdmin):
     model = Banner
-    list_display = ('banner_title', 'url')
+    list_display = ('title', 'url')
 
 
 class BookAdmin(ModelAdmin):
@@ -16,7 +16,7 @@ class BookAdmin(ModelAdmin):
 
 
 class BannerGroup(ModelAdminGroup):
-    menu_label = "Library"
+    menu_label = "资源库"
     menu_icon = 'folder-open-inverse'
     # menu_icon = 'fa-cutlery'
     # will put in 4th place (000 being 1st, 100 2nd)
