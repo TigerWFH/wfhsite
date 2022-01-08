@@ -10,53 +10,16 @@
 
 {% block content %}
 <h1>banner列表</h1>
+{% for banner in bannerList%}
 <div>
-    {% if page.banner.first %}
     <div>
-        <a href="{{ page.banner.first.url}}">
-            {% image page.banner.first.image fill-160x100%}
+        <a href="{{ banner.url}}">
+            {% image banner.image fill-160x100%}
         </a>
     </div>
-    {% endif %}
-    {% if page.banner.second %}
-    <div>
-        <a href="{{ page.banner.second.url}}">
-            {% image page.banner.second.image fill-160x100%}
-        </a>
-    </div>
-    {% endif %}
-    {% if page.banner.third %}
-    <div>
-        <a href="{{ page.banner.third.url}}">
-            {% image page.banner.third.image fill-160x100%}
-        </a>
-    </div>
-    {% endif %}
-    {% if page.banner.fouth %}
-    <div>
-        <a href="{{ page.banner.fouth.url}}">
-            {% image page.banner.fouth.image fill-160x100%}
-        </a>
-    </div>
-    {% endif %}
-    {% if page.banner.fifth %}
-    <div>
-        <a href="{{ page.banner.fifth.url}}">
-            {% image page.banner.fifth.image fill-160x100%}
-        </a>
-    </div>
-    {% endif %}
-    {% if page.banner.sixth %}
-    <div>
-        <a href="{{ page.banner.sixth.url}}">
-            {% image page.banner.sixth.image fill-160x100%}
-        </a>
-    </div>
-    {% endif %}
-
 </div>
-
-
+{% endfor %}
+    
 {% adverts %}
 
 {% demos %}

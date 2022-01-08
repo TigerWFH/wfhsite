@@ -14,6 +14,29 @@ class HomePage(Page):
                                related_name='+',
                                verbose_name='请选择Banner')
 
+    def get_context(self, request):
+        # Update template context
+        context = super().get_context(request)
+        # 对banner数据进行过滤
+        banner = self.banner
+        if banner:
+            bannerList = []
+            if banner.first:
+                bannerList.append(banner.first)
+            if banner.second:
+                bannerList.append(banner.second)
+            if banner.third:
+                bannerList.append(banner.third)
+            if banner.fouth:
+                bannerList.append(banner.fouth)
+            if banner.fifth:
+                bannerList.append(banner.fifth)
+            if banner.sixth:
+                bannerList.append(banner.sixth)
+            context['bannerList'] = bannerList
+
+        return context
+
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
         SnippetChooserPanel('banner')
