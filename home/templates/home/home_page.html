@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load wagtailcore_tags advert_tags demo_tags %}
+{% load wagtailcore_tags wagtailimages_tags advert_tags demo_tags %}
 {% load static %}
 
 {% block body_class %}template-homepage{% endblock %}
@@ -9,15 +9,12 @@
 {% endblock extra_css %}
 
 {% block content %}
-<h1>元数据</h1>
-<div>
-    {{ page.metadata.title }}
-</div>
 <h1>banner列表</h1>
 <div>
     {% for banner in page.banner.all %}
         <div>
             <a href="{{ banner.metadata.url}}">
+                {% image banner.metadata.image fill-160x100 %}
                 {{ banner.metadata.title}}
             </a>
         </div>
@@ -32,7 +29,7 @@
 {% comment %}
 Delete the line below if you're just getting started and want to remove the welcome screen!
 {% endcomment %}
-{% comment %} {% include 'home/welcome_page.html' %} {% endcomment %}
+{% include 'home/welcome_page.html' %} 
 {{ page.body|richtext }}
 
 {% endblock content %}
