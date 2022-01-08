@@ -83,6 +83,36 @@ INSTALLED_APPS = [
 
 > Django’s field types are automatically recognised and provided with an appropriate widget for input
 
+### Django widgets<https://docs.djangoproject.com/en/4.0/ref/forms/widgets/#built-in-widgets>
+
+> from django import forms
+>
+> forms.TextInput
+
+- `Built-in widgets：`
+  - `TextInput`
+  - `NumberInput`
+  - `EmailInput`
+  - `URLInput`
+  - `PasswordInput`
+  - `HiddenInput`
+  - `DateInput`
+  - `DateTimeInput`
+  - `TimeInput`
+  - `Textarea`
+  - `CheckboxInput`
+  - `Select`
+  - `NullBooleanSelect`
+  - `SelectMultiple`
+  - `RadioSelect`
+  - `CheckboxSelectMultiple`
+  - `FileInput`
+  - `ClearableFileInput`
+  - `MultipleHiddenInput`
+  - `SplitDateTimeWidget`
+  - `SplitHiddenDateTimeWidget`
+  - `SelectDateWidget`
+
 ### wagtail.admin.edit_handlers
 
 - `FieldPanel(field_name,classname=None,widget=None,heading='',disable_comments=False)`

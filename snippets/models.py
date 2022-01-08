@@ -1,4 +1,7 @@
+from enum import Enum
+
 from django.db import models
+from django import forms
 
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.snippets.models import register_snippet
@@ -21,16 +24,29 @@ class Book(models.Model):
         ImageChooserPanel('cover_photo')
     ]
 
+
+class Type(Enum):
+    MOBILE = '移动无线端版本'
+    PC = '电脑端版本'
+
+
+TYPE_DICT = [(Type.MOBILE.name, Type.MOBILE.value),
+             (Type.PC.name, Type.PC.value)]
+
+
 @register_snippet
 class Metadata(models.Model):
-    title = models.CharField(max_length=255, verbose_name="元数据标题")
-    type = models.CharField(max_length=255, blank=True)
-    url = models.URLField()
-    image = models.ForeignKey(
-        'wagtailimages.Image',
-        on_delete=models.CASCADE,
-        related_name='+'
-    )
+    title = models.CharField(max_length=255,
+                             verbose_name="元数据标题",
+                             help_text='请输入元素数据标题')
+    type = models.CharField(max_length=20,
+                            choices=TYPE_DICT,
+                            help_text='请选择元数据适用平台')
+    url = models.URLField(help_text='请输入元数据跳转链接')
+    image = models.ForeignKey('wagtailimages.Image',
+                              on_delete=models.CASCADE,
+                              related_name='+',
+                              help_text='请选择元数据对应的图片资源')
 
     def __str__(self):
         return self.title
@@ -40,7 +56,7 @@ class Metadata(models.Model):
 
     panels = [
         FieldPanel('title'),
-        FieldPanel('type'),
+        FieldPanel('type', widget=forms.Select),
         ImageChooserPanel('image'),
         FieldPanel('url')
     ]

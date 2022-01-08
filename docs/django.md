@@ -21,9 +21,9 @@
   >
   > on_delete：
   > CASCADE，当主表的字段被删除时，和它有关的子表字段也会被删除
-  > PROJECT，阻止删除并抛出一个ProjectedError
-  > RESTRICT，类似PROJECT
-  > SET_NULL，将ForeignKey设置为null，如果允许设置null值
+  > PROJECT，阻止删除并抛出一个 ProjectedError
+  > RESTRICT，类似 PROJECT
+  > SET_NULL，将 ForeignKey 设置为 null，如果允许设置 null 值
   > SET_DEFAULT，
   > SET()，
   > DO_NOTHING，
@@ -83,41 +83,66 @@ class CommentForm(forms.Form):
   comment = forms.CharField(widget=forms.Textarea)
 ```
 
-## class Field
+## Model Field<https://docs.djangoproject.com/en/4.0/ref/models/fields/>
 
 > Field is an abstract class that represents a database table column.Django uses fields to create the database table (db_type()), to map Python types to database (get_prep_value()) and vice-versa (from_db_value())
 >
 > Field including the field options and field types Django offers
 
+## django field options
+
+> 以下 options 适应所有 Field，都是可选项
+
+- `Field.null：`如果为 True，数据库字段将空值存储为 NULL，默认是 false。
+- `Field.blank：`如果为 True，数据库字段允许为空，默认是 false
+- `Field.choices：`A sequence consisting itself of iterables of exactly two items (e.g. [(A, B), (A, B) ...]) to use as choices for this field
+- `Field.db_column：`The name of the database column to use for this field. If this isn’t given, Django will use the field’s name.
+- `Field.db_index：`If True, a database index will be created for this field
+- `Field.db_tablespace：`The name of the database tablespace to use for this field’s index, if this field is indexed
+- `Field.default：`默认值
+- `Field.editable：`If False, the field will not be displayed in the admin or any other ModelForm
+- `Field.error_message：`
+- `Field.help_text：`Extra “help” text to be displayed with the form widget
+- `Field.primary_key：`
+- `Field.unique：`If True, this field must be unique throughout the table
+- `Field.unique_for_date：`
+- `Field.unique_for_month：`
+- `Field.unique_for_year：`
+- `Field.verbose_name：`
+- `Field.validators`
+
 ## django field types
+
+> Django ModelField To FormField, ModelField 映射数据库；FormField 映射 HTML 表单组件
+> ![ModelFieldToFormField](./Django_modelField_to_formField.png)
 
 - `class AutoField(**options)：`An IntegerField that automatically increments according to available IDs
 - `class BigAutoField(**options)：`
 - `class BigIntegerField(**options)：`
 - `class BinaryField(max_length=None, **options)：`
-- `class BooleanField(**options)：`
-- `class CharField(max_length=None, **options)：`
-- `class DateField(auto_now=False, auto_now_add=False, **options)：`
-- `class DateTimeField(auto_now=False, auto_now_add=False, **options)：`
-- `class DecimalField(max_digits=None, decimal_places=None, **options)：`
-- `class DurationField(**options)：`
-- `class EmailField(max_length=254, **options)：`
-- `class FileField(upload_to=None, max_length=100, **options)：`
-- `class FilePathField(path='', match=None, recursive=False, allow_files=True, allow_folders=False, max_length=100, **options)：`
-- `class FloatField(**options)：`
-- `class ImageField(upload_to=None, height_field=None, width_field=None, max_length=100, **options)：`
-- `class IntegerField(**options)：`
-- `class JSONField(encoder=None, decoder=None, **options)：`
+- `class BooleanField(**options)：`Default widget: CheckboxInput
+- `class CharField(max_length=None, **options)：`Default widget: TextInput
+- `class DateField(auto_now=False, auto_now_add=False, **options)：`Default widget: DateInput
+- `class DateTimeField(auto_now=False, auto_now_add=False, **options)：`Default widget: DateTimeInput
+- `class DecimalField(max_digits=None, decimal_places=None, **options)：`Default widget: NumberInput when Field.localize is False, else TextInput
+- `class DurationField(**options)：`Default widget: TextInput
+- `class EmailField(max_length=254, **options)：`Default widget: EmailInput
+- `class FileField(upload_to=None, max_length=100, **options)：`Default widget: ClearableFileInput
+- `class FilePathField(path='', match=None, recursive=False, allow_files=True, allow_folders=False, max_length=100, **options)：`Default widget: Select
+- `class FloatField(**options)：`Default widget: NumberInput when Field.localize is False, else TextInput
+- `class ImageField(upload_to=None, height_field=None, width_field=None, max_length=100, **options)：`Default widget: ClearableFileInput
+- `class IntegerField(**options)：`Default widget: NumberInput when Field.localize is False, else TextInput
+- `class JSONField(encoder=None, decoder=None, **options)：`Default widget: Textarea
 - `class PositiveBigIntegerField(**options)：`
 - `class PositiveIntegerField(**options)：`
 - `class PositiveSmallIntegerField(**options)：`
-- `class SlugField(max_length=50, **options)：`
+- `class SlugField(max_length=50, **options)：`Default widget: TextInput
 - `class SmallAutoField(**options)：`
 - `class SmallIntegerField(**options)：`
 - `class TextField(**options)：`
-- `class TimeField(auto_now=False, auto_now_add=False, **options)：`
+- `class TimeField(auto_now=False, auto_now_add=False, **options)：`Default widget: TimeInput
 - `class URLField(max_length=200, **options)：`
-- `class UUIDField(**options)：`
+- `class UUIDField(**options)：`Default widget: TextInput
 - `class ForeignKey(to, on_delete, **options)：`
 - `class ManyToManyField(to, **options)：`
 - `class OneToOneField(to, on_delete, parent_link=False, **options)：`
