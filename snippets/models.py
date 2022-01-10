@@ -136,7 +136,11 @@ class Banner(models.Model):
 @register_snippet
 class Footer(models.Model):
     # 版权声明copyright
-    # 备案声明
+    copyright = models.CharField(max_length=255)
+    # 备案声明：ICP license（商业网站），京ICP证123456789；ICP filing（非商业网站），京ICP备1234567
+    icp_license = models.CharField(max_length=255)
+    # 沪公网安备12313131，公网安备也就是把网站到公安机关备案，是一套独立的备案系统，相当于让公安机关知道您的网站。现在让多省、市都要求网站开通后一个月内强制办理
+    police_license = models.CharField(max_length=255)
     pass
 
 ###############################
