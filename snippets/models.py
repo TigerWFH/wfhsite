@@ -1,4 +1,5 @@
 from enum import Enum
+from django.core.checks.registry import register
 
 from django.db import models
 from django import forms
@@ -26,6 +27,8 @@ class Book(models.Model):
     ]
 
 
+
+# 业务需求组件
 class Type(Enum):
     MOBILE = '移动无线端版本'
     PC = '电脑端版本'
@@ -131,7 +134,15 @@ class Banner(models.Model):
 
 
 @register_snippet
+class Footer(models.Model):
+    # 版权声明copyright
+    # 备案声明
+    pass
+
+###############################
+@register_snippet
 class Advert(models.Model):
+
     # 定义表单域
     url = models.URLField(null=True, blank=True)
     text = models.CharField(max_length=255)
