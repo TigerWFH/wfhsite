@@ -30,14 +30,17 @@ class Book(models.Model):
 
 # 业务需求组件
 class Type(Enum):
+    ALL = '适用所有平台'
     MOBILE = '移动无线端版本'
     PC = '电脑端版本'
 
 
 TYPE_DICT = [(Type.MOBILE.name, Type.MOBILE.value),
-             (Type.PC.name, Type.PC.value)]
+             (Type.PC.name, Type.PC.value),
+             (Type.ALL.name, Type.ALL.value)]
 
 
+# 元数据
 @register_snippet
 class Metadata(models.Model):
     title = models.CharField(max_length=255,
@@ -72,11 +75,12 @@ class Metadata(models.Model):
     ]
 
 
+# 元数据集合（支持业务：Banner、MenuItem）
 @register_snippet
 class Banner(models.Model):
     title = models.CharField(max_length=30,
-                             verbose_name='Banner标题',
-                             help_text='请输入Banner标题')
+                             verbose_name='元数据集合标题',
+                             help_text='请输入元数据集合标题')
     type = models.CharField(max_length=20,
                             choices=TYPE_DICT,
                             help_text='请选择元数据适用平台',
@@ -84,37 +88,37 @@ class Banner(models.Model):
     first = models.ForeignKey('Metadata',
                               on_delete=models.SET_NULL,
                               related_name='+',
-                              help_text='请选择第一张轮播图元素数据',
+                              help_text='请选择第一个元数据',
                               null=True,
                               blank=False)
     second = models.ForeignKey('Metadata',
                                on_delete=models.SET_NULL,
                                related_name='+',
-                               help_text='请选择第二张轮播图元素数据',
+                               help_text='请选择第二个元数据',
                                null=True,
                                blank=True)
     third = models.ForeignKey('Metadata',
                               on_delete=models.SET_NULL,
                               related_name='+',
-                              help_text='请选择第三张轮播图元素数据',
+                              help_text='请选择第三个元数据',
                               null=True,
                               blank=True)
     fouth = models.ForeignKey('Metadata',
                               on_delete=models.SET_NULL,
                               related_name='+',
-                              help_text='请选择第四张轮播图元素数据',
+                              help_text='请选择第四个元数据',
                               null=True,
                               blank=True)
     fifth = models.ForeignKey('Metadata',
                               on_delete=models.SET_NULL,
                               related_name='+',
-                              help_text='请选择第五张轮播图元素数据',
+                              help_text='请选择第五个元数据',
                               null=True,
                               blank=True)
     sixth = models.ForeignKey('Metadata',
                               on_delete=models.SET_NULL,
                               related_name='+',
-                              help_text='请选择第六张轮播图元素数据',
+                              help_text='请选择第六个元数据',
                               null=True,
                               blank=True)
 
@@ -131,7 +135,6 @@ class Banner(models.Model):
         SnippetChooserPanel('fifth'),
         SnippetChooserPanel('sixth')
     ]
-
 
 @register_snippet
 class Footer(models.Model):
