@@ -12,6 +12,10 @@
 
 ### 字典（Directory）：{}
 
+> 访问字典：dict['key']或者 dict.get('key')
+>
+> 反问对象属性用.
+
 ```python
     n = 123
     s = '123_abc'
