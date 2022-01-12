@@ -12,7 +12,12 @@ class HomePage(Page):
                                null=True,
                                on_delete=models.SET_NULL,
                                related_name='+',
-                               verbose_name='请选择Banner')
+                               verbose_name='请选择轮播图')
+    nav = models.ForeignKey('snippets.Nav',
+                              null=True,
+                              on_delete=models.SET_NULL,
+                              verbose_name='请选择导航',
+                              related_name='+')
 
     def get_context(self, request):
         # Update template context
@@ -34,10 +39,13 @@ class HomePage(Page):
             if banner.sixth:
                 bannerList.append(banner.sixth)
             context['bannerList'] = bannerList
+        nav = self.nav
+        print('========>' + nav.first.first.title)
 
         return context
 
     content_panels = Page.content_panels + [
         FieldPanel('body', classname="full"),
-        SnippetChooserPanel('banner')
+        SnippetChooserPanel('banner'),
+        SnippetChooserPanel('nav')
     ]

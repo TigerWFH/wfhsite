@@ -163,6 +163,9 @@ class Nav(models.Model):
         SnippetChooserPanel('fifth'),
     ]
 
+    def __str__(self):
+        return self.title
+
     class Meta:
         verbose_name_plural = '导航栏（Nav）'
 
