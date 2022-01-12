@@ -27,8 +27,8 @@ class HomePage(Page):
                 bannerList.append(banner.second)
             if banner.third:
                 bannerList.append(banner.third)
-            if banner.fouth:
-                bannerList.append(banner.fouth)
+            if banner.fourth:
+                bannerList.append(banner.fourth)
             if banner.fifth:
                 bannerList.append(banner.fifth)
             if banner.sixth:

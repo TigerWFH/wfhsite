@@ -1,5 +1,4 @@
 from enum import Enum
-from django.core.checks.registry import register
 
 from django.db import models
 from django import forms
@@ -46,11 +45,13 @@ class Metadata(models.Model):
     title = models.CharField(max_length=255,
                              verbose_name="元数据标题",
                              help_text='请输入元素数据标题')
+    label = models.CharField(max_length=50, verbose_name='展示标题', help_text = '请输入元数据展示标题', blank=True)
     type = models.CharField(max_length=20,
                             choices=TYPE_DICT,
                             help_text='请选择元数据适用平台')
     url = models.URLField(help_text='请输入元数据跳转链接')
     image = models.ForeignKey('wagtailimages.Image',
+                              null=True,
                               on_delete=models.CASCADE,
                               related_name='+',
                               help_text='请选择元数据对应的图片资源',
@@ -64,18 +65,19 @@ class Metadata(models.Model):
         return self.title
 
     class Meta:
-        verbose_name_plural = "元数据资源"
+        verbose_name_plural = "元数据"
 
     panels = [
         FieldPanel('title'),
+        FieldPanel('label'),
         FieldPanel('type', widget=forms.Select),
+        FieldPanel('url'),
         FieldPanel('img_url'),
         ImageChooserPanel('image'),
-        FieldPanel('url')
     ]
 
 
-# 元数据集合（支持业务：Banner、MenuItem）
+# 元数据集合（支持业务：Banner、Menu）
 @register_snippet
 class Banner(models.Model):
     title = models.CharField(max_length=30,
@@ -103,7 +105,7 @@ class Banner(models.Model):
                               help_text='请选择第三个元数据',
                               null=True,
                               blank=True)
-    fouth = models.ForeignKey('Metadata',
+    fourth = models.ForeignKey('Metadata',
                               on_delete=models.SET_NULL,
                               related_name='+',
                               help_text='请选择第四个元数据',
@@ -131,10 +133,38 @@ class Banner(models.Model):
         SnippetChooserPanel('first'),
         SnippetChooserPanel('second'),
         SnippetChooserPanel('third'),
-        SnippetChooserPanel('fouth'),
+        SnippetChooserPanel('fourth'),
         SnippetChooserPanel('fifth'),
         SnippetChooserPanel('sixth')
     ]
+
+    class Meta:
+        verbose_name_plural = '元数据集合'
+
+
+@register_snippet
+class Nav(models.Model):
+    title = models.CharField(max_length=30, verbose_name='请输入导航栏名称')
+    first = models.ForeignKey('Banner', null=True, default=None, blank=True, on_delete=models.SET_DEFAULT, help_text='请选择第一个导航菜单', related_name='+')
+    second = models.ForeignKey('Banner', null=True, default=None, blank=True, on_delete=models.SET_DEFAULT, help_text='请选择第一个导航菜单', related_name='+')
+    third = models.ForeignKey('Banner', null=True, default=None, blank=True, on_delete=models.SET_DEFAULT, help_text='请选择第一个导航菜单', related_name='+')
+    fourth = models.ForeignKey('Banner', null=True, default=None, blank=True, on_delete=models.SET_DEFAULT, help_text='请选择第一个导航菜单', related_name='+')
+    fifth = models.ForeignKey('Banner', null=True, default=None, blank=True, on_delete=models.SET_DEFAULT, help_text='请选择第一个导航菜单', related_name='+')
+
+    def __str__(self):
+        return self.title
+
+    panels = [
+        FieldPanel('title'),
+        SnippetChooserPanel('first'),
+        SnippetChooserPanel('second'),
+        SnippetChooserPanel('third'),
+        SnippetChooserPanel('fourth'),
+        SnippetChooserPanel('fifth'),
+    ]
+
+    class Meta:
+        verbose_name_plural = '导航栏（Nav）'
 
 @register_snippet
 class Footer(models.Model):
