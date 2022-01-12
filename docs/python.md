@@ -2,26 +2,63 @@
 
 ## 语法
 
+### 类型判断
+
+> type 和 isinstance
+
+### Built-in Types<https://docs.python.org/3/library/stdtypes.html#other-built-in-types>
+
+[中文资料](https://docs.python.org/zh-cn/3/library/stdtypes.html#other-built-in-types)
+
+- `Boolean Types：`True 和 False
+  > 支持 and、or、not 操作
+  >
+  > 支持比较运算符操作 is、is not、>、...
+- `Number Types：`int、float、complex
+  > 支持算术运算
+  >
+  > 支持比较运算
+  >
+  > 支持位运算：|、^、&、<<、>>、~
+- `Iterator Types`
+- `Sequence Types：`list、tuple、str、range、bytes、bytearray、memoryview
+- `Set Types：`set、frozenset
+- `Mapping Types：`dict
+- `Context Manager Types：`
+- `Type Annotation Types：`Generic Alias、Union
+- `Other Built-in Types：`Modules、Classes and Class Instances、Functions、Methonds、Code Objects、Type Objects、Null Object、Ellipsis Object、
+
+### 序列（Sequence）
+
+> 序列包括：列表（list）、元组（tuple）、字符串（string 和 unicode string
+
+### 列表（list）：[]，列表是可修改的
+
+### 元祖（tuple）：()，元组不可修改
+
+### 字典（dict）：{}，无序
+
+> 访问字典：dict['key']或者 dict.get('key')
+>
+> 访问对象属性用.
+
+### 集合（set）
+
+### 不可变集合（frozenset）
+
 ### 数字（Number）：int、long、float、complex
 
 ### 字符串（String）：''
 
-### 列表（List）：[]
-
-### 元祖（Tuple）：()
-
-### 字典（Directory）：{}
-
-> 访问字典：dict['key']或者 dict.get('key')
->
-> 反问对象属性用.
-
 ```python
     n = 123
     s = '123_abc'
+    # list
     list = [1,2,3, 'ac']
+    # tuple
     t = ('a', 'a', 'v', 789)
     tinytuple = ('a', 'b')
+    # dict
     d = {
         a: 'a'
     }
