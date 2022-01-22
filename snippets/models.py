@@ -26,7 +26,6 @@ class Book(models.Model):
     ]
 
 
-
 # 业务需求组件
 class Type(Enum):
     ALL = '适用所有平台'
@@ -35,8 +34,7 @@ class Type(Enum):
 
 
 TYPE_DICT = [(Type.MOBILE.name, Type.MOBILE.value),
-             (Type.PC.name, Type.PC.value),
-             (Type.ALL.name, Type.ALL.value)]
+             (Type.PC.name, Type.PC.value), (Type.ALL.name, Type.ALL.value)]
 
 
 # 元数据
@@ -45,7 +43,10 @@ class Metadata(models.Model):
     title = models.CharField(max_length=255,
                              verbose_name="元数据标题",
                              help_text='请输入元素数据标题')
-    label = models.CharField(max_length=50, verbose_name='展示标题', help_text = '请输入元数据展示标题', blank=True)
+    label = models.CharField(max_length=50,
+                             verbose_name='展示标题',
+                             help_text='请输入元数据展示标题',
+                             blank=True)
     type = models.CharField(max_length=20,
                             choices=TYPE_DICT,
                             help_text='请选择元数据适用平台')
@@ -106,11 +107,11 @@ class Banner(models.Model):
                               null=True,
                               blank=True)
     fourth = models.ForeignKey('Metadata',
-                              on_delete=models.SET_NULL,
-                              related_name='+',
-                              help_text='请选择第四个元数据',
-                              null=True,
-                              blank=True)
+                               on_delete=models.SET_NULL,
+                               related_name='+',
+                               help_text='请选择第四个元数据',
+                               null=True,
+                               blank=True)
     fifth = models.ForeignKey('Metadata',
                               on_delete=models.SET_NULL,
                               related_name='+',
@@ -145,11 +146,41 @@ class Banner(models.Model):
 @register_snippet
 class Nav(models.Model):
     title = models.CharField(max_length=30, verbose_name='请输入导航栏名称')
-    first = models.ForeignKey('Banner', null=True, default=None, blank=True, on_delete=models.SET_DEFAULT, help_text='请选择第一个导航菜单', related_name='+')
-    second = models.ForeignKey('Banner', null=True, default=None, blank=True, on_delete=models.SET_DEFAULT, help_text='请选择第一个导航菜单', related_name='+')
-    third = models.ForeignKey('Banner', null=True, default=None, blank=True, on_delete=models.SET_DEFAULT, help_text='请选择第一个导航菜单', related_name='+')
-    fourth = models.ForeignKey('Banner', null=True, default=None, blank=True, on_delete=models.SET_DEFAULT, help_text='请选择第一个导航菜单', related_name='+')
-    fifth = models.ForeignKey('Banner', null=True, default=None, blank=True, on_delete=models.SET_DEFAULT, help_text='请选择第一个导航菜单', related_name='+')
+    first = models.ForeignKey('Banner',
+                              null=True,
+                              default=None,
+                              blank=True,
+                              on_delete=models.SET_DEFAULT,
+                              help_text='请选择第一个导航菜单',
+                              related_name='+')
+    second = models.ForeignKey('Banner',
+                               null=True,
+                               default=None,
+                               blank=True,
+                               on_delete=models.SET_DEFAULT,
+                               help_text='请选择第一个导航菜单',
+                               related_name='+')
+    third = models.ForeignKey('Banner',
+                              null=True,
+                              default=None,
+                              blank=True,
+                              on_delete=models.SET_DEFAULT,
+                              help_text='请选择第一个导航菜单',
+                              related_name='+')
+    fourth = models.ForeignKey('Banner',
+                               null=True,
+                               default=None,
+                               blank=True,
+                               on_delete=models.SET_DEFAULT,
+                               help_text='请选择第一个导航菜单',
+                               related_name='+')
+    fifth = models.ForeignKey('Banner',
+                              null=True,
+                              default=None,
+                              blank=True,
+                              on_delete=models.SET_DEFAULT,
+                              help_text='请选择第一个导航菜单',
+                              related_name='+')
 
     def __str__(self):
         return self.title
@@ -163,11 +194,9 @@ class Nav(models.Model):
         SnippetChooserPanel('fifth'),
     ]
 
-    def __str__(self):
-        return self.title
-
     class Meta:
         verbose_name_plural = '导航栏（Nav）'
+
 
 @register_snippet
 class Footer(models.Model):
@@ -178,6 +207,7 @@ class Footer(models.Model):
     # 沪公网安备12313131，公网安备也就是把网站到公安机关备案，是一套独立的备案系统，相当于让公安机关知道您的网站。现在让多省、市都要求网站开通后一个月内强制办理
     police_license = models.CharField(max_length=255)
     pass
+
 
 ###############################
 @register_snippet
