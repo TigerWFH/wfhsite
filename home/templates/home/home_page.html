@@ -6,19 +6,20 @@
 
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
 <h1>banner列表</h1>
-{% for banner in bannerList%}
-<div>
-    <div>
+<div id="common-banner" class='banner-container'>
+    {% for banner in bannerList%}
+    <div class="banner-item">
         <a href="{{ banner.url}}">
             {% image banner.image fill-160x100%}
         </a>
     </div>
+    {% endfor %}
 </div>
-{% endfor %}
     
 {% adverts %}
 

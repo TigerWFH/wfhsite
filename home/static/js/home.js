@@ -1,1 +1,5 @@
-console.log('home.js');
+// 处理common-banner逻辑
+
+const banner = $('common-banner');
+
+console.log('banner===>', banner);
