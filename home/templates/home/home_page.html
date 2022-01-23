@@ -11,14 +11,18 @@
 
 {% block content %}
 <h1>banner列表</h1>
-<div id="common-banner" class='banner-container'>
-    {% for banner in bannerList%}
-    <div class="banner-item">
-        <a href="{{ banner.url}}">
-            {% image banner.image fill-160x100%}
-        </a>
+<div id="carousel" class="carousel">
+    <div class="banner">
+        <div id="stage" class="stage">
+            {% for banner in bannerList%}
+            <div class="cell">
+                <a href="{{ banner.url}}">
+                    {% image banner.image fill-160x100%}
+                </a>
+            </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+    </div>
 </div>
     
 {% adverts %}
