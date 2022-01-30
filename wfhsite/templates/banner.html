@@ -1,0 +1,18 @@
+{% load wagtailcore_tags wagtailimages_tags advert_tags demo_tags %}
+
+<div id="common_banner" class="banner">
+    <ul>
+        {% for banner in bannerList %}
+        <li>
+            <a href="{{ banner.url}}">
+                {% image banner.image fill-160x100%}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+    <div id="banner_dot" class="dots">
+        {% for banner in bannerList %}
+        <span class="dot"></span>
+        {% endfor %}
+    </div>
+</div>

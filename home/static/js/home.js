@@ -5,7 +5,6 @@ $('#carousel').click(() => {
 });
 
 $('document').ready(() => {
-  console.log(6666666666);
   $('#stage div').each(function (index) {
     console.log('index===>', index, this);
     let cl = 'first';
