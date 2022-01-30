@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  max-width: 960px;
+  /* max-width: 960px; */
   min-height: 100vh;
   margin: 0 auto;
   padding: 0 15px;
@@ -51,16 +51,16 @@ svg:not(:root) {
   overflow: hidden;
 }
 
-.header {
+/* .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding-top: 20px;
   padding-bottom: 10px;
   border-bottom: 1px solid #e6e6e6;
-}
+} */
 
-.logo {
+/* .logo {
   width: 150px;
   margin-right: 20px;
 }
@@ -76,19 +76,19 @@ svg:not(:root) {
 
 .release-notes {
   font-size: 14px;
-}
+} */
 
-.main {
+/* .main {
   padding: 40px 0;
   margin: 0 auto;
   text-align: center;
-}
+} */
 
-.figure-space {
+/* .figure-space {
   max-width: 265px;
-}
+} */
 
-@-webkit-keyframes pos {
+/* @-webkit-keyframes pos {
   0%,
   100% {
     -webkit-transform: rotate(-6deg);
@@ -206,6 +206,39 @@ svg:not(:root) {
   .header-link {
     max-width: 100px;
   }
+} */
+/*  header */
+.header {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.logo {
+  height: 66px;
+  width: 132px;
+  border: 1px solid #00a3fe;
+}
+
+.nav {
+  border: 1px solid red;
+}
+
+.nav ul li {
+  list-style: none;
+  margin-right: 10px;
+  float: left;
+}
+
+a {
+  text-decoration: none;
+}
+a:hover {
+  color: #00a3fe;
 }
 
 /* banner */

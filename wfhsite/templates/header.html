@@ -1,0 +1,16 @@
+{% load wagtailcore_tags %}
+
+<header id="header" class="header">
+    <div class="logo"></div>
+    <nav class="nav">
+        <ul>
+            {% for banner in bannerList %}
+            <li>
+                <a href="{{ banner.url}}">
+                    {{banner.title}}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

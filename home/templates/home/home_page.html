@@ -5,19 +5,20 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href="{% static 'css/welcome_page.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/welcome_page.css' %}"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock extra_css %}
 
 {% block content %}
 
-{% adverts %}
+{% comment %} {% adverts %} {% endcomment %}
 
-{% demos %}
+{% comment %} {% demos %} {% endcomment %}
 
 {% comment %}
 Delete the line below if you're just getting started and want to remove the welcome screen!
 {% endcomment %}
+{% include 'header.html' %}
 {% include 'banner.html' %} 
 {% include 'home/welcome_page.html' %} 
 {{ page.body|richtext }}
