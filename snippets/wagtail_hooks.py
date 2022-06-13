@@ -1,7 +1,7 @@
 from wagtail.contrib.modeladmin.options import (ModelAdmin, ModelAdminGroup,
                                                 modeladmin_register)
-# from snippets.models import Demo, Metadata, Book
-from snippets.models import Demo, Metadata, Banner
+# from snippets.models import Demo, Metadata, Banner
+from snippets.models import Demo, Metadata
 
 
 class MetadataAdmin(ModelAdmin):
@@ -9,9 +9,9 @@ class MetadataAdmin(ModelAdmin):
     list_display = ('title', 'url')
 
 
-class BannerAdmin(ModelAdmin):
-    model = Banner
-    list_display = ('title', 'type')
+# class BannerAdmin(ModelAdmin):
+#     model = Banner
+#     list_display = ('title', 'type')
 
 
 class SnippetMenu(ModelAdmin):
@@ -27,7 +27,7 @@ class BannerGroup(ModelAdminGroup):
     # menu_icon = 'fa-cutlery'
     # will put in 4th place (000 being 1st, 100 2nd)
     menu_order = 300
-    items = (MetadataAdmin, BannerAdmin, SnippetMenu)
+    items = (MetadataAdmin, SnippetMenu)
 
 
 # 注册
