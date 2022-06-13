@@ -1,5 +1,20 @@
 # wagtail
 
+## 术语
+
+### page type
+
+> Each page type(Page Model) (a.k.a. content type) in Wagtail is represented by a Django model. All page models must inherit from the wagtail.models.Page class.
+
+- `Database fields：`对应数据库字段
+- `Search：`建立索引，待进一步理解
+- `Editor Panels：`后台管理配置，如下图
+  ![editor_panels](./images/editor_panels.jpg)
+
+  - `content_panels` - For content, such as main body text
+  - `promote_panels` - For metadata, such as tags, thumbnail image and SEO title
+  - `settings_panels` - For settings, such as publish date
+
 ## 创建应用
 
 > wagtail start appName [path]

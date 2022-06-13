@@ -56,6 +56,7 @@ class BlogPageSnippetAdverts(Orderable, models.Model):
         return self.page.title + "->" + self.advert.text
 
 
+# 博客列表页
 class BlogTagIndexPage(Page):
 
     def get_context(self, request):
@@ -70,12 +71,14 @@ class BlogTagIndexPage(Page):
         return context
 
 
+# 博客标签
 class BlogPageTag(TaggedItemBase):
     content_object = ParentalKey('BlogPage',
                                  related_name='tagged_item',
                                  on_delete=models.CASCADE)
 
 
+# 博客详情页
 class BlogPage(Page):
     date = models.DateField("Post date")
     intro = models.CharField(max_length=250)
