@@ -37,8 +37,7 @@ TYPE_DICT = [(Type.MOBILE.name, Type.MOBILE.value),
              (Type.PC.name, Type.PC.value), (Type.ALL.name, Type.ALL.value)]
 
 
-# 元数据
-@register_snippet
+# 元数据Metadata
 class Metadata(models.Model):
     title = models.CharField(max_length=255,
                              verbose_name="元数据标题",
@@ -78,8 +77,7 @@ class Metadata(models.Model):
     ]
 
 
-# 元数据集合（支持业务：Banner、Menu）
-@register_snippet
+# 元数据集合MetadaList（支持业务：Banner、Menu）
 class Banner(models.Model):
     title = models.CharField(max_length=30,
                              verbose_name='元数据集合标题',
