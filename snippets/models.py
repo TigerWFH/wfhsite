@@ -8,22 +8,21 @@ from wagtail.snippets.edit_handlers import SnippetChooserPanel
 from wagtail.snippets.models import register_snippet
 from wagtail.images.edit_handlers import ImageChooserPanel
 
+# class Book(models.Model):
+#     title = models.CharField(max_length=255)
+#     author = models.CharField(max_length=255)
+#     cover_photo = models.ForeignKey('wagtailimages.Image',
+#                                     null=True,
+#                                     blank=True,
+#                                     on_delete=models.SET_NULL,
+#                                     related_name='+')
 
-class Book(models.Model):
-    title = models.CharField(max_length=255)
-    author = models.CharField(max_length=255)
-    cover_photo = models.ForeignKey('wagtailimages.Image',
-                                    null=True,
-                                    blank=True,
-                                    on_delete=models.SET_NULL,
-                                    related_name='+')
-
-    # ImageChooserPanel、PageChooserPanel、DocumentChooserPanel
-    panels = [
-        FieldPanel('title'),
-        FieldPanel('author'),
-        ImageChooserPanel('cover_photo')
-    ]
+#     # ImageChooserPanel、PageChooserPanel、DocumentChooserPanel
+#     panels = [
+#         FieldPanel('title'),
+#         FieldPanel('author'),
+#         ImageChooserPanel('cover_photo')
+#     ]
 
 
 # 业务需求组件
@@ -78,7 +77,7 @@ class Metadata(models.Model):
 
 
 # 元数据集合MetadaList（支持业务：Banner、Menu）
-class Banner(models.Model):
+class MetadataList(models.Model):
     title = models.CharField(max_length=30,
                              verbose_name='元数据集合标题',
                              help_text='请输入元数据集合标题')
@@ -144,35 +143,35 @@ class Banner(models.Model):
 @register_snippet
 class Nav(models.Model):
     title = models.CharField(max_length=30, verbose_name='请输入导航栏名称')
-    first = models.ForeignKey('Banner',
+    first = models.ForeignKey('MetadataList',
                               null=True,
                               default=None,
                               blank=True,
                               on_delete=models.SET_DEFAULT,
                               help_text='请选择第一个导航菜单',
                               related_name='+')
-    second = models.ForeignKey('Banner',
+    second = models.ForeignKey('MetadataList',
                                null=True,
                                default=None,
                                blank=True,
                                on_delete=models.SET_DEFAULT,
                                help_text='请选择第一个导航菜单',
                                related_name='+')
-    third = models.ForeignKey('Banner',
+    third = models.ForeignKey('MetadataList',
                               null=True,
                               default=None,
                               blank=True,
                               on_delete=models.SET_DEFAULT,
                               help_text='请选择第一个导航菜单',
                               related_name='+')
-    fourth = models.ForeignKey('Banner',
+    fourth = models.ForeignKey('MetadataList',
                                null=True,
                                default=None,
                                blank=True,
                                on_delete=models.SET_DEFAULT,
                                help_text='请选择第一个导航菜单',
                                related_name='+')
-    fifth = models.ForeignKey('Banner',
+    fifth = models.ForeignKey('MetadataList',
                               null=True,
                               default=None,
                               blank=True,

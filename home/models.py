@@ -8,7 +8,7 @@ from wagtail.snippets.edit_handlers import SnippetChooserPanel
 
 class HomePage(Page):
     body = RichTextField(blank=True)
-    banner = models.ForeignKey('snippets.Banner',
+    banner = models.ForeignKey('snippets.MetadataList',
                                null=True,
                                on_delete=models.SET_NULL,
                                related_name='+',

@@ -179,11 +179,22 @@ class CommentForm(forms.Form):
 
 ## template
 
+> filter 一般接受 1-2 个参数；tags 可以接受多个参数
+>
+> filter 一般返回一个 template variable
+>
+> tags（simple_tag）可以返回 template varible，
+> tags（inclusion_tag）可以返回 template
+
 ### filter 本质就是 python 函数
 
 > filter 就是只能接收 1 或 2 个参数的 python 函数。它只适用于修改数据的呈现方式
+>
+> 因为模板语言不提供异常处理机制，所以任何从模板过滤器中抛出的异常都将被视为服务器异常
 
 ### tag
+
+>
 
 ### django template tags and filters<https://docs.djangoproject.com/en/3.1/ref/templates/builtins/>
 
