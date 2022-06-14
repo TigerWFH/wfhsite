@@ -89,6 +89,17 @@ class CommentForm(forms.Form):
 >
 > Field including the field options and field types Django offers
 
+### Django 模型之内置类 class Meta<https://docs.djangoproject.com/en/4.0/ref/models/options/>
+
+> 使用内部类提供一些 metadata
+
+- `abstract`定义外部类是否是抽象类
+- `db_table`指定对应 Model 生成的表名
+- `ordering`排序，是一个列表
+- `unique_together`在数据进行写表操作的时候，我们往往会遇到两个字段组合起来需要唯一的情况
+- `verbose_name`A human-readable name for the object singular（单数）
+- `verbose_name_plural`The plural(复数形式可读性名字) name for the object
+
 ## django field options
 
 > 以下 options 适应所有 Field，都是可选项

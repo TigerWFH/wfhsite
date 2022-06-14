@@ -37,6 +37,7 @@ TYPE_DICT = [(Type.MOBILE.name, Type.MOBILE.value),
 
 
 # 元数据Metadata
+@register_snippet
 class Metadata(models.Model):
     title = models.CharField(max_length=255,
                              verbose_name="元数据标题",
@@ -77,6 +78,7 @@ class Metadata(models.Model):
 
 
 # 元数据集合MetadaList（支持业务：Banner、Menu）
+@register_snippet
 class MetadataList(models.Model):
     title = models.CharField(max_length=30,
                              verbose_name='元数据集合标题',
@@ -203,10 +205,16 @@ class Footer(models.Model):
     icp_license = models.CharField(max_length=255)
     # 沪公网安备12313131，公网安备也就是把网站到公安机关备案，是一套独立的备案系统，相当于让公安机关知道您的网站。现在让多省、市都要求网站开通后一个月内强制办理
     police_license = models.CharField(max_length=255)
+
+    # 空操作（null operation）解释器执行到它的时候，除了检查语法是否合法，什么也不做就直接跳过
+    # 除了占用一行代码行，不会对所处的作用域产生任何影响
+    # Python 使用 pass 语句，是为了支持纯粹空操作的代码块（空函数、空类、空的循环控制块等等），有了它，还能额外表达出一种占位符的语义
+    class Meta:
+        verbose_name_plural = '页脚'
+
     pass
 
 
-###############################
 @register_snippet
 class Advert(models.Model):
 
