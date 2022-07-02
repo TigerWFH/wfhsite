@@ -57,3 +57,20 @@ For pkg-config to find openssl@3 you may need to set:
 ## 问题
 
 ### WARNINGS:wagtailcore.WorkflowState: (models.W036) MySQL does not support unique constraints with conditions.HINT: A constraint won't be created. Silence this warning if you don't care about it
+
+## 外键
+
+> 如果表 A 的主键存在于表 B 的 FA 字段中，则 FA 称为 A 表的外键
+
+## 数据库实践
+
+> 现在开发不使用外键，直接在代码或者使用框架进行约束，用外键会带来迁移问题
+>
+> 逻辑外键：
+> 那什么是逻辑外键呢？
+> 我们在定义两张表（user/userInfon）的关系时，学校教我们的是用 foreign key 去创建，这种是物理外键。
+> 而逻辑外键就是两者必然的关联但是没有 foreign key 来关联，而是在设计两张表的时候创建字段去存储相关联的数据内容。
+> 如，user（用户表）中存在 user_id(用户 id)字段，userInfon（用户信息表）中也存在 user_id(用户 id)字段，
+> 这样就可以通过
+> 'select \* from user inner join userInfon on user.user_id = userInfon.user_id，
+> 这样的 sql 语句来实现逻辑查询

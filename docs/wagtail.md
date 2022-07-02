@@ -62,9 +62,9 @@ from wagtail.snippets.models import register_snippet
 
 ## primary key（主键）
 
-## foreign key（外键）
+## ForeignKey（外键）
 
-> 外键是用来解决 1 对多的问题，用于关联查询
+> 外键是用来解决 Many-to-one 的问题，用于关联查询
 
 ```python
     # ForeignKey(othermodel, on_delete, **options)
