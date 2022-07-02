@@ -94,7 +94,7 @@ class CommentForm(forms.Form):
 > 使用内部类提供一些 metadata
 
 - `abstract`定义外部类是否是抽象类
-- `db_table`指定对应 Model 生成的表名
+- `db_table`指定对应 Model 生成的表名。默认是 appname_modelname，例如 demos 中的 Student 对应的表名：demos_student
 - `ordering`排序，是一个列表
 - `unique_together`在数据进行写表操作的时候，我们往往会遇到两个字段组合起来需要唯一的情况
 - `verbose_name`A human-readable name for the object singular（单数）
