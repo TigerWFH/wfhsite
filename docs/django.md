@@ -347,3 +347,126 @@ polls/
 - `static：`To link to static files that are saved in STATIC_ROOT Django ships with a static template tag. If the django.contrib.staticfiles app is installed, the tag will serve files using url() method of the storage specified by STATICFILES_STORAGE
 - `get_static_prefix`
 - `get_media_prefix`
+
+## Django 技术点
+
+![Django-flow](./django-flow.png)
+
+### HttpRequest and HttpResponse
+
+> Django uses request and response objects to pass state through the system.
+> When a page is requested, Django creates an HttpRequest object that contains metadata about the request. Then Django loads the appropriate view, passing the HttpRequest as the first argument to the view function. Each view is responsible for returning an HttpResponse object
+
+```js
+/*
+// https://docs.djangoproject.com/en/4.0/ref/request-response/#django.http.HttpRequest
+  HttpRequest:
+    schema：http或HTTPS
+    body：raw 请求体
+    path：完整请求路径
+    path_info：
+    method：请求方法
+    encoding：
+    content_type：
+    content_params：
+    GET：A dictionary-like object containing all given HTTP GET parameters
+    POST：A dictionary-like object containing all given HTTP POST parameters, providing that the request contains form data
+    COOKIES：
+    FILES：
+    META：A dictionary containing all available HTTP headers
+    headers：
+    resolver_match：
+
+    current_app：
+    urlconf：
+    exception_reporter_filter：
+    exception_reporter_class
+
+    session：
+    site：
+    user：
+
+    get_host()
+    get_port()
+    get_full_path()
+    get_full_path_info()
+    build_absolute_uri(location=None)
+    get_signed_cookie(key, default=RAISE_ERROR, salt='', max_age=None)
+    is_secure()
+    accepts(mime_type)
+    read(size=None)
+    readline()
+    readlines()
+    __iter__()
+
+    *******************************
+    HttpResponse，还有很多子类，处理不同的场景
+      content:
+      headers:
+      charset:
+      status_code:
+      reason_phrase:
+      streaming:
+      closed:
+      __init__(content=b'', content_type=None, status=200, reason=None, charset=None, headers=None):
+      __setitem__(header, value):
+      __delitem__(header):
+      __getitem__(header):
+      get(header, alternate=None):
+      has_header(header):
+      items():
+      setdefault(header, value):
+      set_cookie(key, value='', max_age=None, expires=None, path='/', domain=None, secure=False, httponly=False, samesite=None):
+      set_signed_cookie(key, value, salt='', max_age=None, expires=None, path='/', domain=None, secure=False, httponly=False, samesite=None):
+      delete_cookie(key, path='/', domain=None, samesite=None):
+      close():
+      write(content): This method makes an HttpResponse instance a file-like object
+      flush(): 同write
+      tell(): 同write
+      getvalue(): This method makes an HttpResponse instance a stream-like object
+      readable(): This method makes an HttpResponse instance a stream-like object
+      seekable(): 同readable
+      writable():
+      writelines(lines):
+
+      **************************************************************************
+      https://docs.djangoproject.com/zh-hans/4.0/ref/template-response/#django.template.response.SimpleTemplateResponse
+      由于HttpResponse对象在初始化结束后文档内容就已经固定了，很难再进行修改，所以在使用中可能会遇到一些不便，例如修改HttpResponse对象所使用的模板，或者在现有模板中添加新数据，这些都很难实现。为了解决这些问题，Django提供了一个全新的对象：TemplateResponse。与HttpResponse不同的是，TemplateResponse会保留模板和上下文对象，直到需要输出时才将模板编译成HTML文档。
+
+      一个 TemplateResponse 对象可以被用于任何可以使用普通 django.http.HttpResponse 的地方。它也可以作为调用 render() 的替代。
+      **************************************************************************
+      from django.template.response import TemplateResponse
+
+      SimpleTemplateResponse
+        template_name：要渲染的模板的名称。名称或名称列表
+        context_data：渲染上下文，必须是dict
+        rendered_content：响应内容的当前渲染值，使用当前模板和上下文数据
+        is_rendered：表示响应内容是否已呈现的布尔值
+
+        render()：
+      TemplateResponse
+
+*/
+```
+
+### django.urls 模块
+
+> 将路由和 View 匹配起来
+
+- `path(url, views)：`将路由和 view 匹配起来
+
+### views
+
+> 组合模板(templaye)和数据(model)
+> view 函数，简称 view，只是一个 Python 函数。每个视图函数负责返回 HttpResponse 对象。
+> 换句话说，视图应该返回 HttpResponse 实例
+
+```python
+# views.py
+from django.http import HttpResponse
+
+def myview(request):
+    return HttpResponse("return this string")
+```
+
+- `TemplateResponse`
