@@ -460,13 +460,48 @@ polls/
 > 组合模板(templaye)和数据(model)
 > view 函数，简称 view，只是一个 Python 函数。每个视图函数负责返回 HttpResponse 对象。
 > 换句话说，视图应该返回 HttpResponse 实例
+>
+> Django 附带了一些内置的通用你视图例如：TemplateView、TalkListView、RegisteredUserListView 等等
 
 ```python
 # views.py
 from django.http import HttpResponse
+from django.shortcuts import render
+from django.views import View
 
+# render(request, template, context)
+
+# 视图函数
 def myview(request):
-    return HttpResponse("return this string")
+    if request.method == 'GET':
+      return HttpResponse("return this string")
+
+# 类视图
+class MyView(View):
+  def get(self, request):
+    return HttpResponse('result')
+
 ```
 
+- `基于类的视图和基于函数的视图:`https://docs.djangoproject.com/zh-hans/4.0/topics/class-based-views/intro/
+
+  - `视图函数：`Django 传递 HttpRequest 给视图函数，视图函数返回一个 HttpResponse
+  - `基于函数的通用视图：`
+  - `基于类的通用视图：`
+
 - `TemplateResponse`
+
+### templates
+
+```html
+<!-- 这就是template文件 -->
+```
+
+### model
+
+```python
+from django.db from models
+
+class CustomModel(models.Model):
+  pass
+```
