@@ -1,9 +1,18 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.http import HttpResponse
 from django.template.response import TemplateResponse
 
 from wagtail.core.models import Page
 from wagtail.search.models import Query
+import json
 
+
+def wfh(request):
+    if request.method == 'GET':
+        result = {}
+        result['name'] = 'wfh'
+        result['age'] = 10
+        return HttpResponse(json.dumps(result), content_type='application/json;charset=utf-8')
 
 def search(request):
     search_query = request.GET.get('query', None)
