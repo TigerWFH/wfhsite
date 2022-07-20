@@ -1,6 +1,7 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.http import HttpResponse
 from django.template.response import TemplateResponse
+from django.views import View
 
 from wagtail.core.models import Page
 from wagtail.search.models import Query
@@ -12,7 +13,9 @@ def wfh(request):
         result = {}
         result['name'] = 'wfh'
         result['age'] = 10
-        return HttpResponse(json.dumps(result), content_type='application/json;charset=utf-8')
+        return HttpResponse(json.dumps(result),
+                            content_type='application/json;charset=utf-8')
+
 
 def search(request):
     search_query = request.GET.get('query', None)
@@ -41,3 +44,15 @@ def search(request):
         'search_query': search_query,
         'search_results': search_results,
     })
+
+
+# @method_decorator(login_required, name='dispatch')
+class ApiView(View):
+    greeting = 'hello world!'
+
+    # @method_decorator(login_required)
+    # def dispatch(self, *args, **kwargs):
+    #     return super().dispatch(*args, **kwargs)
+
+    def get(self, request):
+        return HttpResponse(self.greeting)
