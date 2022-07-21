@@ -5,6 +5,16 @@
 ### 类型判断
 
 > type 和 isinstance
+>
+> Python 中的数据类型大致分为 6 类：
+>
+> Number(数字)，其中 boolean、int、float、complex 等都归为 Number
+>
+> String(字符串), Tuple(元组), List(列表), Dictionary(字典), Sets(集合)
+>
+> 不可变类型：Number、String、Tuple。不可变类型的变量在第一次赋值声明的时候，会在内存中开辟一块空间，用来存储这个变量被赋予的值，变量被声明后，变量的值就与开辟的内存空间绑定，我们不能修改存储在内存中的值，当我们想给此变量赋新值时，会开辟一块新的内存空间保存新的值。
+>
+> 可变类型：List、Dictionary、Sets。可变类型的变量在第一次赋值声明的时候，也会在内存中开辟一块空间，用来存储这个变量被赋予的值。我们能修改存储在内存中的值，当该变量的值发生了改变，它对应的内存地址不发生改变
 
 ### Built-in Types<https://docs.python.org/3/library/stdtypes.html#other-built-in-types>
 
