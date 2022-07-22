@@ -1,3 +1,4 @@
+from cgitb import reset
 from django.conf import settings
 from django.urls import include, path
 from django.contrib import admin
@@ -7,6 +8,8 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
+from polls import views as poll
+from polls import urls as polls_urls
 
 urlpatterns = [
     path('django-admin/', admin.site.urls),
@@ -14,7 +17,8 @@ urlpatterns = [
     path('documents/', include(wagtaildocs_urls)),
     path('search/', search_views.search, name='search'),
     path('api/', search_views.wfh, name='search'),
-    path('api2/', search_views.ApiView.as_view())
+    path('api2/', search_views.ApiView.as_view()),
+    path('polls/', include(polls_urls))
 ]
 
 if settings.DEBUG:

@@ -567,3 +567,26 @@ from django.db from models
 class CustomModel(models.Model):
   pass
 ```
+
+## Django Demo
+
+```js
+/*
+Django 路由部分：
+  path(route, view, **kwargs, name)
+   route：路由规则
+   view：视图函数，并传入HttpRequest对象
+   kwargs：额外的传递给视图函数的参数
+   name：为你的 URL 取名能使你在 Django 的任意地方唯一地引用它，尤其是在模板中。这个有用的特性允许你只改一个文件就能全局地修改某个 URL 模式。
+
+Django 配置文件：
+  DATABASES配置域
+  INSTALLED_APPS配置域，包括了Django自带的应用
+    django.contrib.admin------管理员站点
+    django.contrib.auth------认证授权系统
+    django.contrib.contenttypes------内容类型框架
+    django.contrib.sessions------会话框架
+    django.contrib.message------消息框架
+    django.contrib.staticfiles------管理静态文件的框架
+*/
+```
