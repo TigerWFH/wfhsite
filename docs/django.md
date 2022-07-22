@@ -89,18 +89,28 @@ class CommentForm(forms.Form):
 >
 > Field including the field options and field types Django offers
 
+```python
+from django.db from models
+
+class CustomModel(models.Model):
+  pass
+```
+
+> 一个 Model 类代表一张表(Table)；一个 Model 类实例代表一个记录(Record)，既一条数据
+
 ### Django 模型之内置类 class Meta<https://docs.djangoproject.com/en/4.0/ref/models/options/>
 
-> 使用内部类提供一些 metadata
+> 使用内部类提供一些 metadata，内置类完全是可选的
 
 - `abstract`定义外部类是否是抽象类
+- `app_label`声明当前数据模型属于哪一个应用，INSTALLED_APPS 指定的应用
 - `db_table`指定对应 Model 生成的表名。默认是 appname_modelname，例如 demos 中的 Student 对应的表名：demos_student
 - `ordering`排序，是一个列表
 - `unique_together`在数据进行写表操作的时候，我们往往会遇到两个字段组合起来需要唯一的情况
 - `verbose_name`A human-readable name for the object singular（单数）
 - `verbose_name_plural`The plural(复数形式可读性名字) name for the object
 
-## django field options
+### django field options
 
 > 以下 options 适应所有 Field，都是可选项
 
@@ -122,7 +132,7 @@ class CommentForm(forms.Form):
 - `Field.verbose_name：`
 - `Field.validators`
 
-## django field types
+### django field types
 
 > Django ModelField To FormField, ModelField 映射数据库；FormField 映射 HTML 表单组件
 > ![ModelFieldToFormField](./Django_modelField_to_formField.png)
@@ -157,6 +167,58 @@ class CommentForm(forms.Form):
 - `class ForeignKey(to, on_delete, **options)：`
 - `class ManyToManyField(to, **options)：`
 - `class OneToOneField(to, on_delete, parent_link=False, **options)：`
+
+### Apis
+
+- `instance.save()`：保存新数据
+- `class.objects.get()`：检索一条数据
+- `class.objects.all()`：检索所有数据，返回一个 QuerySet
+- `class.objects.filter()`
+- `class.objects.exclude()`
+
+```python
+  # Limiting QuerySets，使用Python的array-slicing语法限制QuerySet，等价SQL中的LIMIT和OFFSET分句
+  Entry.objects.all()[2:5]
+  # Field lookups，等价WHERE分句
+  Entry.objects.filter(pub_date__lte='2006-01-01')
+  # __lte(<=), __exact(=), __iexact(=), __contains(LIKE '% %'),
+```
+
+### QuerySet<https://docs.djangoproject.com/en/4.0/ref/models/querysets/>
+
+> 在内部，可以构造，过滤，切片以及传递 QuerySet，且不会触发数据库查询操作。直到 QuerySet 被计算（evaluated）
+>
+> 以下是触发 QuerySet 计算的场景：
+
+- `Iteration`：当 QuerySet 被迭代时
+- `Sliceing`：切片时
+- `Pickling/Caching`
+- `repr()`
+- `len()`
+- `list()`
+- `bool()`
+  > QuerySet Apis, class QuerySet(model=None, query=None, using=None, hints=None)
+  - `ordered：`属性
+  - `db：`属性
+  - `filter(*args, **kwargs)：`返回新 QuerySet
+  - `exclude(*agrs, **kwargs)：`返回新 QuerySet
+  - `annotate(*agrs, **kwargs)：`
+  - `alias(*agrs, **kwargs)：`
+  - `order_by(*fields)：`
+  - `reverse()：`
+  - `distinct()：`返回一个新 QuerySet
+  - `values()：`返回新 QuerySet
+  - `values_list()`
+  - `dates(field, kind, order='ASC')`
+  - `none()`
+  - `all()`
+  - `union()`
+  - `difference()`
+  - `select_related()`
+
+### Field lookups
+
+> 未提供 lookup，默认是 exact(=)。用法：字段名\_\_lookup 形式
 
 ## django.contrib.staticfiles
 
