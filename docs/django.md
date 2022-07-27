@@ -590,3 +590,9 @@ Django 配置文件：
     django.contrib.staticfiles------管理静态文件的框架
 */
 ```
+
+## Django 配置项
+
+> 配置文件是一个 Python 模块，可以使用 Python 实现动态配置
+>
+> DJANGO_SETTINGS_MODULE 环境变量，用于指定配置文件
