@@ -596,3 +596,21 @@ Django 配置文件：
 > 配置文件是一个 Python 模块，可以使用 Python 实现动态配置
 >
 > DJANGO_SETTINGS_MODULE 环境变量，用于指定配置文件
+
+```js
+/*
+STATICFILES_FINDERS = []：查询器
+STATICFILES_DIRS = []：指定服务器查找静态资源目录，如果当前指定目录未查找到则进入App目录下的static目录进行查找，再没有找到，就返回404。配合django.contrib.staticfiles，在开发环境下使用
+
+STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.ManifestStaticFilesStorage'
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')：生产模式下，配置静态资源路径，通过python manage.py collectstatic将所有APP下的static目录下的静态文件拷贝到STATIC_ROOT中，如果有相同的文件，Django会拷贝哪些最新修改的静态文件，通过时间判断
+
+STATIC_URL = '/static/'：指定了客户端访问静态资源的路径，既host+path中的path
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
+在模板中使用静态文件时，需要加载static标签，static标签就代表了STATIC_ROOT目录（生产模式）或urlpatterns中的配置（开发环境）
+*/
+```
