@@ -43,12 +43,41 @@ index-url = https://mirrors.aliyun.com/pypi/simple
 
 [wagtail](./docs/wagtail.md)
 
+> admin/admin
+
 ## 部署
 
+> Pyhton 是编程语言，Django 和 Flask 本身是 Web 框架，并非 Web 服务，且 Django 和 Flask 自带的 runserver 和 Werkzeug 也仅仅用于开发测试环境，生产环境中处理并发的能力太弱
+>
 > runserver 方法是调试 Django 时经常用到的运行方式，它使用 Django 自带的
 > WSGI Server 运行，主要在测试和开发中使用，并且 runserver 开启的方式也是单进程
 >
 > uWSGI 是一个 Web 服务器，它实现了 WSGI 协议、uwsgi、http 等协议。注意 uwsgi 是一种通信协议，而 uWSGI 是实现 uwsgi 协议和 WSGI 协议的 Web 服务器。uWSGI 具有超快的性能、低内存占用和多 app 管理等优点，并且搭配着 Nginx 就是一个生产环境了，能够将用户访问请求与应用 app 隔离开，实现真正的部署 。相比来讲，支持的并发量更高，方便管理多进程，发挥多核的优势，提升性能
+
+## 术语
+
+- `CGI`
+- `FastCGI`
+- `WSGI:Web Server Gateway Interface：`
+
+  > `uWSGI：`是 Python 服务器，实现了 WSGI 通信规范和 uwsgi 协议
+  >
+  > `WSGI：`web 服务器和 web 应用通信规范
+  >
+  > `uwsgi：`是 WSGI 通信规范中的一种自有协议
+
+## uWSGI 的安装和启动
+
+[uwsgi 配置资料](https://pythondjango.cn/python/tools/6-uwsgi-configuration/)
+
+```shell
+  pip install uwsgi
+  uwsgi --http :8000 --module myprohetc.wsgi
+  # 生产环境会使用配置文件
+  uwsgi --ini uwsgi.ini
+  sudo service uwsgi restart
+
+```
 
 ## django 数据库迁移原理
 
