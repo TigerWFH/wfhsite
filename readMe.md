@@ -76,7 +76,71 @@ index-url = https://mirrors.aliyun.com/pypi/simple
   # 生产环境会使用配置文件
   uwsgi --ini uwsgi.ini
   sudo service uwsgi restart
+  # 测试uwsgi
+  def application(env, start_response):
+    start_response("200 OK", [{'Content-Type', 'text/html'])
+    return [b"Hello World"]
+  # 启动
+  uwsgi --http :8080 --wsgi-file test.py
+```
 
+- `uwsgi配置：`
+
+```js
+/*
+[uwsgi]
+uid=www-data #Ubuntu系统下默认用户名
+gid=www-data #Ubuntu系统下默认用户组
+project=wfhsite # 项目名
+base=/home/user1 # 项目根目录
+
+home=%(base)/Env/%(project) # 设置项目虚拟环境，Docker部署不需要
+chdir=%(base)/%(project) # 设置工作目录
+module=%(project).wsgi:application # wsgi文件位置
+
+master=True # 主进程
+processes=2 # 同时进行的进程数，一般
+
+// 使用unix socket与nginx通信，仅限于uwsgi和nginx在同一主机场景
+// Nginx配置中uwsgi_pass指向同一socket文件
+socket=/run/uwsgi/%(project).sock
+
+// 使用TCP socket与nginx通信
+// Nginx配置中uwsgi_pass应指向uWSGI服务器IP和端口
+socket=0.0.0.0:8000
+
+// 使用http协议与nginx通信
+// Nginx配置中proxy_pass指向uWSGI服务器IP和端口
+http=0.0.0.0:8080
+
+// socket权限配置
+chown-socket=%(uid):www-data
+chmod-socket=664
+
+# 进程文件
+pidfile=/tmp/%{project}-master.pid
+
+# 以后台daemon进程运行，并将log日志存于temp文件夹
+daemonize=/var/log/uwsgi/%(project).log
+
+# 服务停止时，自动移除unix socket和pid文件
+vacuum=True
+
+# 为每个工作进程设置请求数的上限，当处理的请求总数超过这个量，进程回收重启
+max-requests=5000
+# 当一个请求被harakiri杀掉，会输出一条日志
+harakiri-verbose=true
+# uWsgi默认的buffersize为4096，如果请求数据超过这个量会报错。这里设置为64K
+buffer-size=65536
+# 如果http请求体的大小超过指定的限制，打开http body缓存，这里为64K
+post-buffering=65536
+# 开启内存使用情况报告
+memory-report=true
+# 设置平滑的重启的长等待时间（秒）
+reload-mercy=10
+# 设置工作进程使用虚拟内存超过多少MB就回收重启
+reload-on-as=1024
+*/
 ```
 
 ## django 数据库迁移原理
