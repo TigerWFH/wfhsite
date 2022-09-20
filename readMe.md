@@ -68,7 +68,11 @@ index-url = https://mirrors.aliyun.com/pypi/simple
 
 ## uWSGI 的安装和启动
 
-[uwsgi 配置资料](https://pythondjango.cn/python/tools/6-uwsgi-configuration/)
+> uWSGI 是一个 web 服务器，实现了 WSGI 协议、uwsgi 协议、http 等协议。Nginx 中的 HttpUwsgiModule 的作用就是与 uWSGI 服务器进行交换。
+>
+> uWSGI 的作用：uWSGI 是一个全功能的 HTTP 服务器，他要做的就是把 HTTP 协议转化成语言支持的网络协议。比如把 HTTP 协议转化成 WSGI 协议，让 Python 可以直接使用。
+
+[uwsgi 配置资料](https://uwsgi-docs.readthedocs.io/en/latest/PSGIquickstart.html)
 
 ```shell
   pip install uwsgi
