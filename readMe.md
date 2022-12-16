@@ -229,3 +229,7 @@ reload-on-as=1024
   - 商标右侧标明 TM 标 ™
 
 #### SM 标就是 ℠，是引文 Service markes（服务商标）的简写，代表着服务为非注册商标的含义
+
+## chrome 修改 python 版本
+
+> command + shift + p，输入 python select interpreter
