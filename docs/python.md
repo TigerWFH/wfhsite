@@ -116,3 +116,16 @@ class Color(Enum):
 > pass 是空语句，为了保持程序结构的完整性
 >
 > pass 不做任何事情，一般只做占位
+
+## Python 类属性和对象属性
+
+```python
+class Person(object):
+  # 这是类属性
+  name = 'person'
+  def __init__(self, name):
+    # 对象属性
+    self.name = name
+
+# 对象属性的优先级高于类属性
+```

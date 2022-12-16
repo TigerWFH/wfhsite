@@ -6,6 +6,177 @@
 >
 > python manage.py sqlmigrate appName 迁移文件序号
 
+## Django 技术点
+
+![Django-flow](./django-flow.png)
+
+### HttpRequest and HttpResponse
+
+> Django uses request and response objects to pass state through the system.
+> When a page is requested, Django creates an HttpRequest object that contains metadata about the request. Then Django loads the appropriate view, passing the HttpRequest as the first argument to the view function. Each view is responsible for returning an HttpResponse object
+
+```js
+/*
+// https://docs.djangoproject.com/en/4.0/ref/request-response/#django.http.HttpRequest
+  HttpRequest:
+    schema：http或HTTPS
+    body：raw 请求体
+    path：完整请求路径
+    path_info：
+    method：请求方法
+    encoding：
+    content_type：
+    content_params：
+    GET：A dictionary-like object containing all given HTTP GET parameters
+    POST：A dictionary-like object containing all given HTTP POST parameters, providing that the request contains form data
+    COOKIES：
+    FILES：
+    META：A dictionary containing all available HTTP headers
+    headers：
+    resolver_match：
+
+    current_app：
+    urlconf：
+    exception_reporter_filter：
+    exception_reporter_class
+
+    session：
+    site：
+    user：
+
+    get_host()
+    get_port()
+    get_full_path()
+    get_full_path_info()
+    build_absolute_uri(location=None)
+    get_signed_cookie(key, default=RAISE_ERROR, salt='', max_age=None)
+    is_secure()
+    accepts(mime_type)
+    read(size=None)
+    readline()
+    readlines()
+    __iter__()
+
+    *******************************
+    HttpResponse，还有很多子类，处理不同的场景
+      content:
+      headers:
+      charset:
+      status_code:
+      reason_phrase:
+      streaming:
+      closed:
+      __init__(content=b'', content_type=None, status=200, reason=None, charset=None, headers=None):
+      __setitem__(header, value):
+      __delitem__(header):
+      __getitem__(header):
+      get(header, alternate=None):
+      has_header(header):
+      items():
+      setdefault(header, value):
+      set_cookie(key, value='', max_age=None, expires=None, path='/', domain=None, secure=False, httponly=False, samesite=None):
+      set_signed_cookie(key, value, salt='', max_age=None, expires=None, path='/', domain=None, secure=False, httponly=False, samesite=None):
+      delete_cookie(key, path='/', domain=None, samesite=None):
+      close():
+      write(content): This method makes an HttpResponse instance a file-like object
+      flush(): 同write
+      tell(): 同write
+      getvalue(): This method makes an HttpResponse instance a stream-like object
+      readable(): This method makes an HttpResponse instance a stream-like object
+      seekable(): 同readable
+      writable():
+      writelines(lines):
+
+      **************************************************************************
+      https://docs.djangoproject.com/zh-hans/4.0/ref/template-response/#django.template.response.SimpleTemplateResponse
+      由于HttpResponse对象在初始化结束后文档内容就已经固定了，很难再进行修改，所以在使用中可能会遇到一些不便，例如修改HttpResponse对象所使用的模板，或者在现有模板中添加新数据，这些都很难实现。为了解决这些问题，Django提供了一个全新的对象：TemplateResponse。与HttpResponse不同的是，TemplateResponse会保留模板和上下文对象，直到需要输出时才将模板编译成HTML文档。
+
+      一个 TemplateResponse 对象可以被用于任何可以使用普通 django.http.HttpResponse 的地方。它也可以作为调用 render() 的替代。
+      **************************************************************************
+      from django.template.response import TemplateResponse
+
+      SimpleTemplateResponse
+        template_name：要渲染的模板的名称。名称或名称列表
+        context_data：渲染上下文，必须是dict
+        rendered_content：响应内容的当前渲染值，使用当前模板和上下文数据
+        is_rendered：表示响应内容是否已呈现的布尔值
+
+        render()：
+      TemplateResponse
+
+*/
+```
+
+### django.urls 模块
+
+> 将路由和 View 匹配起来
+
+- `path(url, views)：`将路由和 view 匹配起来
+
+### views
+
+> 组合模板(templaye)和数据(model)
+> view 函数，简称 view，只是一个 Python 函数。每个视图函数负责返回 HttpResponse 对象。
+> 换句话说，视图应该返回 HttpResponse 实例
+>
+> Django 附带了一些内置的通用你视图例如：TemplateView、TalkListView、RegisteredUserListView 等等
+
+```python
+# views.py
+from django.http import HttpResponse
+from django.shortcuts import render
+from django.views import View
+
+# render(request, template, context)
+
+# 视图函数
+def myview(request):
+    if request.method == 'GET':
+      return HttpResponse("return this string")
+
+# 类视图
+class MyView(View):
+  def get(self, request):
+    return HttpResponse('result')
+
+```
+
+- `基于类的视图和基于函数的视图:`https://docs.djangoproject.com/zh-hans/4.0/topics/class-based-views/intro/
+
+  - `视图函数：`Django 传递 HttpRequest 给视图函数，视图函数返回一个 HttpResponse
+  - `基于函数的通用视图：`
+  - `基于类的通用视图：`
+
+- `TemplateResponse`
+
+### templates
+
+```html
+<!-- 这就是template文件 -->
+```
+
+### model
+
+> 一个 model class 代表一个表；一个 model class 实例代表一条记录
+>
+> 每一个 model class 都有至少一个 manager，默认 manager 是 objects，通过 manager 可以获取 QuerySet 对象
+
+- `django.db.models.Model`
+- `Each model is a Python class that subclasses django.db.models.Model`
+- `Each attribute of the model represents a database field`
+- `Django gives you an automatically-generated database-access API`[Making queries](https://docs.djangoproject.com/en/4.0/topics/db/queries/)
+- `APIs`
+  - save()：保存数据到数据库，对应 INSERT 操作
+  - create()：
+  - QuerySet：代表一组对象的集合，可以拥有多个过滤器；对应 SELECT...WHERE...LIMIT 操作
+
+```python
+from django.db from models
+
+class CustomModel(models.Model):
+  pass
+```
+
 ## Django 数据对应关系
 
 > 关系型数据库存在一对多、一对一、多对多的关系
@@ -410,164 +581,6 @@ polls/
 - `get_static_prefix`
 - `get_media_prefix`
 
-## Django 技术点
-
-![Django-flow](./django-flow.png)
-
-### HttpRequest and HttpResponse
-
-> Django uses request and response objects to pass state through the system.
-> When a page is requested, Django creates an HttpRequest object that contains metadata about the request. Then Django loads the appropriate view, passing the HttpRequest as the first argument to the view function. Each view is responsible for returning an HttpResponse object
-
-```js
-/*
-// https://docs.djangoproject.com/en/4.0/ref/request-response/#django.http.HttpRequest
-  HttpRequest:
-    schema：http或HTTPS
-    body：raw 请求体
-    path：完整请求路径
-    path_info：
-    method：请求方法
-    encoding：
-    content_type：
-    content_params：
-    GET：A dictionary-like object containing all given HTTP GET parameters
-    POST：A dictionary-like object containing all given HTTP POST parameters, providing that the request contains form data
-    COOKIES：
-    FILES：
-    META：A dictionary containing all available HTTP headers
-    headers：
-    resolver_match：
-
-    current_app：
-    urlconf：
-    exception_reporter_filter：
-    exception_reporter_class
-
-    session：
-    site：
-    user：
-
-    get_host()
-    get_port()
-    get_full_path()
-    get_full_path_info()
-    build_absolute_uri(location=None)
-    get_signed_cookie(key, default=RAISE_ERROR, salt='', max_age=None)
-    is_secure()
-    accepts(mime_type)
-    read(size=None)
-    readline()
-    readlines()
-    __iter__()
-
-    *******************************
-    HttpResponse，还有很多子类，处理不同的场景
-      content:
-      headers:
-      charset:
-      status_code:
-      reason_phrase:
-      streaming:
-      closed:
-      __init__(content=b'', content_type=None, status=200, reason=None, charset=None, headers=None):
-      __setitem__(header, value):
-      __delitem__(header):
-      __getitem__(header):
-      get(header, alternate=None):
-      has_header(header):
-      items():
-      setdefault(header, value):
-      set_cookie(key, value='', max_age=None, expires=None, path='/', domain=None, secure=False, httponly=False, samesite=None):
-      set_signed_cookie(key, value, salt='', max_age=None, expires=None, path='/', domain=None, secure=False, httponly=False, samesite=None):
-      delete_cookie(key, path='/', domain=None, samesite=None):
-      close():
-      write(content): This method makes an HttpResponse instance a file-like object
-      flush(): 同write
-      tell(): 同write
-      getvalue(): This method makes an HttpResponse instance a stream-like object
-      readable(): This method makes an HttpResponse instance a stream-like object
-      seekable(): 同readable
-      writable():
-      writelines(lines):
-
-      **************************************************************************
-      https://docs.djangoproject.com/zh-hans/4.0/ref/template-response/#django.template.response.SimpleTemplateResponse
-      由于HttpResponse对象在初始化结束后文档内容就已经固定了，很难再进行修改，所以在使用中可能会遇到一些不便，例如修改HttpResponse对象所使用的模板，或者在现有模板中添加新数据，这些都很难实现。为了解决这些问题，Django提供了一个全新的对象：TemplateResponse。与HttpResponse不同的是，TemplateResponse会保留模板和上下文对象，直到需要输出时才将模板编译成HTML文档。
-
-      一个 TemplateResponse 对象可以被用于任何可以使用普通 django.http.HttpResponse 的地方。它也可以作为调用 render() 的替代。
-      **************************************************************************
-      from django.template.response import TemplateResponse
-
-      SimpleTemplateResponse
-        template_name：要渲染的模板的名称。名称或名称列表
-        context_data：渲染上下文，必须是dict
-        rendered_content：响应内容的当前渲染值，使用当前模板和上下文数据
-        is_rendered：表示响应内容是否已呈现的布尔值
-
-        render()：
-      TemplateResponse
-
-*/
-```
-
-### django.urls 模块
-
-> 将路由和 View 匹配起来
-
-- `path(url, views)：`将路由和 view 匹配起来
-
-### views
-
-> 组合模板(templaye)和数据(model)
-> view 函数，简称 view，只是一个 Python 函数。每个视图函数负责返回 HttpResponse 对象。
-> 换句话说，视图应该返回 HttpResponse 实例
->
-> Django 附带了一些内置的通用你视图例如：TemplateView、TalkListView、RegisteredUserListView 等等
-
-```python
-# views.py
-from django.http import HttpResponse
-from django.shortcuts import render
-from django.views import View
-
-# render(request, template, context)
-
-# 视图函数
-def myview(request):
-    if request.method == 'GET':
-      return HttpResponse("return this string")
-
-# 类视图
-class MyView(View):
-  def get(self, request):
-    return HttpResponse('result')
-
-```
-
-- `基于类的视图和基于函数的视图:`https://docs.djangoproject.com/zh-hans/4.0/topics/class-based-views/intro/
-
-  - `视图函数：`Django 传递 HttpRequest 给视图函数，视图函数返回一个 HttpResponse
-  - `基于函数的通用视图：`
-  - `基于类的通用视图：`
-
-- `TemplateResponse`
-
-### templates
-
-```html
-<!-- 这就是template文件 -->
-```
-
-### model
-
-```python
-from django.db from models
-
-class CustomModel(models.Model):
-  pass
-```
-
 ## Django Demo
 
 ```js
@@ -614,3 +627,47 @@ MEDIA_URL = '/media/'
 在模板中使用静态文件时，需要加载static标签，static标签就代表了STATIC_ROOT目录（生产模式）或urlpatterns中的配置（开发环境）
 */
 ```
+
+## Django 具体技术点
+
+### Django ORM
+
+> Django ORM 用到三个类：Manager、QuerySet、Model
+>
+> Manager 定义表级方法（表级操作）：影响一条或多条记录的方法，django.db.models.Manager
+>
+> QuerySet（记录级操作）： Manager 的一些方法会返回 QuerySet 实例，QuerySet 是一个可遍历结构，包含一组 Model 实例，每个实例就是一条记录
+>
+> Model：没有给 Model 实例都会有一个默认的 Manager 对象：objects
+
+- `Model APIs`
+  - `objects`：类`静态`属性
+- `Manager APIs`[参考资料](https://www.cnblogs.com/jiakecong/p/14785889.html)
+  - `Entry.objects.all()`对应 SELECT \* from Entry，返回对应表 Entry 的所有记录
+  - `Entry.objects.filter(**kwargs)`等价与`Entry.objects.all().filter()`
+  - `Entry.objects.exclude(**kwargs)`等价与`Entry.objects.all().exclude()`
+  - `Entry.objects.get()`
+- `QuerySet APIs：`[QuerySet APIs](https://docs.djangoproject.com/en/4.0/ref/models/querysets/#django.db.models.query.QuerySet)
+  - `save()`：插入、更新、删除数据，这是`实例`方法
+  - `delete()`
+  - `update()`
+  - `filter()`
+  - `exclude()`
+  - `get()`
+  - `annotate()`
+  - `alias()`
+  - `order_by()`
+  - `reverse()`
+  - `distinct()`
+  - `values()`
+  - `values_list()`
+  - `dates()`
+  - `datetimes()`
+  - `none()`
+  - `all()`
+  - `union()`
+  - `intersection()`
+  - `difference()`
+  - `select_related()`
+  - `extra()`
+  - `create()`
