@@ -115,7 +115,7 @@
 
 ### views
 
-> 组合模板(templaye)和数据(model)
+> 组合模板(template)和数据(model)
 > view 函数，简称 view，只是一个 Python 函数。每个视图函数负责返回 HttpResponse 对象。
 > 换句话说，视图应该返回 HttpResponse 实例
 >
