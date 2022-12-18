@@ -2,6 +2,10 @@
 
 > 当前项目使用python@3.9.7
 
+## pyenv
+
+> 通过.python-version 支持虚拟环境
+
 ## 查看 python 版本
 
 > python --version
@@ -233,3 +237,11 @@ reload-on-as=1024
 ## chrome 修改 python 版本
 
 > command + shift + p，输入 python select interpreter
+
+## 问题
+
+### python@3.6.0无法在 vscode 调试
+
+> 是因为微软提供的插件最新版本支持python@3.7以上；python@3.6.0停止维护了，解决方案[低版本插件](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-python/vsextensions/python/2022.6.0/vspackage)
+>
+> [参考资料](https://blog.csdn.net/jst100/article/details/125783925)
