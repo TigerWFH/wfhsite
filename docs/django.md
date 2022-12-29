@@ -630,6 +630,46 @@ MEDIA_URL = '/media/'
 
 ## Django 具体技术点
 
+### [how to manage static files](https://docs.djangoproject.com/en/4.1/howto/static-files/)
+
+> Django 中将 images、css、js 视为 static files
+>
+> static 针对项目静态资源；
+>
+> media 针对用户上传资源
+
+- `STATIC_URL：`默认值 None，指定静态文件访问 URL
+- `STATIC_ROOT：`默认值 None，指定访问静态文件所在目录
+- `STATICFILES_DIRS：`指定静态文件所在目录
+- `STATICFILES_STORAGE：`Default: 'StaticFilesStorage'，配置静态文件存储引擎
+- `STATICFILES_FINDERS：`DEfault: ['FileSystemFinder', 'AppDirectoriesFinder']，静态文件搜索引擎
+- `MEDIA_URL：`
+- `MEDIA_ROOT：`
+
+### StaticFiles: django.contrib.staticfiles
+
+#### collectstatic：收集静态文件
+
+> django 命令：django-admin collectstatic
+>
+> Collects the static files into STATIC_ROOT
+
+#### findstatic：搜索静态文件
+
+> django 命令：django-admin findstatic
+>
+> Searches for one or more relative paths with the enabled finders
+
+### Storages
+
+> 存储引擎
+
+#### StaticFileStorage
+
+> 静态文件存储引擎，
+
+#### ManifestStaticFilesStorage
+
 ### Django ORM
 
 > Django ORM 用到三个类：Manager、QuerySet、Model
