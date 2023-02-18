@@ -212,3 +212,7 @@ class Person(object):
 - `matplotlib`一个绘制数据图的库。对于数据分析师非常有用
 - `Scapy`用 Python 写的数据包探测和分析库
 - `Django`开源 Web 开发框架，它鼓励快速开发,并遵循 MVC 设计，开发周期短
+
+## python gil
+
+[GIL](https://cloud.tencent.com/developer/news/743497)
