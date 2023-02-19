@@ -1,5 +1,7 @@
 # Django<https://www.jianshu.com/p/3fc79a1e0edb>
 
+## Django 日志
+
 ## 查看 migration 文件生成的 sql
 
 > python manage.py sqlmigrate user 0020
