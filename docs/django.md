@@ -1,6 +1,26 @@
 # Django<https://www.jianshu.com/p/3fc79a1e0edb>
 
+## Definitions
+
+### Django application
+
 ## Django 日志
+
+## Django 覆盖 template
+
+### template override
+
+> You can either put template overrides in your `project’s templates directory` or in an `application’s templates directory`.
+
+> `the default Django template loader` will try to load the template from the `project-level directory first`. In other words, `DIRS` is searched before `APP_DIRS.`
+
+> [Django override templates](https://docs.djangoproject.com/en/4.1/howto/overriding-templates/)
+
+> [Overriding built-in widget templates](https://docs.djangoproject.com/en/4.1/ref/forms/renderers/#overriding-built-in-widget-templates)
+
+### template tag override
+
+> {% extends %} template tag
 
 ## 查看 migration 文件生成的 sql
 
