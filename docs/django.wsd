@@ -1,0 +1,76 @@
+@startuml django
+class django.views.generic.base.ContextMixin {}
+class django.views.generic.base.View {
+    + list http_method_names
+    {static} as_view(cls, **initkwargs)
+    void setup(self, request, *args, **kwargs)
+    void dispatch(self, request, *args, **kwargs)
+    void http_method_not_allowed(self, request, *args, **kwargs)
+    void options(self, request, *args, **kwargs)
+    void _allowed_methods(self)
+}
+class django.views.generic.base.TemplateResponseMixin {}
+class django.views.generic.base.TemplateView {
+    + get(self, request, *args, **kwargs)
+}
+class django.views.generic.base.RedirectView {
+    + permanent
+    + url
+    + pattern_name
+    + query_string
+    + get_redirect_url(self, *args, **kwargs)
+    + get(self, request, *args, **kwargs)
+    + head(self, request, *args, **kwargs)
+    + post(self, request, *args, **kwargs)
+    + options(self, request, *args, **kwargs)
+    + delete(self, request, *args, **kwargs)
+    + put(self, request, *args, **kwargs)
+    + patch(self, request, *args, **kwargs)
+}
+
+django.views.generic.base.TemplateResponseMixin <|-- django.views.generic.base.TemplateView
+django.views.generic.base.ContextMixin <|-- django.views.generic.base.TemplateView
+django.views.generic.base.View <|-- django.views.generic.base.TemplateView
+django.views.generic.base.View <|-- django.views.generic.base.RedirectView
+
+class django.views.generic.detail.SingleObjectMixin {}
+django.views.generic.base.ContextMixin <|-- django.views.generic.detail.SingleObjectMixin
+class django.views.generic.detail.BaseDetailView {}
+django.views.generic.detail.SingleObjectMixin <|-- django.views.generic.detail.BaseDetailView
+django.views.generic.base.View <|-- django.views.generic.detail.BaseDetailView
+class django.views.generic.detail.SingleObjectTemplateResponseMixin {}
+django.views.generic.base.TemplateResponseMixin <|-- django.views.generic.detail.SingleObjectTemplateResponseMixin
+class django.views.generic.detail.DetailView {}
+django.views.generic.detail.SingleObjectTemplateResponseMixin <|-- django.views.generic.detail.DetailView
+django.views.generic.detail.BaseDetailView <|-- django.views.generic.detail.DetailView
+
+class django.views.generic.edit.FormMixin {}
+django.views.generic.base.ContextMixin <|-- django.views.generic.edit.FormMixin
+class django.views.generic.edit.ModelFormMixin {}
+django.views.generic.edit.FormMixin <|-- django.views.generic.edit.ModelFormMixin
+django.views.generic.detail.SingleObjectMixin <|-- django.views.generic.edit.ModelFormMixin
+class django.views.generic.edit.ProcessFormView {}
+django.views.generic.base.View <|-- django.views.generic.edit.ProcessFormView
+class django.views.generic.edit.BaseFormView {}
+django.views.generic.edit.FormMixin <|-- django.views.generic.edit.BaseFormView
+django.views.generic.edit.ProcessFormView <|-- django.views.generic.edit.BaseFormView
+class django.views.generic.edit.FormView {}
+django.views.generic.base.TemplateResponseMixin <|-- django.views.generic.edit.FormView
+django.views.generic.edit.BaseFormView <|-- django.views.generic.edit.FormView
+class django.views.generic.edit.BaseCreateView {}
+django.views.generic.edit.ProcessFormView <|-- django.views.generic.edit.BaseCreateView
+class django.views.generic.edit.CreateView {}
+django.views.generic.edit.BaseCreateView <|-- django.views.generic.edit.CreateView
+class django.views.generic.edit.BaseUpdateView {}
+django.views.generic.edit.ModelFormMixin <|-- django.views.generic.edit.BaseUpdateView
+django.views.generic.edit.ProcessFormView <|-- django.views.generic.edit.BaseUpdateView
+class django.views.generic.edit.UpdateView {}
+django.views.generic.edit.BaseUpdateView <|-- django.views.generic.edit.UpdateView
+class django.views.generic.edit.DeletionMixin {}
+class django.views.generic.edit.BaseDeleteView {}
+class django.views.generic.edit.DeleteView {}
+django.views.generic.detail.SingleObjectTemplateResponseMixin <|-- django.views.generic.edit.DeleteView
+django.views.generic.detail.BaseDetailView <|-- django.views.generic.edit.DeleteView
+
+
+@enduml

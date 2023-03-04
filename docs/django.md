@@ -279,11 +279,11 @@ class Teacher(models.Model):
 
 ### Views
 
-> 组合模板(template)和数据(model)
-> view 函数，简称 view，只是一个 Python 函数。每个视图函数负责返回 HttpResponse 对象。
-> 换句话说，视图应该返回 HttpResponse 实例
->
-> Django 附带了一些内置的通用你视图例如：TemplateView、TalkListView、RegisteredUserListView 等等
+> 作用是组合模板(template)和数据(model)
+
+- `函数视图(Function View)`每个视图函数负责返回 HttpResponse 对象。视图应该返回 HttpResponse 实例
+- `类视图(Class View)`函数视图也提供了类函数，模拟函数视图
+  > Django 附带了一些内置的通用你视图例如：TemplateView、TalkListView、RegisteredUserListView 等等
 
 ```python
 # views.py
