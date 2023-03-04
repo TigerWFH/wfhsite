@@ -14,8 +14,11 @@
 ## python 包库
 
 - `pypi`官方指定的软件包仓库[pypi](https://pypi.org)
+
   > - 国内镜像：http://mirrors.aliyun.com/pypi/simple/
   > - 科学计算镜像：https://repo.anaconda.com/
+
+- `将包记录到描述文件：`pip freeze > requirements.txt
 
 ## python 包管理工具
 
