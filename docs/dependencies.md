@@ -39,6 +39,8 @@
 ## djangorestframework==3.4.0
 
 > Django REST framework
+>
+> https://www.django-rest-framework.org/#
 
 ## html5lib==0.999999
 
