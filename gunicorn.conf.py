@@ -1,6 +1,6 @@
 import multiprocessing
 
-bind = "127.0.0.1:6666"  # The socket to bind
+bind = "127.0.0.1:8080"  # The socket to bind
 workers = multiprocessing.cpu_count(
 ) * 2 + 1  # The number of worker processes（进程） for handling requests
 threads = 4  # The number of worker threads（线程） for handling requests.

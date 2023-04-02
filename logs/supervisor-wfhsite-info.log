@@ -206,3 +206,2308 @@ Traceback (most recent call last):
 RuntimeError: gevent worker requires gevent 1.4 or higher
 ]
 
+[2023-04-02 22:47:34 +0800] [78907] [DEBUG] Current configuration:
+  config: gunicorn.conf.py
+  wsgi_app: None
+  bind: ['127.0.0.1:8080']
+  backlog: 2048
+  workers: 17
+  worker_class: gevent
+  threads: 4
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 10
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/monkey/Documents/projects/wfhsite
+  daemon: False
+  raw_env: ['DJANGO_SETTINGS_MODULE=wfhsite.settings.prod']
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: wfhsite.wsgi
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x103654790>
+  on_reload: <function OnReload.on_reload at 0x1036548b0>
+  when_ready: <function WhenReady.when_ready at 0x1036549d0>
+  pre_fork: <function Prefork.pre_fork at 0x103654af0>
+  post_fork: <function Postfork.post_fork at 0x103654c10>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x103654d30>
+  worker_int: <function WorkerInt.worker_int at 0x103654e50>
+  worker_abort: <function WorkerAbort.worker_abort at 0x103654f70>
+  pre_exec: <function PreExec.pre_exec at 0x1036660d0>
+  pre_request: <function PreRequest.pre_request at 0x1036661f0>
+  post_request: <function PostRequest.post_request at 0x103666280>
+  child_exit: <function ChildExit.child_exit at 0x1036663a0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1036664c0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x1036665e0>
+  on_exit: <function OnExit.on_exit at 0x103666700>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-04-02 22:47:34 +0800] [78907] [INFO] Starting gunicorn 20.1.0
+[2023-04-02 22:47:34 +0800] [78907] [DEBUG] Arbiter booted
+[2023-04-02 22:47:34 +0800] [78907] [INFO] Listening at: http://127.0.0.1:8080 (78907)
+[2023-04-02 22:47:34 +0800] [78907] [INFO] Using worker: gevent
+[2023-04-02 22:47:34 +0800] [78908] [INFO] Booting worker with pid: 78908
+[2023-04-02 22:47:34 +0800] [78909] [INFO] Booting worker with pid: 78909
+[2023-04-02 22:47:34 +0800] [78910] [INFO] Booting worker with pid: 78910
+[2023-04-02 22:47:34 +0800] [78911] [INFO] Booting worker with pid: 78911
+[2023-04-02 22:47:34 +0800] [78908] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:34 +0800] [78908] [INFO] Worker exiting (pid: 78908)
+[2023-04-02 22:47:34 +0800] [78909] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:34 +0800] [78909] [INFO] Worker exiting (pid: 78909)
+[2023-04-02 22:47:34 +0800] [78907] [WARNING] Worker with pid 78909 was terminated due to signal 15
+[2023-04-02 22:47:34 +0800] [78910] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:34 +0800] [78910] [INFO] Worker exiting (pid: 78910)
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 202, in run
+    self.manage_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 551, in manage_workers
+    self.spawn_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 623, in spawn_workers
+    time.sleep(0.1 * random.random())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 231, in run
+    super().run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 229, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 342, in halt
+    self.stop()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+[2023-04-02 22:47:35 +0800] [78911] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:36 +0800] [78914] [DEBUG] Current configuration:
+  config: gunicorn.conf.py
+  wsgi_app: None
+  bind: ['127.0.0.1:8080']
+  backlog: 2048
+  workers: 17
+  worker_class: gevent
+  threads: 4
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 10
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/monkey/Documents/projects/wfhsite
+  daemon: False
+  raw_env: ['DJANGO_SETTINGS_MODULE=wfhsite.settings.prod']
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: wfhsite.wsgi
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x100f40790>
+  on_reload: <function OnReload.on_reload at 0x100f408b0>
+  when_ready: <function WhenReady.when_ready at 0x100f409d0>
+  pre_fork: <function Prefork.pre_fork at 0x100f40af0>
+  post_fork: <function Postfork.post_fork at 0x100f40c10>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x100f40d30>
+  worker_int: <function WorkerInt.worker_int at 0x100f40e50>
+  worker_abort: <function WorkerAbort.worker_abort at 0x100f40f70>
+  pre_exec: <function PreExec.pre_exec at 0x100f520d0>
+  pre_request: <function PreRequest.pre_request at 0x100f521f0>
+  post_request: <function PostRequest.post_request at 0x100f52280>
+  child_exit: <function ChildExit.child_exit at 0x100f523a0>
+  worker_exit: <function WorkerExit.worker_exit at 0x100f524c0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x100f525e0>
+  on_exit: <function OnExit.on_exit at 0x100f52700>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-04-02 22:47:36 +0800] [78914] [INFO] Starting gunicorn 20.1.0
+[2023-04-02 22:47:36 +0800] [78914] [DEBUG] Arbiter booted
+[2023-04-02 22:47:36 +0800] [78914] [INFO] Listening at: http://127.0.0.1:8080 (78914)
+[2023-04-02 22:47:36 +0800] [78914] [INFO] Using worker: gevent
+[2023-04-02 22:47:36 +0800] [78915] [INFO] Booting worker with pid: 78915
+[2023-04-02 22:47:36 +0800] [78916] [INFO] Booting worker with pid: 78916
+[2023-04-02 22:47:36 +0800] [78917] [INFO] Booting worker with pid: 78917
+[2023-04-02 22:47:36 +0800] [78915] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:36 +0800] [78915] [INFO] Worker exiting (pid: 78915)
+[2023-04-02 22:47:36 +0800] [78916] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:36 +0800] [78916] [INFO] Worker exiting (pid: 78916)
+[2023-04-02 22:47:36 +0800] [78917] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:36 +0800] [78917] [INFO] Worker exiting (pid: 78917)
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 202, in run
+    self.manage_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 551, in manage_workers
+    self.spawn_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 623, in spawn_workers
+    time.sleep(0.1 * random.random())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 231, in run
+    super().run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 229, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 342, in halt
+    self.stop()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+[2023-04-02 22:47:38 +0800] [78923] [DEBUG] Current configuration:
+  config: gunicorn.conf.py
+  wsgi_app: None
+  bind: ['127.0.0.1:8080']
+  backlog: 2048
+  workers: 17
+  worker_class: gevent
+  threads: 4
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 10
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/monkey/Documents/projects/wfhsite
+  daemon: False
+  raw_env: ['DJANGO_SETTINGS_MODULE=wfhsite.settings.prod']
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: wfhsite.wsgi
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x101b94790>
+  on_reload: <function OnReload.on_reload at 0x101b948b0>
+  when_ready: <function WhenReady.when_ready at 0x101b949d0>
+  pre_fork: <function Prefork.pre_fork at 0x101b94af0>
+  post_fork: <function Postfork.post_fork at 0x101b94c10>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x101b94d30>
+  worker_int: <function WorkerInt.worker_int at 0x101b94e50>
+  worker_abort: <function WorkerAbort.worker_abort at 0x101b94f70>
+  pre_exec: <function PreExec.pre_exec at 0x101ba60d0>
+  pre_request: <function PreRequest.pre_request at 0x101ba61f0>
+  post_request: <function PostRequest.post_request at 0x101ba6280>
+  child_exit: <function ChildExit.child_exit at 0x101ba63a0>
+  worker_exit: <function WorkerExit.worker_exit at 0x101ba64c0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x101ba65e0>
+  on_exit: <function OnExit.on_exit at 0x101ba6700>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-04-02 22:47:38 +0800] [78923] [INFO] Starting gunicorn 20.1.0
+[2023-04-02 22:47:38 +0800] [78923] [DEBUG] Arbiter booted
+[2023-04-02 22:47:38 +0800] [78923] [INFO] Listening at: http://127.0.0.1:8080 (78923)
+[2023-04-02 22:47:38 +0800] [78923] [INFO] Using worker: gevent
+[2023-04-02 22:47:38 +0800] [78926] [INFO] Booting worker with pid: 78926
+[2023-04-02 22:47:38 +0800] [78927] [INFO] Booting worker with pid: 78927
+[2023-04-02 22:47:38 +0800] [78928] [INFO] Booting worker with pid: 78928
+[2023-04-02 22:47:38 +0800] [78926] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:38 +0800] [78926] [INFO] Worker exiting (pid: 78926)
+[2023-04-02 22:47:38 +0800] [78929] [INFO] Booting worker with pid: 78929
+[2023-04-02 22:47:38 +0800] [78927] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:38 +0800] [78927] [INFO] Worker exiting (pid: 78927)
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 202, in run
+    self.manage_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 551, in manage_workers
+    self.spawn_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 623, in spawn_workers
+    time.sleep(0.1 * random.random())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 231, in run
+    super().run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 229, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 342, in halt
+    self.stop()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+[2023-04-02 22:47:38 +0800] [78928] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:38 +0800] [78928] [INFO] Worker exiting (pid: 78928)
+[2023-04-02 22:47:38 +0800] [78929] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:42 +0800] [78940] [DEBUG] Current configuration:
+  config: gunicorn.conf.py
+  wsgi_app: None
+  bind: ['127.0.0.1:8080']
+  backlog: 2048
+  workers: 17
+  worker_class: gevent
+  threads: 4
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 10
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/monkey/Documents/projects/wfhsite
+  daemon: False
+  raw_env: ['DJANGO_SETTINGS_MODULE=wfhsite.settings.prod']
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: wfhsite.wsgi
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x104588790>
+  on_reload: <function OnReload.on_reload at 0x1045888b0>
+  when_ready: <function WhenReady.when_ready at 0x1045889d0>
+  pre_fork: <function Prefork.pre_fork at 0x104588af0>
+  post_fork: <function Postfork.post_fork at 0x104588c10>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x104588d30>
+  worker_int: <function WorkerInt.worker_int at 0x104588e50>
+  worker_abort: <function WorkerAbort.worker_abort at 0x104588f70>
+  pre_exec: <function PreExec.pre_exec at 0x10459a0d0>
+  pre_request: <function PreRequest.pre_request at 0x10459a1f0>
+  post_request: <function PostRequest.post_request at 0x10459a280>
+  child_exit: <function ChildExit.child_exit at 0x10459a3a0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10459a4c0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10459a5e0>
+  on_exit: <function OnExit.on_exit at 0x10459a700>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-04-02 22:47:42 +0800] [78940] [INFO] Starting gunicorn 20.1.0
+[2023-04-02 22:47:42 +0800] [78940] [DEBUG] Arbiter booted
+[2023-04-02 22:47:42 +0800] [78940] [INFO] Listening at: http://127.0.0.1:8080 (78940)
+[2023-04-02 22:47:42 +0800] [78940] [INFO] Using worker: gevent
+[2023-04-02 22:47:42 +0800] [78942] [INFO] Booting worker with pid: 78942
+[2023-04-02 22:47:42 +0800] [78943] [INFO] Booting worker with pid: 78943
+[2023-04-02 22:47:42 +0800] [78944] [INFO] Booting worker with pid: 78944
+[2023-04-02 22:47:42 +0800] [78942] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:42 +0800] [78942] [INFO] Worker exiting (pid: 78942)
+[2023-04-02 22:47:42 +0800] [78945] [INFO] Booting worker with pid: 78945
+[2023-04-02 22:47:42 +0800] [78943] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:42 +0800] [78943] [INFO] Worker exiting (pid: 78943)
+[2023-04-02 22:47:42 +0800] [78944] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:47:42 +0800] [78944] [INFO] Worker exiting (pid: 78944)
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 202, in run
+    self.manage_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 551, in manage_workers
+    self.spawn_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 623, in spawn_workers
+    time.sleep(0.1 * random.random())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 231, in run
+    super().run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 229, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 342, in halt
+    self.stop()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+[2023-04-02 22:47:42 +0800] [78945] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:48:18 +0800] [78982] [DEBUG] Current configuration:
+  config: gunicorn.conf.py
+  wsgi_app: None
+  bind: ['127.0.0.1:8080']
+  backlog: 2048
+  workers: 17
+  worker_class: gevent
+  threads: 4
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 10
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/monkey/Documents/projects/wfhsite
+  daemon: False
+  raw_env: ['DJANGO_SETTINGS_MODULE=wfhsite.settings.prod']
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: wfhsite.wsgi
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x102418790>
+  on_reload: <function OnReload.on_reload at 0x1024188b0>
+  when_ready: <function WhenReady.when_ready at 0x1024189d0>
+  pre_fork: <function Prefork.pre_fork at 0x102418af0>
+  post_fork: <function Postfork.post_fork at 0x102418c10>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x102418d30>
+  worker_int: <function WorkerInt.worker_int at 0x102418e50>
+  worker_abort: <function WorkerAbort.worker_abort at 0x102418f70>
+  pre_exec: <function PreExec.pre_exec at 0x10242a0d0>
+  pre_request: <function PreRequest.pre_request at 0x10242a1f0>
+  post_request: <function PostRequest.post_request at 0x10242a280>
+  child_exit: <function ChildExit.child_exit at 0x10242a3a0>
+  worker_exit: <function WorkerExit.worker_exit at 0x10242a4c0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x10242a5e0>
+  on_exit: <function OnExit.on_exit at 0x10242a700>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-04-02 22:48:18 +0800] [78982] [INFO] Starting gunicorn 20.1.0
+[2023-04-02 22:48:18 +0800] [78982] [DEBUG] Arbiter booted
+[2023-04-02 22:48:18 +0800] [78982] [INFO] Listening at: http://127.0.0.1:8080 (78982)
+[2023-04-02 22:48:18 +0800] [78982] [INFO] Using worker: gevent
+[2023-04-02 22:48:18 +0800] [78983] [INFO] Booting worker with pid: 78983
+[2023-04-02 22:48:18 +0800] [78984] [INFO] Booting worker with pid: 78984
+[2023-04-02 22:48:18 +0800] [78985] [INFO] Booting worker with pid: 78985
+[2023-04-02 22:48:18 +0800] [78983] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:48:18 +0800] [78983] [INFO] Worker exiting (pid: 78983)
+[2023-04-02 22:48:18 +0800] [78986] [INFO] Booting worker with pid: 78986
+[2023-04-02 22:48:18 +0800] [78987] [INFO] Booting worker with pid: 78987
+[2023-04-02 22:48:18 +0800] [78984] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:48:18 +0800] [78984] [INFO] Worker exiting (pid: 78984)
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 202, in run
+    self.manage_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 551, in manage_workers
+    self.spawn_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 623, in spawn_workers
+    time.sleep(0.1 * random.random())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 231, in run
+    super().run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 229, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 342, in halt
+    self.stop()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+[2023-04-02 22:48:18 +0800] [78985] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:48:18 +0800] [78985] [INFO] Worker exiting (pid: 78985)
+[2023-04-02 22:48:19 +0800] [78990] [DEBUG] Current configuration:
+  config: gunicorn.conf.py
+  wsgi_app: None
+  bind: ['127.0.0.1:8080']
+  backlog: 2048
+  workers: 17
+  worker_class: gevent
+  threads: 4
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 10
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/monkey/Documents/projects/wfhsite
+  daemon: False
+  raw_env: ['DJANGO_SETTINGS_MODULE=wfhsite.settings.prod']
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: wfhsite.wsgi
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1018c8790>
+  on_reload: <function OnReload.on_reload at 0x1018c88b0>
+  when_ready: <function WhenReady.when_ready at 0x1018c89d0>
+  pre_fork: <function Prefork.pre_fork at 0x1018c8af0>
+  post_fork: <function Postfork.post_fork at 0x1018c8c10>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x1018c8d30>
+  worker_int: <function WorkerInt.worker_int at 0x1018c8e50>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1018c8f70>
+  pre_exec: <function PreExec.pre_exec at 0x1018da0d0>
+  pre_request: <function PreRequest.pre_request at 0x1018da1f0>
+  post_request: <function PostRequest.post_request at 0x1018da280>
+  child_exit: <function ChildExit.child_exit at 0x1018da3a0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1018da4c0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x1018da5e0>
+  on_exit: <function OnExit.on_exit at 0x1018da700>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-04-02 22:48:19 +0800] [78990] [INFO] Starting gunicorn 20.1.0
+[2023-04-02 22:48:19 +0800] [78990] [DEBUG] Arbiter booted
+[2023-04-02 22:48:19 +0800] [78990] [INFO] Listening at: http://127.0.0.1:8080 (78990)
+[2023-04-02 22:48:19 +0800] [78990] [INFO] Using worker: gevent
+[2023-04-02 22:48:19 +0800] [78991] [INFO] Booting worker with pid: 78991
+[2023-04-02 22:48:19 +0800] [78992] [INFO] Booting worker with pid: 78992
+[2023-04-02 22:48:19 +0800] [78991] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:48:19 +0800] [78991] [INFO] Worker exiting (pid: 78991)
+[2023-04-02 22:48:19 +0800] [78992] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:48:19 +0800] [78992] [INFO] Worker exiting (pid: 78992)
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 202, in run
+    self.manage_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 551, in manage_workers
+    self.spawn_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 623, in spawn_workers
+    time.sleep(0.1 * random.random())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 231, in run
+    super().run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 229, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 342, in halt
+    self.stop()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+[2023-04-02 22:48:21 +0800] [78995] [DEBUG] Current configuration:
+  config: gunicorn.conf.py
+  wsgi_app: None
+  bind: ['127.0.0.1:8080']
+  backlog: 2048
+  workers: 17
+  worker_class: gevent
+  threads: 4
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 10
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/monkey/Documents/projects/wfhsite
+  daemon: False
+  raw_env: ['DJANGO_SETTINGS_MODULE=wfhsite.settings.prod']
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: wfhsite.wsgi
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x1013a0790>
+  on_reload: <function OnReload.on_reload at 0x1013a08b0>
+  when_ready: <function WhenReady.when_ready at 0x1013a09d0>
+  pre_fork: <function Prefork.pre_fork at 0x1013a0af0>
+  post_fork: <function Postfork.post_fork at 0x1013a0c10>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x1013a0d30>
+  worker_int: <function WorkerInt.worker_int at 0x1013a0e50>
+  worker_abort: <function WorkerAbort.worker_abort at 0x1013a0f70>
+  pre_exec: <function PreExec.pre_exec at 0x1013b20d0>
+  pre_request: <function PreRequest.pre_request at 0x1013b21f0>
+  post_request: <function PostRequest.post_request at 0x1013b2280>
+  child_exit: <function ChildExit.child_exit at 0x1013b23a0>
+  worker_exit: <function WorkerExit.worker_exit at 0x1013b24c0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x1013b25e0>
+  on_exit: <function OnExit.on_exit at 0x1013b2700>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-04-02 22:48:21 +0800] [78995] [INFO] Starting gunicorn 20.1.0
+[2023-04-02 22:48:21 +0800] [78995] [DEBUG] Arbiter booted
+[2023-04-02 22:48:21 +0800] [78995] [INFO] Listening at: http://127.0.0.1:8080 (78995)
+[2023-04-02 22:48:21 +0800] [78995] [INFO] Using worker: gevent
+[2023-04-02 22:48:21 +0800] [78996] [INFO] Booting worker with pid: 78996
+[2023-04-02 22:48:21 +0800] [78997] [INFO] Booting worker with pid: 78997
+[2023-04-02 22:48:22 +0800] [78998] [INFO] Booting worker with pid: 78998
+[2023-04-02 22:48:22 +0800] [78996] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:48:22 +0800] [78996] [INFO] Worker exiting (pid: 78996)
+[2023-04-02 22:48:22 +0800] [78997] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:48:22 +0800] [78997] [INFO] Worker exiting (pid: 78997)
+[2023-04-02 22:48:22 +0800] [78998] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:48:22 +0800] [78998] [INFO] Worker exiting (pid: 78998)
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 202, in run
+    self.manage_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 551, in manage_workers
+    self.spawn_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 623, in spawn_workers
+    time.sleep(0.1 * random.random())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 231, in run
+    super().run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 229, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 342, in halt
+    self.stop()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+[2023-04-02 22:48:25 +0800] [79004] [DEBUG] Current configuration:
+  config: gunicorn.conf.py
+  wsgi_app: None
+  bind: ['127.0.0.1:8080']
+  backlog: 2048
+  workers: 17
+  worker_class: gevent
+  threads: 4
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 10
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/monkey/Documents/projects/wfhsite
+  daemon: False
+  raw_env: ['DJANGO_SETTINGS_MODULE=wfhsite.settings.prod']
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: wfhsite.wsgi
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x104ecc790>
+  on_reload: <function OnReload.on_reload at 0x104ecc8b0>
+  when_ready: <function WhenReady.when_ready at 0x104ecc9d0>
+  pre_fork: <function Prefork.pre_fork at 0x104eccaf0>
+  post_fork: <function Postfork.post_fork at 0x104eccc10>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x104eccd30>
+  worker_int: <function WorkerInt.worker_int at 0x104ecce50>
+  worker_abort: <function WorkerAbort.worker_abort at 0x104eccf70>
+  pre_exec: <function PreExec.pre_exec at 0x104ede0d0>
+  pre_request: <function PreRequest.pre_request at 0x104ede1f0>
+  post_request: <function PostRequest.post_request at 0x104ede280>
+  child_exit: <function ChildExit.child_exit at 0x104ede3a0>
+  worker_exit: <function WorkerExit.worker_exit at 0x104ede4c0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x104ede5e0>
+  on_exit: <function OnExit.on_exit at 0x104ede700>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-04-02 22:48:25 +0800] [79004] [INFO] Starting gunicorn 20.1.0
+[2023-04-02 22:48:25 +0800] [79004] [DEBUG] Arbiter booted
+[2023-04-02 22:48:25 +0800] [79004] [INFO] Listening at: http://127.0.0.1:8080 (79004)
+[2023-04-02 22:48:25 +0800] [79004] [INFO] Using worker: gevent
+[2023-04-02 22:48:25 +0800] [79005] [INFO] Booting worker with pid: 79005
+[2023-04-02 22:48:25 +0800] [79006] [INFO] Booting worker with pid: 79006
+[2023-04-02 22:48:25 +0800] [79007] [INFO] Booting worker with pid: 79007
+[2023-04-02 22:48:25 +0800] [79005] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:48:25 +0800] [79005] [INFO] Worker exiting (pid: 79005)
+[2023-04-02 22:48:25 +0800] [79006] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:48:25 +0800] [79006] [INFO] Worker exiting (pid: 79006)
+[2023-04-02 22:48:25 +0800] [79007] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 589, in spawn_worker
+    worker.init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/ggevent.py", line 146, in init_process
+    super().init_process()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 134, in init_process
+    self.load_wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/workers/base.py", line 146, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 58, in load
+    return self.load_wsgiapp()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 48, in load_wsgiapp
+    return util.import_app(self.app_uri)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/util.py", line 359, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 986, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 680, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 850, in exec_module
+  File "<frozen importlib._bootstrap>", line 228, in _call_with_frames_removed
+  File "/Users/monkey/Documents/projects/wfhsite/wfhsite/wsgi.py", line 16, in <module>
+    application = get_wsgi_application()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/core/wsgi.py", line 12, in get_wsgi_application
+    django.setup(set_prefix=False)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/__init__.py", line 19, in setup
+    configure_logging(settings.LOGGING_CONFIG, settings.LOGGING)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 82, in __getattr__
+    self._setup(name)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 69, in _setup
+    self._wrapped = Settings(settings_module)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/django/conf/__init__.py", line 170, in __init__
+    mod = importlib.import_module(self.SETTINGS_MODULE)
+  File "/Users/monkey/.pyenv/versions/3.9.7/lib/python3.9/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1030, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1007, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 984, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'wfhsite.settings.prod'
+[2023-04-02 22:48:25 +0800] [79007] [INFO] Worker exiting (pid: 79007)
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 202, in run
+    self.manage_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 551, in manage_workers
+    self.spawn_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 623, in spawn_workers
+    time.sleep(0.1 * random.random())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/monkey/Documents/projects/wfhsite/.env/bin/gunicorn", line 8, in <module>
+    sys.exit(run())
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/wsgiapp.py", line 67, in run
+    WSGIApplication("%(prog)s [OPTIONS] [APP_MODULE]").run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 231, in run
+    super().run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/app/base.py", line 72, in run
+    Arbiter(self).run()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 229, in run
+    self.halt(reason=inst.reason, exit_status=inst.exit_status)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 342, in halt
+    self.stop()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 393, in stop
+    time.sleep(0.1)
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 242, in handle_chld
+    self.reap_workers()
+  File "/Users/monkey/Documents/projects/wfhsite/.env/lib/python3.9/site-packages/gunicorn/arbiter.py", line 525, in reap_workers
+    raise HaltServer(reason, self.WORKER_BOOT_ERROR)
+gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
+[2023-04-02 22:50:20 +0800] [79187] [DEBUG] Current configuration:
+  config: gunicorn.conf.py
+  wsgi_app: None
+  bind: ['127.0.0.1:8080']
+  backlog: 2048
+  workers: 17
+  worker_class: gevent
+  threads: 4
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 10
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/monkey/Documents/projects/wfhsite
+  daemon: False
+  raw_env: []
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: wfhsite.wsgi
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x101c70790>
+  on_reload: <function OnReload.on_reload at 0x101c708b0>
+  when_ready: <function WhenReady.when_ready at 0x101c709d0>
+  pre_fork: <function Prefork.pre_fork at 0x101c70af0>
+  post_fork: <function Postfork.post_fork at 0x101c70c10>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x101c70d30>
+  worker_int: <function WorkerInt.worker_int at 0x101c70e50>
+  worker_abort: <function WorkerAbort.worker_abort at 0x101c70f70>
+  pre_exec: <function PreExec.pre_exec at 0x101c810d0>
+  pre_request: <function PreRequest.pre_request at 0x101c811f0>
+  post_request: <function PostRequest.post_request at 0x101c81280>
+  child_exit: <function ChildExit.child_exit at 0x101c813a0>
+  worker_exit: <function WorkerExit.worker_exit at 0x101c814c0>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x101c815e0>
+  on_exit: <function OnExit.on_exit at 0x101c81700>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-04-02 22:50:20 +0800] [79187] [INFO] Starting gunicorn 20.1.0
+[2023-04-02 22:50:20 +0800] [79187] [DEBUG] Arbiter booted
+[2023-04-02 22:50:20 +0800] [79187] [INFO] Listening at: http://127.0.0.1:8080 (79187)
+[2023-04-02 22:50:20 +0800] [79187] [INFO] Using worker: gevent
+[2023-04-02 22:50:20 +0800] [79188] [INFO] Booting worker with pid: 79188
+[2023-04-02 22:50:20 +0800] [79189] [INFO] Booting worker with pid: 79189
+[2023-04-02 22:50:20 +0800] [79190] [INFO] Booting worker with pid: 79190
+[2023-04-02 22:50:21 +0800] [79191] [INFO] Booting worker with pid: 79191
+[2023-04-02 22:50:21 +0800] [79192] [INFO] Booting worker with pid: 79192
+[2023-04-02 22:50:21 +0800] [79193] [INFO] Booting worker with pid: 79193
+[2023-04-02 22:50:21 +0800] [79194] [INFO] Booting worker with pid: 79194
+[2023-04-02 22:50:21 +0800] [79195] [INFO] Booting worker with pid: 79195
+[2023-04-02 22:50:21 +0800] [79196] [INFO] Booting worker with pid: 79196
+[2023-04-02 22:50:21 +0800] [79197] [INFO] Booting worker with pid: 79197
+[2023-04-02 22:50:21 +0800] [79198] [INFO] Booting worker with pid: 79198
+[2023-04-02 22:50:21 +0800] [79199] [INFO] Booting worker with pid: 79199
+[2023-04-02 22:50:21 +0800] [79200] [INFO] Booting worker with pid: 79200
+[2023-04-02 22:50:21 +0800] [79201] [INFO] Booting worker with pid: 79201
+[2023-04-02 22:50:21 +0800] [79202] [INFO] Booting worker with pid: 79202
+[2023-04-02 22:50:21 +0800] [79203] [INFO] Booting worker with pid: 79203
+[2023-04-02 22:50:21 +0800] [79204] [INFO] Booting worker with pid: 79204
+[2023-04-02 22:50:21 +0800] [79187] [DEBUG] 17 workers
+[2023-04-02 14:50:23 +0000] [79202] [DEBUG] GET /
