@@ -1,4 +1,4 @@
-# supervisor
+# supervisor<https://liyangliang.me/posts/2015/06/using-supervisor/>
 
 > Linux 运维工具 Supervisor 的安装使用（进程管理工具）
 > supervisor 管理进程，是通过 fork/exec 的方式将这些被管理的进程当作 supervisor 的子进程来启动，所以我们只需要将要管理进程的可执行文件的路径添加到 supervisor 的配置文件中就好了。此时被管理进程被视为 supervisor 的子进程，若该子进程异常中断，则父进程可以准确的获取子进程异常中断的信息，通过在配置文件中设置 autostart=ture，可以实现对异常中断的子进程的自动重启。
@@ -12,6 +12,8 @@
 ## 配置文件
 
 > echo_supervisord_conf: 查看配置文件
+
+> echo_supervisord_conf > /etc/supervisord.conf 导出默认配置
 
 > cat /etc/supervisord/supervisord.conf: 查看配置文件
 
