@@ -11,6 +11,12 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "wfhsite.settings.dev")
-
+python_env = os.getenv('PYTHON_ENV')
+if python_env == 'production':
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE",
+                          "wfhsite.settings.production")
+elif python_env == 'test':
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "wfhsite.settings.dev")
+else:
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "wfhsite.settings.dev")
 application = get_wsgi_application()

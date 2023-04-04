@@ -2511,3 +2511,23 @@ gunicorn.errors.HaltServer: <HaltServer 'Worker failed to boot.' 3>
 [2023-04-02 22:50:21 +0800] [79204] [INFO] Booting worker with pid: 79204
 [2023-04-02 22:50:21 +0800] [79187] [DEBUG] 17 workers
 [2023-04-02 14:50:23 +0000] [79202] [DEBUG] GET /
+[2023-04-02 14:52:46 +0000] [79201] [DEBUG] GET /
+[2023-04-02 22:52:56 +0800] [79187] [INFO] Handling signal: term
+[2023-04-02 14:52:56 +0000] [79198] [INFO] Worker exiting (pid: 79198)
+[2023-04-02 14:52:57 +0000] [79200] [INFO] Worker exiting (pid: 79200)
+[2023-04-02 14:52:57 +0000] [79199] [INFO] Worker exiting (pid: 79199)
+[2023-04-02 14:52:57 +0000] [79201] [INFO] Worker exiting (pid: 79201)
+[2023-04-02 14:52:57 +0000] [79202] [INFO] Worker exiting (pid: 79202)
+[2023-04-02 14:52:57 +0000] [79203] [INFO] Worker exiting (pid: 79203)
+[2023-04-02 14:52:57 +0000] [79204] [INFO] Worker exiting (pid: 79204)
+[2023-04-02 14:52:57 +0000] [79188] [INFO] Worker exiting (pid: 79188)
+[2023-04-02 14:52:57 +0000] [79190] [INFO] Worker exiting (pid: 79190)
+[2023-04-02 14:52:57 +0000] [79189] [INFO] Worker exiting (pid: 79189)
+[2023-04-02 14:52:57 +0000] [79191] [INFO] Worker exiting (pid: 79191)
+[2023-04-02 14:52:57 +0000] [79192] [INFO] Worker exiting (pid: 79192)
+[2023-04-02 14:52:57 +0000] [79193] [INFO] Worker exiting (pid: 79193)
+[2023-04-02 14:52:57 +0000] [79194] [INFO] Worker exiting (pid: 79194)
+[2023-04-02 14:52:57 +0000] [79195] [INFO] Worker exiting (pid: 79195)
+[2023-04-02 14:52:57 +0000] [79197] [INFO] Worker exiting (pid: 79197)
+[2023-04-02 14:52:57 +0000] [79196] [INFO] Worker exiting (pid: 79196)
+[2023-04-02 22:52:58 +0800] [79187] [INFO] Shutting down: Master
