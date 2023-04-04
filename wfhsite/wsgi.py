@@ -12,6 +12,8 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 python_env = os.getenv('PYTHON_ENV')
+print('python_env=', python_env)
+
 if python_env == 'production':
     os.environ.setdefault("DJANGO_SETTINGS_MODULE",
                           "wfhsite.settings.production")
