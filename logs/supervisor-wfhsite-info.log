@@ -301,3 +301,15 @@ python_env= production
 [2023-04-04 16:20:33 +0000] [2522] [DEBUG] GET /wfh/media/images/MaTi.2e16d0ba.fill-160x100.jpg
 [2023-04-04 16:20:33 +0000] [2522] [DEBUG] GET /favicon.ico
 Not Found: /favicon.ico
+[2023-04-04 16:21:54 +0000] [2518] [DEBUG] GET /
+[2023-04-04 16:21:54 +0000] [2518] [DEBUG] GET /wfhsite/static/css/wfhsite.css
+[2023-04-04 16:21:54 +0000] [2524] [DEBUG] GET /wfhsite/static/css/home.css
+[2023-04-04 16:21:54 +0000] [2524] [DEBUG] GET /wfh/media/images/caniuseFanWeiXuanZe_0KA2aNh.2e16d0ba.fill-160x100.png
+[2023-04-04 16:21:54 +0000] [2518] [DEBUG] GET /wfh/media/images/caniuseMoRenZhiChiYanSeFenLei.2e16d0ba.fill-160x100.png
+[2023-04-04 16:21:54 +0000] [2521] [DEBUG] GET /wfh/media/images/JiePing2021-04-16_ShangWu9.09.09.2e16d0ba.fill-160x100.png
+[2023-04-04 16:21:54 +0000] [2506] [DEBUG] GET /wfh/media/images/MaTi.2e16d0ba.fill-160x100.jpg
+[2023-04-04 16:21:54 +0000] [2523] [DEBUG] GET /wfh/media/images/sh1.2e16d0ba.fill-160x100.jpg
+[2023-04-04 16:21:54 +0000] [2513] [DEBUG] GET /wfh/media/images/PingMuKuaiZhao_2020-05-08_ShangWu1.2e16d0ba.fill-160x100.png
+[2023-04-04 16:21:54 +0000] [2506] [DEBUG] GET /wfhsite/static/js/wfhsite.js
+[2023-04-04 16:21:54 +0000] [2521] [DEBUG] GET /wfhsite/static/js/home.js
+[2023-04-04 16:21:59 +0000] [2521] [DEBUG] GET /

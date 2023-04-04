@@ -51,6 +51,8 @@ index-url = https://mirrors.aliyun.com/pypi/simple
 
 ## 部署
 
+> DEBUG = False 时，Django 在未正确配置 ALLOWED_HOSTS 时无法工作。<https://docs.djangoproject.com/zh-hans/3.2/howto/deployment/checklist/#environment-specific-settings>
+
 > Pyhton 是编程语言，Django 和 Flask 本身是 Web 框架，并非 Web 服务，且 Django 和 Flask 自带的 runserver 和 Werkzeug 也仅仅用于开发测试环境，生产环境中处理并发的能力太弱
 >
 > runserver 方法是调试 Django 时经常用到的运行方式，它使用 Django 自带的
