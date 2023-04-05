@@ -1,0 +1,56 @@
+/* 通用banner样式 */
+.carousel {
+  position: relative;
+  overflow: hidden;
+}
+.carousel .banner {
+  position: relative;
+  perspective: 10000px;
+  border-radius: 5px;
+  height: 300px;
+  border: 1px solid #00a3fe;
+}
+
+.carousel .banner .animation {
+  transition: transform 1s;
+}
+.carousel .banner .stage {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.carousel .banner .stage .cell {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+/* 宽度需要计算 */
+.first {
+  transform: rotateY(0deg) translateZ(900px);
+}
+.second {
+  transform: rotateY(60deg) translateZ(900px);
+}
+.third {
+  transform: rotateY(120deg) translateZ(900px);
+}
+.fourth {
+  transform: rotateY(180deg) translateZ(900px);
+}
+.fifth {
+  transform: rotateY(240deg) translateZ(900px);
+}
+.sisth {
+  transform: rotateY(300deg) translateZ(900px);
+}
+
+.carousel .banner .stage .cell a img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 通用nav样式 */

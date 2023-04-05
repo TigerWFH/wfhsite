@@ -1,5 +1,13 @@
 # Django<https://www.jianshu.com/p/3fc79a1e0edb>
 
+## djnago 生成部署遇到问题
+
+> 需要再部署之前，收集静态资源:python manage.py collectstatic
+> 收集之后，遇到静态资源加载不到：
+>
+> - 将 DEBUG 条件下的路由放出来
+> - 将收集的 static 资源，放到 nginx 服务，直接提供静态资源服务
+
 ## Definitions
 
 ### Django application

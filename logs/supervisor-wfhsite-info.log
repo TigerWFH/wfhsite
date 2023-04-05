@@ -1233,3 +1233,460 @@ Not Found: /favicon.ico
 [2023-04-05 13:04:19 +0000] [18969] [DEBUG] GET /favicon.ico
 Not Found: /favicon.ico
 [2023-04-05 13:04:19 +0000] [18969] [DEBUG] Closing connection. 
+[2023-04-05 21:17:25 +0800] [18952] [INFO] Handling signal: term
+[2023-04-05 13:17:25 +0000] [18961] [INFO] Worker exiting (pid: 18961)
+python_env= production
+[2023-04-05 13:17:25 +0000] [18963] [INFO] Worker exiting (pid: 18963)
+[2023-04-05 13:17:25 +0000] [18962] [INFO] Worker exiting (pid: 18962)
+python_env= production
+python_env= production
+[2023-04-05 13:17:25 +0000] [18966] [INFO] Worker exiting (pid: 18966)
+python_env= production
+[2023-04-05 13:17:25 +0000] [18969] [INFO] Worker exiting (pid: 18969)
+python_env= production
+[2023-04-05 13:17:25 +0000] [18964] [INFO] Worker exiting (pid: 18964)
+python_env= production
+[2023-04-05 13:17:25 +0000] [18965] [INFO] Worker exiting (pid: 18965)
+python_env= production
+[2023-04-05 13:17:25 +0000] [18967] [INFO] Worker exiting (pid: 18967)
+python_env= production
+[2023-04-05 13:17:25 +0000] [18968] [INFO] Worker exiting (pid: 18968)
+python_env= production
+[2023-04-05 13:17:25 +0000] [18953] [INFO] Worker exiting (pid: 18953)
+python_env= production
+[2023-04-05 13:17:25 +0000] [18955] [INFO] Worker exiting (pid: 18955)
+python_env= production
+[2023-04-05 13:17:25 +0000] [18954] [INFO] Worker exiting (pid: 18954)
+python_env= production
+[2023-04-05 13:17:25 +0000] [18956] [INFO] Worker exiting (pid: 18956)
+python_env= production
+[2023-04-05 13:17:26 +0000] [18957] [INFO] Worker exiting (pid: 18957)
+python_env= production
+[2023-04-05 13:17:26 +0000] [18958] [INFO] Worker exiting (pid: 18958)
+python_env= production
+[2023-04-05 13:17:26 +0000] [18959] [INFO] Worker exiting (pid: 18959)
+python_env= production
+[2023-04-05 13:17:26 +0000] [18960] [INFO] Worker exiting (pid: 18960)
+python_env= production
+[2023-04-05 21:17:26 +0800] [18952] [INFO] Shutting down: Master
+[2023-04-05 21:17:27 +0800] [20768] [DEBUG] Current configuration:
+  config: gunicorn.conf.py
+  wsgi_app: None
+  bind: ['127.0.0.1:8080']
+  backlog: 2048
+  workers: 17
+  worker_class: gevent
+  threads: 4
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 10
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/monkey/Documents/projects/wfhsite
+  daemon: False
+  raw_env: ['PYTHON_ENV=production']
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: wfhsite.wsgi
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x101be0700>
+  on_reload: <function OnReload.on_reload at 0x101be0820>
+  when_ready: <function WhenReady.when_ready at 0x101be0940>
+  pre_fork: <function Prefork.pre_fork at 0x101be0a60>
+  post_fork: <function Postfork.post_fork at 0x101be0b80>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x101be0ca0>
+  worker_int: <function WorkerInt.worker_int at 0x101be0dc0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x101be0ee0>
+  pre_exec: <function PreExec.pre_exec at 0x101bf1040>
+  pre_request: <function PreRequest.pre_request at 0x101bf1160>
+  post_request: <function PostRequest.post_request at 0x101bf11f0>
+  child_exit: <function ChildExit.child_exit at 0x101bf1310>
+  worker_exit: <function WorkerExit.worker_exit at 0x101bf1430>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x101bf1550>
+  on_exit: <function OnExit.on_exit at 0x101bf1670>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-04-05 21:17:27 +0800] [20768] [INFO] Starting gunicorn 20.1.0
+[2023-04-05 21:17:27 +0800] [20768] [DEBUG] Arbiter booted
+[2023-04-05 21:17:27 +0800] [20768] [INFO] Listening at: http://127.0.0.1:8080 (20768)
+[2023-04-05 21:17:27 +0800] [20768] [INFO] Using worker: gevent
+[2023-04-05 21:17:27 +0800] [20769] [INFO] Booting worker with pid: 20769
+[2023-04-05 21:17:27 +0800] [20770] [INFO] Booting worker with pid: 20770
+[2023-04-05 21:17:27 +0800] [20771] [INFO] Booting worker with pid: 20771
+[2023-04-05 21:17:27 +0800] [20772] [INFO] Booting worker with pid: 20772
+[2023-04-05 21:17:27 +0800] [20773] [INFO] Booting worker with pid: 20773
+[2023-04-05 21:17:27 +0800] [20774] [INFO] Booting worker with pid: 20774
+[2023-04-05 21:17:27 +0800] [20775] [INFO] Booting worker with pid: 20775
+[2023-04-05 21:17:27 +0800] [20776] [INFO] Booting worker with pid: 20776
+[2023-04-05 21:17:28 +0800] [20777] [INFO] Booting worker with pid: 20777
+[2023-04-05 21:17:28 +0800] [20778] [INFO] Booting worker with pid: 20778
+[2023-04-05 21:17:28 +0800] [20780] [INFO] Booting worker with pid: 20780
+[2023-04-05 21:17:28 +0800] [20781] [INFO] Booting worker with pid: 20781
+[2023-04-05 21:17:28 +0800] [20782] [INFO] Booting worker with pid: 20782
+[2023-04-05 21:17:28 +0800] [20785] [INFO] Booting worker with pid: 20785
+[2023-04-05 21:17:28 +0800] [20786] [INFO] Booting worker with pid: 20786
+[2023-04-05 21:17:28 +0800] [20787] [INFO] Booting worker with pid: 20787
+[2023-04-05 21:17:28 +0800] [20788] [INFO] Booting worker with pid: 20788
+[2023-04-05 21:17:28 +0800] [20768] [DEBUG] 17 workers
+[2023-04-05 13:17:38 +0000] [20785] [DEBUG] GET /
+[2023-04-05 13:17:39 +0000] [20785] [DEBUG] GET /wfhsite/static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:17:39 +0000] [20782] [DEBUG] GET /wfhsite/static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:17:39 +0000] [20785] [DEBUG] GET /wfhsite/static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:17:39 +0000] [20787] [DEBUG] GET /wfhsite/static/js/home.2d871f868db6.js
+[2023-04-05 13:17:48 +0000] [20781] [DEBUG] GET /
+[2023-04-05 13:17:48 +0000] [20781] [DEBUG] Closing connection. 
+[2023-04-05 13:17:48 +0000] [20781] [DEBUG] GET /wfhsite/static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:17:48 +0000] [20786] [DEBUG] GET /wfhsite/static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:17:48 +0000] [20781] [DEBUG] Closing connection. 
+[2023-04-05 13:17:48 +0000] [20777] [DEBUG] GET /wfhsite/static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:17:48 +0000] [20780] [DEBUG] GET /wfhsite/static/js/home.2d871f868db6.js
+[2023-04-05 13:17:49 +0000] [20786] [DEBUG] Closing connection. 
+[2023-04-05 13:17:49 +0000] [20780] [DEBUG] Closing connection. 
+[2023-04-05 13:17:49 +0000] [20777] [DEBUG] Closing connection. 
+[2023-04-05 13:17:53 +0000] [20781] [DEBUG] GET /wfhsite/static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:17:53 +0000] [20780] [DEBUG] GET /wfhsite/static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:17:53 +0000] [20781] [DEBUG] Closing connection. 
+[2023-04-05 13:17:53 +0000] [20780] [DEBUG] Closing connection. 
+[2023-04-05 13:18:10 +0000] [20788] [DEBUG] GET /
+[2023-04-05 13:18:11 +0000] [20788] [DEBUG] Closing connection. 
+[2023-04-05 13:18:11 +0000] [20774] [DEBUG] GET /wfhsite/static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:18:11 +0000] [20775] [DEBUG] GET /wfhsite/static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:18:11 +0000] [20778] [DEBUG] GET /wfh/media/images/sh1.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:18:11 +0000] [20788] [DEBUG] GET /wfh/media/images/caniuseFanWeiXuanZe_0KA2aNh.2e16d0ba.fill-160x100.png
+[2023-04-05 13:18:11 +0000] [20777] [DEBUG] GET /wfh/media/images/caniuseMoRenZhiChiYanSeFenLei.2e16d0ba.fill-160x100.png
+[2023-04-05 13:18:11 +0000] [20771] [DEBUG] GET /wfh/media/images/JiePing2021-04-16_ShangWu9.09.09.2e16d0ba.fill-160x100.png
+[2023-04-05 13:18:11 +0000] [20788] [DEBUG] Closing connection. 
+[2023-04-05 13:18:11 +0000] [20776] [DEBUG] GET /wfh/media/images/PingMuKuaiZhao_2020-05-08_ShangWu1.2e16d0ba.fill-160x100.png
+[2023-04-05 13:18:11 +0000] [20777] [DEBUG] Closing connection. 
+[2023-04-05 13:18:11 +0000] [20777] [DEBUG] GET /wfh/media/images/MaTi.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:18:11 +0000] [20777] [DEBUG] Closing connection. 
+[2023-04-05 13:18:11 +0000] [20788] [DEBUG] GET /wfhsite/static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:18:11 +0000] [20788] [DEBUG] Closing connection. 
+[2023-04-05 13:18:11 +0000] [20787] [DEBUG] GET /wfhsite/static/js/home.2d871f868db6.js
+[2023-04-05 13:18:11 +0000] [20787] [DEBUG] Closing connection. 
+[2023-04-05 13:18:11 +0000] [20775] [DEBUG] Closing connection. 
+[2023-04-05 13:18:11 +0000] [20774] [DEBUG] Closing connection. 
+[2023-04-05 13:18:11 +0000] [20771] [DEBUG] Closing connection. 
+[2023-04-05 13:18:11 +0000] [20778] [DEBUG] Closing connection. 
+[2023-04-05 13:18:11 +0000] [20776] [DEBUG] Closing connection. 
+[2023-04-05 13:21:00 +0000] [20778] [DEBUG] GET /
+[2023-04-05 13:21:00 +0000] [20778] [DEBUG] GET /wfhsite/static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:21:00 +0000] [20771] [DEBUG] GET /wfhsite/static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:21:00 +0000] [20778] [DEBUG] GET /wfhsite/static/js/home.2d871f868db6.js
+[2023-04-05 13:21:00 +0000] [20771] [DEBUG] GET /wfhsite/static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:21:02 +0000] [20778] [DEBUG] GET /wfhsite/static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:21:02 +0000] [20771] [DEBUG] GET /wfhsite/static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:22:28 +0000] [20769] [DEBUG] GET /
+[2023-04-05 13:22:28 +0000] [20769] [DEBUG] GET /wfhsite/static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:22:28 +0000] [20786] [DEBUG] GET /wfhsite/static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:22:28 +0000] [20786] [DEBUG] GET /wfh/media/images/PingMuKuaiZhao_2020-05-08_ShangWu1.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:28 +0000] [20769] [DEBUG] GET /wfh/media/images/JiePing2021-04-16_ShangWu9.09.09.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:28 +0000] [20787] [DEBUG] GET /wfh/media/images/MaTi.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:22:28 +0000] [20776] [DEBUG] GET /wfh/media/images/caniuseMoRenZhiChiYanSeFenLei.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:28 +0000] [20785] [DEBUG] GET /wfh/media/images/caniuseFanWeiXuanZe_0KA2aNh.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:28 +0000] [20780] [DEBUG] GET /wfh/media/images/sh1.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:22:28 +0000] [20785] [DEBUG] GET /wfhsite/static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:22:28 +0000] [20776] [DEBUG] GET /wfhsite/static/js/home.2d871f868db6.js
+[2023-04-05 13:22:29 +0000] [20785] [DEBUG] GET /favicon.ico
+[2023-04-05 13:22:32 +0000] [20787] [DEBUG] GET /
+[2023-04-05 13:22:32 +0000] [20787] [DEBUG] GET /wfhsite/static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:22:32 +0000] [20786] [DEBUG] GET /wfhsite/static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:22:32 +0000] [20788] [DEBUG] GET /wfh/media/images/JiePing2021-04-16_ShangWu9.09.09.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:32 +0000] [20780] [DEBUG] GET /wfh/media/images/MaTi.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:22:32 +0000] [20786] [DEBUG] GET /wfh/media/images/caniuseFanWeiXuanZe_0KA2aNh.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:32 +0000] [20787] [DEBUG] GET /wfh/media/images/caniuseMoRenZhiChiYanSeFenLei.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:32 +0000] [20782] [DEBUG] GET /wfh/media/images/sh1.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:22:32 +0000] [20781] [DEBUG] GET /wfh/media/images/PingMuKuaiZhao_2020-05-08_ShangWu1.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:32 +0000] [20781] [DEBUG] GET /wfhsite/static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:22:32 +0000] [20787] [DEBUG] GET /wfhsite/static/js/home.2d871f868db6.js
+[2023-04-05 13:22:33 +0000] [20781] [DEBUG] GET /favicon.ico
+[2023-04-05 13:22:33 +0000] [20781] [DEBUG] GET /
+[2023-04-05 13:22:33 +0000] [20787] [DEBUG] GET /wfhsite/static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:22:33 +0000] [20781] [DEBUG] GET /wfhsite/static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:22:33 +0000] [20788] [DEBUG] GET /wfh/media/images/caniuseMoRenZhiChiYanSeFenLei.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:33 +0000] [20782] [DEBUG] GET /wfh/media/images/caniuseFanWeiXuanZe_0KA2aNh.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:33 +0000] [20781] [DEBUG] GET /wfh/media/images/JiePing2021-04-16_ShangWu9.09.09.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:33 +0000] [20787] [DEBUG] GET /wfh/media/images/sh1.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:22:33 +0000] [20780] [DEBUG] GET /wfh/media/images/MaTi.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:22:33 +0000] [20786] [DEBUG] GET /wfh/media/images/PingMuKuaiZhao_2020-05-08_ShangWu1.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:33 +0000] [20786] [DEBUG] GET /wfhsite/static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:22:33 +0000] [20781] [DEBUG] GET /wfhsite/static/js/home.2d871f868db6.js
+[2023-04-05 13:22:33 +0000] [20786] [DEBUG] GET /
+[2023-04-05 13:22:33 +0000] [20786] [DEBUG] GET /wfhsite/static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:22:33 +0000] [20781] [DEBUG] GET /wfhsite/static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:22:33 +0000] [20788] [DEBUG] GET /wfh/media/images/caniuseFanWeiXuanZe_0KA2aNh.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:33 +0000] [20780] [DEBUG] GET /wfh/media/images/caniuseMoRenZhiChiYanSeFenLei.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:33 +0000] [20782] [DEBUG] GET /wfh/media/images/MaTi.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:22:33 +0000] [20786] [DEBUG] GET /wfh/media/images/sh1.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:22:33 +0000] [20787] [DEBUG] GET /wfh/media/images/PingMuKuaiZhao_2020-05-08_ShangWu1.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:33 +0000] [20781] [DEBUG] GET /wfh/media/images/JiePing2021-04-16_ShangWu9.09.09.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:33 +0000] [20780] [DEBUG] GET /wfhsite/static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:22:33 +0000] [20787] [DEBUG] GET /wfhsite/static/js/home.2d871f868db6.js
+[2023-04-05 13:22:33 +0000] [20787] [DEBUG] GET /
+[2023-04-05 13:22:33 +0000] [20787] [DEBUG] GET /wfhsite/static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:22:33 +0000] [20780] [DEBUG] GET /wfhsite/static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:22:33 +0000] [20787] [DEBUG] GET /wfh/media/images/sh1.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:22:33 +0000] [20786] [DEBUG] GET /wfh/media/images/JiePing2021-04-16_ShangWu9.09.09.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:33 +0000] [20781] [DEBUG] GET /wfh/media/images/caniuseMoRenZhiChiYanSeFenLei.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:33 +0000] [20780] [DEBUG] GET /wfh/media/images/caniuseFanWeiXuanZe_0KA2aNh.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:33 +0000] [20782] [DEBUG] GET /wfh/media/images/MaTi.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:22:33 +0000] [20788] [DEBUG] GET /wfh/media/images/PingMuKuaiZhao_2020-05-08_ShangWu1.2e16d0ba.fill-160x100.png
+[2023-04-05 13:22:33 +0000] [20788] [DEBUG] GET /wfhsite/static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:22:33 +0000] [20786] [DEBUG] GET /wfhsite/static/js/home.2d871f868db6.js
+[2023-04-05 13:22:34 +0000] [20788] [DEBUG] GET /favicon.ico
+[2023-04-05 13:23:57 +0000] [20782] [DEBUG] GET /wfhsite/static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:23:57 +0000] [20773] [DEBUG] GET /wfhsite/static/css/home.8cd4c82bbdbc.css
+[2023-04-05 21:25:16 +0800] [20768] [INFO] Handling signal: term
+[2023-04-05 13:25:16 +0000] [20771] [INFO] Worker exiting (pid: 20771)
+python_env= production
+[2023-04-05 13:25:16 +0000] [20786] [INFO] Worker exiting (pid: 20786)
+python_env= production
+[2023-04-05 13:25:16 +0000] [20772] [INFO] Worker exiting (pid: 20772)
+python_env= production
+[2023-04-05 13:25:16 +0000] [20769] [INFO] Worker exiting (pid: 20769)
+python_env= production
+[2023-04-05 13:25:16 +0000] [20788] [INFO] Worker exiting (pid: 20788)
+python_env= production
+[2023-04-05 13:25:16 +0000] [20773] [INFO] Worker exiting (pid: 20773)
+python_env= production
+[2023-04-05 13:25:16 +0000] [20777] [INFO] Worker exiting (pid: 20777)
+python_env= production
+[2023-04-05 13:25:17 +0000] [20780] [INFO] Worker exiting (pid: 20780)
+python_env= production
+[2023-04-05 13:25:17 +0000] [20774] [INFO] Worker exiting (pid: 20774)
+[2023-04-05 13:25:17 +0000] [20775] [INFO] Worker exiting (pid: 20775)
+python_env= production
+python_env= production
+[2023-04-05 13:25:17 +0000] [20778] [INFO] Worker exiting (pid: 20778)
+python_env= production
+[2023-04-05 13:25:17 +0000] [20776] [INFO] Worker exiting (pid: 20776)
+python_env= production
+[2023-04-05 13:25:17 +0000] [20782] [INFO] Worker exiting (pid: 20782)
+python_env= production
+[2023-04-05 13:25:17 +0000] [20781] [INFO] Worker exiting (pid: 20781)
+python_env= production
+[2023-04-05 13:25:17 +0000] [20785] [INFO] Worker exiting (pid: 20785)
+python_env= production
+[2023-04-05 13:25:17 +0000] [20787] [INFO] Worker exiting (pid: 20787)
+python_env= production
+[2023-04-05 13:25:17 +0000] [20770] [INFO] Worker exiting (pid: 20770)
+python_env= production
+[2023-04-05 21:25:17 +0800] [20768] [INFO] Shutting down: Master
+[2023-04-05 21:25:18 +0800] [21457] [DEBUG] Current configuration:
+  config: gunicorn.conf.py
+  wsgi_app: None
+  bind: ['127.0.0.1:8080']
+  backlog: 2048
+  workers: 17
+  worker_class: gevent
+  threads: 4
+  worker_connections: 1000
+  max_requests: 0
+  max_requests_jitter: 0
+  timeout: 1800
+  graceful_timeout: 10
+  keepalive: 2
+  limit_request_line: 4094
+  limit_request_fields: 100
+  limit_request_field_size: 8190
+  reload: False
+  reload_engine: auto
+  reload_extra_files: []
+  spew: False
+  check_config: False
+  print_config: False
+  preload_app: False
+  sendfile: None
+  reuse_port: False
+  chdir: /Users/monkey/Documents/projects/wfhsite
+  daemon: False
+  raw_env: ['PYTHON_ENV=production']
+  pidfile: None
+  worker_tmp_dir: None
+  user: 501
+  group: 20
+  umask: 0
+  initgroups: False
+  tmp_upload_dir: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  forwarded_allow_ips: ['127.0.0.1']
+  accesslog: None
+  disable_redirect_access_to_syslog: False
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  errorlog: -
+  loglevel: debug
+  capture_output: False
+  logger_class: gunicorn.glogging.Logger
+  logconfig: None
+  logconfig_dict: {}
+  syslog_addr: unix:///var/run/syslog
+  syslog: False
+  syslog_prefix: None
+  syslog_facility: user
+  enable_stdio_inheritance: False
+  statsd_host: None
+  dogstatsd_tags: 
+  statsd_prefix: 
+  proc_name: None
+  default_proc_name: wfhsite.wsgi
+  pythonpath: None
+  paste: None
+  on_starting: <function OnStarting.on_starting at 0x105b28700>
+  on_reload: <function OnReload.on_reload at 0x105b28820>
+  when_ready: <function WhenReady.when_ready at 0x105b28940>
+  pre_fork: <function Prefork.pre_fork at 0x105b28a60>
+  post_fork: <function Postfork.post_fork at 0x105b28b80>
+  post_worker_init: <function PostWorkerInit.post_worker_init at 0x105b28ca0>
+  worker_int: <function WorkerInt.worker_int at 0x105b28dc0>
+  worker_abort: <function WorkerAbort.worker_abort at 0x105b28ee0>
+  pre_exec: <function PreExec.pre_exec at 0x105b39040>
+  pre_request: <function PreRequest.pre_request at 0x105b39160>
+  post_request: <function PostRequest.post_request at 0x105b391f0>
+  child_exit: <function ChildExit.child_exit at 0x105b39310>
+  worker_exit: <function WorkerExit.worker_exit at 0x105b39430>
+  nworkers_changed: <function NumWorkersChanged.nworkers_changed at 0x105b39550>
+  on_exit: <function OnExit.on_exit at 0x105b39670>
+  proxy_protocol: False
+  proxy_allow_ips: ['127.0.0.1']
+  keyfile: None
+  certfile: None
+  ssl_version: 2
+  cert_reqs: 0
+  ca_certs: None
+  suppress_ragged_eofs: True
+  do_handshake_on_connect: False
+  ciphers: None
+  raw_paste_global_conf: []
+  strip_header_spaces: False
+[2023-04-05 21:25:18 +0800] [21457] [INFO] Starting gunicorn 20.1.0
+[2023-04-05 21:25:18 +0800] [21457] [DEBUG] Arbiter booted
+[2023-04-05 21:25:18 +0800] [21457] [INFO] Listening at: http://127.0.0.1:8080 (21457)
+[2023-04-05 21:25:18 +0800] [21457] [INFO] Using worker: gevent
+[2023-04-05 21:25:18 +0800] [21458] [INFO] Booting worker with pid: 21458
+[2023-04-05 21:25:18 +0800] [21459] [INFO] Booting worker with pid: 21459
+[2023-04-05 21:25:18 +0800] [21460] [INFO] Booting worker with pid: 21460
+[2023-04-05 21:25:19 +0800] [21461] [INFO] Booting worker with pid: 21461
+[2023-04-05 21:25:19 +0800] [21462] [INFO] Booting worker with pid: 21462
+[2023-04-05 21:25:19 +0800] [21463] [INFO] Booting worker with pid: 21463
+[2023-04-05 21:25:19 +0800] [21464] [INFO] Booting worker with pid: 21464
+[2023-04-05 21:25:19 +0800] [21465] [INFO] Booting worker with pid: 21465
+[2023-04-05 21:25:19 +0800] [21466] [INFO] Booting worker with pid: 21466
+[2023-04-05 21:25:19 +0800] [21467] [INFO] Booting worker with pid: 21467
+[2023-04-05 21:25:19 +0800] [21468] [INFO] Booting worker with pid: 21468
+[2023-04-05 21:25:19 +0800] [21469] [INFO] Booting worker with pid: 21469
+[2023-04-05 21:25:19 +0800] [21470] [INFO] Booting worker with pid: 21470
+[2023-04-05 21:25:19 +0800] [21471] [INFO] Booting worker with pid: 21471
+[2023-04-05 21:25:19 +0800] [21472] [INFO] Booting worker with pid: 21472
+[2023-04-05 21:25:19 +0800] [21473] [INFO] Booting worker with pid: 21473
+[2023-04-05 21:25:19 +0800] [21474] [INFO] Booting worker with pid: 21474
+[2023-04-05 21:25:19 +0800] [21457] [DEBUG] 17 workers
+[2023-04-05 13:25:41 +0000] [21472] [DEBUG] GET /
+[2023-04-05 13:25:42 +0000] [21472] [DEBUG] GET /static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:25:42 +0000] [21471] [DEBUG] GET /static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:25:42 +0000] [21472] [DEBUG] GET /media/images/caniuseFanWeiXuanZe_0KA2aNh.2e16d0ba.fill-160x100.png
+[2023-04-05 13:25:42 +0000] [21458] [DEBUG] GET /media/images/caniuseMoRenZhiChiYanSeFenLei.2e16d0ba.fill-160x100.png
+[2023-04-05 13:25:42 +0000] [21474] [DEBUG] GET /media/images/MaTi.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:25:42 +0000] [21473] [DEBUG] GET /media/images/JiePing2021-04-16_ShangWu9.09.09.2e16d0ba.fill-160x100.png
+[2023-04-05 13:25:42 +0000] [21469] [DEBUG] GET /media/images/sh1.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:25:42 +0000] [21472] [DEBUG] GET /media/images/PingMuKuaiZhao_2020-05-08_ShangWu1.2e16d0ba.fill-160x100.png
+[2023-04-05 13:25:42 +0000] [21458] [DEBUG] GET /static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:25:42 +0000] [21474] [DEBUG] GET /static/js/home.2d871f868db6.js
+[2023-04-05 13:26:03 +0000] [21473] [DEBUG] GET /
+[2023-04-05 13:26:03 +0000] [21471] [DEBUG] GET /static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:26:03 +0000] [21473] [DEBUG] GET /static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:26:03 +0000] [21473] [DEBUG] GET /media/images/caniuseMoRenZhiChiYanSeFenLei.2e16d0ba.fill-160x100.png
+[2023-04-05 13:26:03 +0000] [21471] [DEBUG] GET /media/images/caniuseFanWeiXuanZe_0KA2aNh.2e16d0ba.fill-160x100.png
+[2023-04-05 13:26:03 +0000] [21468] [DEBUG] GET /media/images/JiePing2021-04-16_ShangWu9.09.09.2e16d0ba.fill-160x100.png
+[2023-04-05 13:26:03 +0000] [21474] [DEBUG] GET /media/images/PingMuKuaiZhao_2020-05-08_ShangWu1.2e16d0ba.fill-160x100.png
+[2023-04-05 13:26:03 +0000] [21458] [DEBUG] GET /media/images/MaTi.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:26:03 +0000] [21467] [DEBUG] GET /media/images/sh1.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:26:03 +0000] [21467] [DEBUG] GET /static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:26:03 +0000] [21468] [DEBUG] GET /static/js/home.2d871f868db6.js
+[2023-04-05 13:26:03 +0000] [21467] [DEBUG] GET /favicon.ico
+[2023-04-05 13:27:58 +0000] [21473] [DEBUG] GET /
+[2023-04-05 13:27:58 +0000] [21473] [DEBUG] Closing connection. 
+[2023-04-05 13:27:58 +0000] [21468] [DEBUG] GET /static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:27:58 +0000] [21471] [DEBUG] GET /static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:27:58 +0000] [21471] [DEBUG] Closing connection. 
+[2023-04-05 13:27:58 +0000] [21468] [DEBUG] Closing connection. 
+[2023-04-05 13:27:58 +0000] [21468] [DEBUG] GET /media/images/JiePing2021-04-16_ShangWu9.09.09.2e16d0ba.fill-160x100.png
+[2023-04-05 13:27:58 +0000] [21474] [DEBUG] GET /media/images/caniuseFanWeiXuanZe_0KA2aNh.2e16d0ba.fill-160x100.png
+[2023-04-05 13:27:58 +0000] [21459] [DEBUG] GET /media/images/PingMuKuaiZhao_2020-05-08_ShangWu1.2e16d0ba.fill-160x100.png
+[2023-04-05 13:27:58 +0000] [21474] [DEBUG] Closing connection. 
+[2023-04-05 13:27:58 +0000] [21474] [DEBUG] GET /media/images/sh1.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:27:58 +0000] [21468] [DEBUG] Closing connection. 
+[2023-04-05 13:27:58 +0000] [21468] [DEBUG] GET /media/images/caniuseMoRenZhiChiYanSeFenLei.2e16d0ba.fill-160x100.png
+[2023-04-05 13:27:58 +0000] [21474] [DEBUG] Closing connection. 
+[2023-04-05 13:27:58 +0000] [21474] [DEBUG] GET /media/images/MaTi.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:27:58 +0000] [21468] [DEBUG] Closing connection. 
+[2023-04-05 13:27:58 +0000] [21471] [DEBUG] GET /static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:27:58 +0000] [21474] [DEBUG] Closing connection. 
+[2023-04-05 13:27:58 +0000] [21465] [DEBUG] GET /static/js/home.2d871f868db6.js
+[2023-04-05 13:27:58 +0000] [21471] [DEBUG] Closing connection. 
+[2023-04-05 13:27:58 +0000] [21459] [DEBUG] Closing connection. 
+[2023-04-05 13:27:58 +0000] [21465] [DEBUG] Closing connection. 
+[2023-04-05 13:28:00 +0000] [21471] [DEBUG] GET /favicon.ico
+[2023-04-05 13:28:00 +0000] [21471] [DEBUG] Closing connection. 
+[2023-04-05 13:28:02 +0000] [21468] [DEBUG] GET /
+[2023-04-05 13:28:03 +0000] [21468] [DEBUG] GET /static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:28:03 +0000] [21467] [DEBUG] GET /static/css/home.8cd4c82bbdbc.css
+[2023-04-05 13:28:03 +0000] [21467] [DEBUG] GET /media/images/caniuseFanWeiXuanZe_0KA2aNh.2e16d0ba.fill-160x100.png
+[2023-04-05 13:28:03 +0000] [21471] [DEBUG] GET /media/images/MaTi.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:28:03 +0000] [21458] [DEBUG] GET /media/images/sh1.2e16d0ba.fill-160x100.jpg
+[2023-04-05 13:28:03 +0000] [21468] [DEBUG] GET /media/images/caniuseMoRenZhiChiYanSeFenLei.2e16d0ba.fill-160x100.png
+[2023-04-05 13:28:03 +0000] [21470] [DEBUG] GET /media/images/PingMuKuaiZhao_2020-05-08_ShangWu1.2e16d0ba.fill-160x100.png
+[2023-04-05 13:28:03 +0000] [21468] [DEBUG] GET /media/images/JiePing2021-04-16_ShangWu9.09.09.2e16d0ba.fill-160x100.png
+[2023-04-05 13:28:03 +0000] [21458] [DEBUG] GET /static/js/wfhsite.36ea738c71ad.js
+[2023-04-05 13:28:03 +0000] [21468] [DEBUG] GET /static/js/home.2d871f868db6.js
+[2023-04-05 13:31:47 +0000] [21468] [DEBUG] GET /static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:31:47 +0000] [21468] [DEBUG] GET /static/css/wfhsite.7d9aff0385d0.css
+[2023-04-05 13:31:47 +0000] [21458] [DEBUG] GET /static/js/wfhsite.36ea738c71ad.js
