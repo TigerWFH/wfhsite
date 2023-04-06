@@ -12,6 +12,8 @@
 
 > 配置 supervisor
 
+## 安装 openresty，提供静态资源服务
+
 ## 拉取源码 A
 
 > 更新 supervisor 中 A 的配置
