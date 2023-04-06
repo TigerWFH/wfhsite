@@ -12,11 +12,11 @@
 
 ## 创建 python 虚拟环境
 
-> python -m venv wfhsite/env
+> python -m venv wfhsite/.env
 
 ## 激活虚拟环境
 
-> source wfhsite/env/bin/activate
+> source wfhsite/.env/bin/activate
 
 ## 安装 wagtail
 
@@ -247,3 +247,42 @@ reload-on-as=1024
 > 是因为微软提供的插件最新版本支持python@3.7以上；python@3.6.0停止维护了，解决方案[低版本插件](https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-python/vsextensions/python/2022.6.0/vspackage)
 >
 > [参考资料](https://blog.csdn.net/jst100/article/details/125783925)
+
+### mysqlclientan 安装遇到 mysql_config not found
+
+> mySQLdb is a python interface for mysql, but it is not mysql itself.
+
+> mySQLdb needs the command 'mysql_config'
+
+> mysql-config is in a diffenent package
+
+- mysql-server
+- mysql-client
+- libmysqlclient-dev
+
+```js
+/*
+  https://github.com/PyMySQL/mysqlclient
+  for mac<https://stackoverflow.com/questions/7475223/mysql-config-not-found-when-installing-mysqldb-python-interface>
+    brew install mysql
+    brew unlink mysql
+    brew install mysql-connector-c
+    // brew info mysql，获取mysql准确信息，再导出
+    export PATH=/usr/local/Cellar/mysql/8.0.11/bin:$PATH
+    -----brew link --overwrite mysql-connector-c
+    mkdir /usr/local/Cellar/lib/
+    sudo ln -s /usr/local/Cellar/mysql/8.0.11/lib/libmysqlclient.21.dylib /usr/local/Cellar/lib/libmysqlclient.21.dylib
+    brew reinstall openssl
+    -----brew link mysql
+    LIBRARY_PATH=$LIBRARY_PATH:/usr/local/opt/openssl/lib/ pip install mysqlclient
+    ----------------------------------------------------
+    python 3 venv
+    brew install mysql
+    pip install mysqlclient
+    ---不使用MySQL server---------
+    brew install mysql-client
+    echo 'export PATH="/usr/local/opt/mysql-client/bin:$PATH"' >> ~/.bash_profile
+    export PATH="/usr/local/opt/mysql-client/bin:$PATH"
+    pip install mysqlclient
+*/
+```
