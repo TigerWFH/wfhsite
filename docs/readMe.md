@@ -8,9 +8,21 @@
 
 ## 安装全局使用的 python
 
-## 安装 supervisor
+## 安装全局工具 supervisor
 
-## 拉取源码
+> 配置 supervisor
+
+## 拉取源码 A
+
+> 更新 supervisor 中 A 的配置
+
+## 拉取源码 B
+
+> 更新 supervisor 中 B 的配置
+
+## 拉取源码 C
+
+> 更新 supervisor 中 C 的配置
 
 ## 安装项目使用的 python
 
