@@ -28,7 +28,33 @@
 
 ### Model
 
-> 一个 model class 代表一个表；一个 model class 实例代表一条记录
+> Generally, each model maps to a single database table. Each model is a Python class that subclasses django.db.models.Model
+>
+> Each attribute of the model represents a database field.
+>
+> A model’s database table name is constructed by joining the model’s “app label” – the name you used in manage.py startapp – to the model’s class name, with an underscore between them.
+>
+> - 【默认表名：appName_modelClassName】
+> - 修改表名：To override the database table name, use the `db_table` parameter in class Meta.`Use lowercase table names for MariaDB and MySQL`
+> - 添加表注释信息：`db_table_comment`
+
+```python
+# common app
+class Name(models.Model):
+  name = models.TextField()
+  class Meta:
+    # https://docs.djangoproject.com/en/4.2/ref/models/options/#table-names
+    db_table = 'wfhsite_name' # 自定义表名，默认应该是common_name
+    db_table_comment = '这是一个demo表'
+    # abstract：抽象基类
+    # app_label：声明所属app
+    # base_manager_name：默认是objects
+    # default_manager_name
+    # default_related_name
+
+```
+
+> 一个 model class 实例代表一条记录
 >
 > 每一个 model class 都有至少一个 manager，默认 manager 是 objects，通过 manager 可以获取 QuerySet 对象
 
