@@ -18,9 +18,40 @@
 
 ## Django 命令
 
-> python manage.py sqlmigrate user 0020
->
-> python manage.py sqlmigrate appName 迁移文件序号
+> - `python manage.py makemigrations [appName]`：在 app 的 migrations 文件夹下生成`迁移文件`,`迁移文件`包括上一次迁移文件信息和这次需要操作的 SQL 语句
+
+```python
+# --name：指定迁移文件的名字
+# --empty：生成空的迁移文件
+```
+
+> - `python manage.py migrate [appName]`：执行后，执行最新的迁移文件，操作 DB。如果成功，`django_migrations` 表中会更新已经执行过的文件名称，即`迁移信息`
+
+```python
+# migrate可以撤销迁移: python manage.py migrate books 002|zero
+# python manage.py migrate books 0002
+# Operations to perform:
+#   Target specific migration: 0002_auto, from books
+# Running migrations:
+#   Rendering model states... DONE
+#   Unapplying books.0003_auto... OK
+# --fake：可以将指定的迁移脚本名字添加到数据库中。但是并不会把迁移脚本转换为SQL语句，修改数据库中的表。
+# --fake-initial：将第一次生成的迁移文件版本号记录在数据库中。但并不会真正的执行迁移脚本。
+```
+
+> - `python manage.py showmigrations`查看某个 app 下的迁移文件。如果后面没有 app，那么将查看 INSTALLED_APPS 中所有的迁移文件。
+> - `python manage.py sqlmigrate`查看某个迁移文件在映射到数据库中的时候，转换的 SQL 语句
+> - `python manage.py dbshell`：进入到数据库
+> - `migrations中的迁移版本和数据库中的迁移版本对不上怎么办？`
+
+```js
+/* 
+  1、核对对应app下的迁移文件
+  2、核对对应django_migrations表中迁移信息记录
+  3、核对对应app下model对应的表信息
+  保持三者一致
+ */
+```
 
 ## Django 技术点
 
