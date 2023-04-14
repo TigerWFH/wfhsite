@@ -1,6 +1,6 @@
 # Django<https://www.jianshu.com/p/3fc79a1e0edb>
 
-## djnago 生成部署遇到问题
+## djnago 生产部署遇到问题
 
 > 需要再部署之前，收集静态资源:python manage.py collectstatic
 > 收集之后，遇到静态资源加载不到：

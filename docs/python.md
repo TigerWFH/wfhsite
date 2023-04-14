@@ -207,6 +207,17 @@ class Person(object):
 - `类方法：`使用装饰器@classmethod（@classonlymethod）装饰的方法称为类方法，但是此类方法第一个参数为 cls，用于标示该类方法所属的类
   > @classonlymethod：只允许使用`类对象.方法()` 的形式进行调用，不允许使用`类对象实例`的方式进行调用。
 
+### import 和 from import
+
+```js
+/*
+  import xxx：导入的是整个模块
+  from xxx import yyy：导入的是模块中的一部分
+  from xxx.yyy import zzz
+  from xxx import *
+ */
+```
+
 ### 系统内置模块
 
 - `os：`操作系统提供的功能
