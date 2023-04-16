@@ -111,12 +111,14 @@ class CustomModel(models.Model):
 >
 > Manager 定义表级方法（表级操作）：影响一条或多条记录的方法，django.db.models.Manager
 >
+> - A Manager is the interface through which database query operations are provided to Django models. At least one Manager exists for every model in a Django application.
+>
 > QuerySet（记录级操作）： Manager 的一些方法会返回 QuerySet 实例，QuerySet 是一个可遍历结构，包含一组 Model 实例，每个实例就是一条记录
 >
-> Model：没有给 Model 实例都会有一个默认的 Manager 对象：objects
+> Model：每一个 Model 实例都会有一个默认的 Manager 对象：objects
 
 - `Model APIs`
-  - `objects`：类`静态`属性
+  - `objects`：类`静态`属性[参考资料](https://docs.djangoproject.com/en/4.0/topics/db/queries/)
 - `Manager APIs`[参考资料](https://www.cnblogs.com/jiakecong/p/14785889.html)
   - `Entry.objects.all()`对应 SELECT \* from Entry，返回对应表 Entry 的所有记录
   - `Entry.objects.filter(**kwargs)`等价与`Entry.objects.all().filter()`

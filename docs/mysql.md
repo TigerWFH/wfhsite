@@ -30,6 +30,42 @@
   - `从表存在与主表对应的记录，不能从主表中删除该行：`不能把有成绩的学员删除了
   - `删除主表前，先删从表：`先删学员成绩表、后删除学员信息表
 
+## mysql 数据类型
+
+> - 数值类型：
+>   - TINYINT，1 个字节
+>   - SMALLINT，2 个字节
+>   - MEDIUMINT，3 个字节
+>   - INT，4 个字节
+>   - BIGINT，8 个字节
+>   - FLOAT，4 个字节
+>   - DOUBLE，8 个字节
+>   - DECIMAL(M,D)，M+2 个字节
+
+> - 日期/时间类型
+>   - YEAR，1
+>   - TIME，3
+>   - DATE，3
+>   - DATETIME，8
+>   - TIMESTAMP，4
+> - 字符串类型
+>   - CHAR
+>   - VARCHAR
+>   - TINYTEXT
+>   - TEXT
+>   - MEDIUMTEXT
+>   - LONGTEXT
+>   - ENUM
+>   - SET
+> - 二进制类型
+>   - BIT
+>   - BINARY
+>   - VARBINARY
+>   - TINYBLOB
+>   - BLOB
+>   - MEDIUMBLOB
+>   - LONGBLOB
+
 ## mysql@5.7
 
 > 为了兼容旧项目，使用 homebrew 安装了低版本的 mysql
