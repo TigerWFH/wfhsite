@@ -38,7 +38,56 @@
 
 > Python 虚拟环境就是利用这个特性构建的，在激活虚拟环境之时，激活脚本会将当前命令行程序的 PATH 修改为虚拟环境的，这样执行命令就会在被修改的 PATH 中查找，从而避免了原本 PATH 可以找到的命令，从而实现了 Python 环境的隔离。
 
-## 语法
+## Data model<https://docs.python.org/3/reference/datamodel.html>
+
+> Every object has an `identity`, a `type` and a `value`.
+>
+> An object’s identity `never changes` once it has been created;
+>
+> An object’s type `determines` the operations that the object supports (e.g., “does it have a length?”) and also defines the possible values for objects of that type.
+>
+> The value of some objects can change. Objects whose value can change are said to be `mutable`; objects whose value is unchangeable once they are created are called `immutable`.
+
+### Number
+
+> Numeric objects are immutable; once created their value never changes.
+>
+> Python distinguishes between integers, floating point numbers, and complex numbers:
+>
+> - numbers.Integral
+>   - `int()`,<\class 'int'>
+>   - `bool()`,<\class 'bool'>
+> - numbers.Real:`float()`,<\class 'float'>
+> - numbers.Complex:`complex()`,<\class 'complex'>
+
+### Sequences
+
+> - `Immutable sequences`
+>   - Strings:`str()`,<\class 'str'>
+>   - Tuples: `tuple()`,<\class 'tuple'>
+>   - Bytes: `bytes()`,<\class 'bytes'>
+> - `Mutable sequences`
+>   - Lists: `list()`,<\class 'list'>
+>   - Byte Arrays: `bytearrays()`,<\class 'bytearrays'>
+
+### Set types
+
+> - Sets:`set()`,<\class 'set'>
+> - Frozen Sets: `frozenset()`,<\class 'frozenset'>
+
+### Mappings
+
+> - Dictionaries: `dict()`,<\class 'dict'>
+
+### Callable types
+
+### Modules
+
+### Custom classes
+
+### Class instances
+
+### Internal types
 
 ### 类型判断
 
