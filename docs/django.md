@@ -19,6 +19,7 @@
 ## Django 命令
 
 > - `python manage.py makemigrations [appName]`：在 app 的 migrations 文件夹下生成`迁移文件`,`迁移文件`包括上一次迁移文件信息和这次需要操作的 SQL 语句
+> - `Django有自己的默认配置，也会读取应用的配置。引用的配置可以通过环境变量指定：DJANGO_SETTINGS_MODULE=XXXX，默认是XXX.dev`
 
 ```python
 # --name：指定迁移文件的名字
@@ -399,7 +400,7 @@ class MyView(View):
 
 - `STATIC_ROOT：`默认值 None，指定静态资源归集目录，即服务器的 webroot 目录
 - `STATIC_URL：`默认值 None，指定静态文件访问 path 前缀，配合 static 模板标签使用
-- `STATICFILES_DIRS：`指定静态文件查询器查询目录，即源码中静态资源所在目录
+- `STATICFILES_DIRS：`指定额外的（非 APP 内的）静态文件查询器查询目录，即源码中静态资源所在目录
 - `STATICFILES_STORAGE：`Default: 'StaticFilesStorage'，配置静态文件存储引擎
 - `STATICFILES_FINDERS：`DEfault: ['FileSystemFinder', 'AppDirectoriesFinder']，静态文件搜索引擎（查询器）
 - `MEDIA_ROOT：`指定用户上传资源目录
@@ -407,9 +408,14 @@ class MyView(View):
 
 #### StaticFiles: django.contrib.staticfiles
 
+> - INSTALLED_APPS：包含当前 app，即 django.contrib.staticfiles
+> - django.contrib.staticfiles collects static files from each of your applications (and any other places you specify) into a single location that can easily be served in production.
+> - python manage.py collectstatic，自动收集静态资源到 STATIC_ROOT
+
 ##### collectstatic：收集静态文件
 
-> django 命令：django-admin collectstatic
+> - 该命令通过 将路径传递给 STATICFILES_STORAGE 的 post_process() 对静态资源进行归集，ManifestStaticFilesStorage 是默认的存储器
+>   django 命令：django-admin collectstatic
 >
 > Collects the static files into STATIC_ROOT
 
@@ -423,11 +429,15 @@ class MyView(View):
 
 > 存储引擎
 
+##### FileSystemStorage
+
 ##### StaticFileStorage
 
 > 静态文件存储引擎，
 
 ##### ManifestStaticFilesStorage
+
+> 为静态资源添加 hash
 
 #### Template override
 
