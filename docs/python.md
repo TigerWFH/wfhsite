@@ -38,7 +38,56 @@
 
 > Python 虚拟环境就是利用这个特性构建的，在激活虚拟环境之时，激活脚本会将当前命令行程序的 PATH 修改为虚拟环境的，这样执行命令就会在被修改的 PATH 中查找，从而避免了原本 PATH 可以找到的命令，从而实现了 Python 环境的隔离。
 
-## 语法
+## Data model<https://docs.python.org/3/reference/datamodel.html>
+
+> Every object has an `identity`, a `type` and a `value`.
+>
+> An object’s identity `never changes` once it has been created;
+>
+> An object’s type `determines` the operations that the object supports (e.g., “does it have a length?”) and also defines the possible values for objects of that type.
+>
+> The value of some objects can change. Objects whose value can change are said to be `mutable`; objects whose value is unchangeable once they are created are called `immutable`.
+
+### Number
+
+> Numeric objects are immutable; once created their value never changes.
+>
+> Python distinguishes between integers, floating point numbers, and complex numbers:
+>
+> - numbers.Integral
+>   - `int()`,<\class 'int'>
+>   - `bool()`,<\class 'bool'>
+> - numbers.Real:`float()`,<\class 'float'>
+> - numbers.Complex:`complex()`,<\class 'complex'>
+
+### Sequences
+
+> - `Immutable sequences`
+>   - Strings:`str()`,<\class 'str'>
+>   - Tuples: `tuple()`,<\class 'tuple'>
+>   - Bytes: `bytes()`,<\class 'bytes'>
+> - `Mutable sequences`
+>   - Lists: `list()`,<\class 'list'>
+>   - Byte Arrays: `bytearrays()`,<\class 'bytearrays'>
+
+### Set types
+
+> - Sets:`set()`,<\class 'set'>
+> - Frozen Sets: `frozenset()`,<\class 'frozenset'>
+
+### Mappings
+
+> - Dictionaries: `dict()`,<\class 'dict'>
+
+### Callable types
+
+### Modules
+
+### Custom classes
+
+### Class instances
+
+### Internal types
 
 ### 类型判断
 
@@ -161,10 +210,10 @@ class Color(Enum):
 >
 > python 中实例化类`不需要使用关键字 new`（也没有这个关键字），类的实例化类似函数调用方式
 
-- `__name__`：python 内置变量，直接执行脚本值为"**main**"；简介执行则为脚本名称
+- `__name__`：python 内置变量，默认是当前模块名（）文件名；如果当前文件被当做脚本直接执行，值为\_\_main\_\_
 - `__init__`：py3 返回的是文件所在位置的绝对路径；py2 返回的是相对路径
 - `__dict__`
-- `__file__:`
+- `__file__:`**file**表示当前文件的绝路径
 - `__str__()`：方法将实例转换为一个字符串，使用 str() 或 print() 函数会输出这个字符串
 - `__repr__()`：方法返回一个实例的代码表示形式，通常用来重新构造这个实例。 内置的 repr() 函数返回这个字符串
 - `__format__()`：方法给 Python 的字符串格式化功能提供了一个钩子。 这里需要着重强调的是格式化代码的解析工作完全由类自己决定
@@ -206,6 +255,17 @@ class Person(object):
 - `实例方法：`需要`类对象实例`之后才能调用的方法，该方法的第一个参数必须是 self
 - `类方法：`使用装饰器@classmethod（@classonlymethod）装饰的方法称为类方法，但是此类方法第一个参数为 cls，用于标示该类方法所属的类
   > @classonlymethod：只允许使用`类对象.方法()` 的形式进行调用，不允许使用`类对象实例`的方式进行调用。
+
+### import 和 from import
+
+```js
+/*
+  import xxx：导入的是整个模块
+  from xxx import yyy：导入的是模块中的一部分
+  from xxx.yyy import zzz
+  from xxx import *
+ */
+```
 
 ### 系统内置模块
 

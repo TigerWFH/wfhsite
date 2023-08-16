@@ -1,6 +1,6 @@
 # Django<https://www.jianshu.com/p/3fc79a1e0edb>
 
-## djnago 生成部署遇到问题
+## djnago 生产部署遇到问题
 
 > 需要再部署之前，收集静态资源:python manage.py collectstatic
 > 收集之后，遇到静态资源加载不到：
@@ -18,9 +18,41 @@
 
 ## Django 命令
 
-> python manage.py sqlmigrate user 0020
->
-> python manage.py sqlmigrate appName 迁移文件序号
+> - `python manage.py makemigrations [appName]`：在 app 的 migrations 文件夹下生成`迁移文件`,`迁移文件`包括上一次迁移文件信息和这次需要操作的 SQL 语句
+> - `Django有自己的默认配置，也会读取应用的配置。引用的配置可以通过环境变量指定：DJANGO_SETTINGS_MODULE=XXXX，默认是XXX.dev`
+
+```python
+# --name：指定迁移文件的名字
+# --empty：生成空的迁移文件
+```
+
+> - `python manage.py migrate [appName]`：执行后，执行最新的迁移文件，操作 DB。如果成功，`django_migrations` 表中会更新已经执行过的文件名称，即`迁移信息`
+
+```python
+# migrate可以撤销迁移: python manage.py migrate books 002|zero
+# python manage.py migrate books 0002
+# Operations to perform:
+#   Target specific migration: 0002_auto, from books
+# Running migrations:
+#   Rendering model states... DONE
+#   Unapplying books.0003_auto... OK
+# --fake：可以将指定的迁移脚本名字添加到数据库中。但是并不会把迁移脚本转换为SQL语句，修改数据库中的表。
+# --fake-initial：将第一次生成的迁移文件版本号记录在数据库中。但并不会真正的执行迁移脚本。
+```
+
+> - `python manage.py showmigrations`查看某个 app 下的迁移文件。如果后面没有 app，那么将查看 INSTALLED_APPS 中所有的迁移文件。
+> - `python manage.py sqlmigrate`查看某个迁移文件在映射到数据库中的时候，转换的 SQL 语句
+> - `python manage.py dbshell`：进入到数据库
+> - `migrations中的迁移版本和数据库中的迁移版本对不上怎么办？`
+
+```js
+/* 
+  1、核对对应app下的迁移文件
+  2、核对对应django_migrations表中迁移信息记录
+  3、核对对应app下model对应的表信息
+  保持三者一致
+ */
+```
 
 ## Django 技术点
 
@@ -28,7 +60,33 @@
 
 ### Model
 
-> 一个 model class 代表一个表；一个 model class 实例代表一条记录
+> Generally, each model maps to a single database table. Each model is a Python class that subclasses django.db.models.Model
+>
+> Each attribute of the model represents a database field.
+>
+> A model’s database table name is constructed by joining the model’s “app label” – the name you used in manage.py startapp – to the model’s class name, with an underscore between them.
+>
+> - 【默认表名：appName_modelClassName】
+> - 修改表名：To override the database table name, use the `db_table` parameter in class Meta.`Use lowercase table names for MariaDB and MySQL`
+> - 添加表注释信息：`db_table_comment`
+
+```python
+# common app
+class Name(models.Model):
+  name = models.TextField()
+  class Meta:
+    # https://docs.djangoproject.com/en/4.2/ref/models/options/#table-names
+    db_table = 'wfhsite_name' # 自定义表名，默认应该是common_name
+    db_table_comment = '这是一个demo表'
+    # abstract：抽象基类
+    # app_label：声明所属app
+    # base_manager_name：默认是objects
+    # default_manager_name
+    # default_related_name
+
+```
+
+> 一个 model class 实例代表一条记录
 >
 > 每一个 model class 都有至少一个 manager，默认 manager 是 objects，通过 manager 可以获取 QuerySet 对象
 
@@ -54,12 +112,14 @@ class CustomModel(models.Model):
 >
 > Manager 定义表级方法（表级操作）：影响一条或多条记录的方法，django.db.models.Manager
 >
+> - A Manager is the interface through which database query operations are provided to Django models. At least one Manager exists for every model in a Django application.
+>
 > QuerySet（记录级操作）： Manager 的一些方法会返回 QuerySet 实例，QuerySet 是一个可遍历结构，包含一组 Model 实例，每个实例就是一条记录
 >
-> Model：没有给 Model 实例都会有一个默认的 Manager 对象：objects
+> Model：每一个 Model 实例都会有一个默认的 Manager 对象：objects
 
 - `Model APIs`
-  - `objects`：类`静态`属性
+  - `objects`：类`静态`属性[参考资料](https://docs.djangoproject.com/en/4.0/topics/db/queries/)
 - `Manager APIs`[参考资料](https://www.cnblogs.com/jiakecong/p/14785889.html)
   - `Entry.objects.all()`对应 SELECT \* from Entry，返回对应表 Entry 的所有记录
   - `Entry.objects.filter(**kwargs)`等价与`Entry.objects.all().filter()`
@@ -340,7 +400,7 @@ class MyView(View):
 
 - `STATIC_ROOT：`默认值 None，指定静态资源归集目录，即服务器的 webroot 目录
 - `STATIC_URL：`默认值 None，指定静态文件访问 path 前缀，配合 static 模板标签使用
-- `STATICFILES_DIRS：`指定静态文件查询器查询目录，即源码中静态资源所在目录
+- `STATICFILES_DIRS：`指定额外的（非 APP 内的）静态文件查询器查询目录，即源码中静态资源所在目录
 - `STATICFILES_STORAGE：`Default: 'StaticFilesStorage'，配置静态文件存储引擎
 - `STATICFILES_FINDERS：`DEfault: ['FileSystemFinder', 'AppDirectoriesFinder']，静态文件搜索引擎（查询器）
 - `MEDIA_ROOT：`指定用户上传资源目录
@@ -348,9 +408,14 @@ class MyView(View):
 
 #### StaticFiles: django.contrib.staticfiles
 
+> - INSTALLED_APPS：包含当前 app，即 django.contrib.staticfiles
+> - django.contrib.staticfiles collects static files from each of your applications (and any other places you specify) into a single location that can easily be served in production.
+> - python manage.py collectstatic，自动收集静态资源到 STATIC_ROOT
+
 ##### collectstatic：收集静态文件
 
-> django 命令：django-admin collectstatic
+> - 该命令通过 将路径传递给 STATICFILES_STORAGE 的 post_process() 对静态资源进行归集，ManifestStaticFilesStorage 是默认的存储器
+>   django 命令：django-admin collectstatic
 >
 > Collects the static files into STATIC_ROOT
 
@@ -364,11 +429,15 @@ class MyView(View):
 
 > 存储引擎
 
+##### FileSystemStorage
+
 ##### StaticFileStorage
 
 > 静态文件存储引擎，
 
 ##### ManifestStaticFilesStorage
+
+> 为静态资源添加 hash
 
 #### Template override
 
