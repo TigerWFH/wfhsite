@@ -2,7 +2,7 @@
 
 ## 术语
 
-### page type
+### page<https://docs.wagtail.org/en/stable/reference/pages/model_reference.html#wagtail.models.Page>
 
 > Each page type(Page Model) (a.k.a. content type) in Wagtail is represented by a Django model. All page models must inherit from the wagtail.models.Page class.
 
@@ -14,7 +14,75 @@
   - `content_panels` - For content, such as main body text
   - `promote_panels` - For metadata, such as tags, thumbnail image and SEO title
   - `settings_panels` - For settings, such as publish date
+#### Database fields
+- `title:`Human-readable title of the page
+- `draft_title:`Human-readable title of the page, incorporating any changes that have been made in a draft edit
+- `slug:`This is used for constructing the page’s URL
+- `content_type:`A foreign key to the ContentType object that represents the specific model of this page
+- `live:`
+- `has_unpublished_changes:`
+- `owner:`
+- `first_published_at:`
+- `last_published_at:`
+- `seo_title:`
+- `search_description:`
+- `show_in_menus:`
+- `locked:`
+- `locked_by:`
+- `locked_at:`
+- `alias_of:`
+- `locale:`
+- `translation_key:`
 
+#### 属性
+- `specific`
+- `specific_deferred`
+- `specific_class`
+- `cached_content_type`
+- `page_type_display_name`
+- `full_url`
+- `context_object_name = None`
+- `preview_modes`
+- `localized`
+- `localized_draft`
+- `search_fields`
+- `subpage_types`
+- `parent_page_types`
+- ``
+- ``
+- ``
+- ``
+#### 成员函数
+
+- `get_specific(deferred=False, copy_attrs=None, copy_attrs_exclude=None)`Return this object in its most specific subclassed form
+- `get_url(request=None, current_site=None)`
+- `get_full_url(request=None)`
+- `relative_url(current_site, request=None)`
+- `get_site()`
+- `get_url_parts(request=None)`
+- `route(request, path_components)`
+- `serve(request, *args, **kwargs)`
+- `get_context(request, *args, **kwargs)`
+- `get_template(request, *args, **kwargs)`
+- `get_admin_display_title()`
+- `serve_preview(request, mode_name)`
+- `get_parent(update=False)`
+- `get_ancestors(inclusive=False)`
+- `get_descendants(inclusive=False)`
+- `get_siblings(inclusive=True)`
+- `get_translations(inclusive=False)`
+- `get_translation(locale)`
+- `get_translation_or_none(locale)`
+- `has_translation(locale)`
+- `copy_for_translation(locale, copy_parents=False, alias=False, exclude_fields=None)`
+- `classmethod can_exist_under(parent)`
+- `classmethod can_create_at(parent)`
+- `can_move_to(parent)`
+- `get_route_paths()`
+- ``
+- ``
+- ``
+- ``
 ## 创建应用
 
 > wagtail start appName [path]
