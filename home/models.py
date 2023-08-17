@@ -49,3 +49,9 @@ class HomePage(Page):
         SnippetChooserPanel('banner'),
         SnippetChooserPanel('nav')
     ]
+
+    class Meta:
+        # 在后台配置中选择模板，可以展示该名称
+        verbose_name = "主页模板"
+        # 在后台配置中选择模板，可以在名称（verbose_name）后面展示更多描述内容
+        verbose_name_plural = "主页模板-----更多"
