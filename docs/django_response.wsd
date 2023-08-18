@@ -1,0 +1,46 @@
+@startuml Django中的httpResponse类
+class django.http.HttpResponseBase  {}
+
+django.http.HttpResponseBase <|-- django.http.HttpResponse
+class django.http.HttpResponse {}
+
+django.http.HttpResponse <|-- django.http.HttpResponseRedirectBase
+class django.http.HttpResponseRedirectBase {}
+
+django.http.HttpResponseRedirectBase <|-- django.http.HttpResponseRedirect
+class django.http.HttpResponseRedirect {}
+
+django.http.HttpResponseRedirectBase <|-- django.http.HttpResponsePermanentRedirect
+class django.http.HttpResponsePermanentRedirect {}
+
+django.http.HttpResponse <|-- django.http.HttpResponseNotModified
+class django.http.HttpResponseNotModified {}
+
+django.http.HttpResponse <|-- django.http.HttpResponseBadRequest
+class django.http.HttpResponseBadRequest {}
+
+django.http.HttpResponse <|-- django.http.HttpResponseNotFound
+class django.http.HttpResponseNotFound {}
+
+django.http.HttpResponse <|-- django.http.HttpResponseForbidden
+class django.http.HttpResponseForbidden {}
+
+django.http.HttpResponse <|-- django.http.HttpResponseNotAllowed
+class django.http.HttpResponseNotAllowed {}
+
+django.http.HttpResponse <|-- django.http.HttpResponseGone
+class django.http.HttpResponseGone {}
+
+django.http.HttpResponse <|-- django.http.HttpResponseServerError
+class django.http.HttpResponseServerError {}
+
+django.http.HttpResponse <|-- django.http.JsonResponse
+class django.http.JsonResponse {}
+
+django.http.HttpResponseBase <|-- django.http.StreamingHttpResponse
+class django.http.StreamingHttpResponse {}
+
+django.http.StreamingHttpResponse <|-- django.http.FileResponse
+class django.http.FileResponse {}
+
+@enduml
