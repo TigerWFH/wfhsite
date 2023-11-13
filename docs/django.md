@@ -749,6 +749,21 @@ class CommentForm(forms.Form):
 
 ### Django 日志
 
+### Django APIs
+- `@login_required`
+- `@permission_required`
+### REST framework包含许多默认的权限类
+- `IsAuthenticationOrReadOnly`：将确保经过身份验证的请求获得读写权限；未经过身份验证的请求获得只读权限
+- `IsAuthenticated`：仅限已经通过身份验证的用户访问
+- `AllowAny`：允许任何用户访问
+- `DjangoModelPermissions`：只有用户经过身份验证并分配了相关模型权限时，才会获得授权访问相关模型
+- `DjangoModelPermissionsOrReadOnly`：与前者类似，但可以给匿名用户访问API的可读权限
+- `DjangoObjectPermissions`：只有在用户经过身份验证并分配了相关对象权限时，才会获得授权访问相关对象，通常与django-gaurdian联用实现对象级别的权限控制
+> - serializer_class
+> - permission_classes
+### 自定义权限，需要继承BasePermission，并根据需求重写has_permission(self,request,view)和has_object_permission(self,request,view,obj)方法
+
+
 ## Django Settings
 
 ```python
