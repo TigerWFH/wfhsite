@@ -7,7 +7,61 @@
 - `包：`包是一个分层次的文件目录结构，它定义了一个由模块及子包，和子包下的子包等组成的 Python 的应用环境。包就是文件夹，但该文件夹下必须存在 \_\_init\_\_.py 文件, 该文件的内容可以为空。\_\_init\_\_py 用于标识当前文件夹是一个包。
   > \_\_init\_\_.py 一般用于标识包，主要是为了避免将文件夹名当作普通的字符串。\_\_init\_\_.py 的内容可以为空，一般用来进行包的某些初始化工作或者设置\_\_all\_\_值，\_\_all\_\_是在 from package-name import \*这语句使用的，全部导出定义过的模块
 
+## python 解释器
+
+> python [-bBdEhilOsSuvVWx?] [-c command | -m module-name | script | -] [args]
+>
+> - c 表示要执行的命令中的 python 代码【直接运行一段字符串形式的 Python 代码， 支持运行包（Package），此时会执行包的 **main**.py 文件，sys.argv[0] 会被设置为模块的路径，模块的导入和初始化过程会完整执行】
+> - m 表示要执行的模块【在 sys.path 中搜索指定名称的模块，并将其内容作为**main**模块执行】
+> - script 表示要执行的脚本
+>   环境变量
+> - PYTHONHOME：标准 Python 库的位置
+> - PYTHONPATH： 增加模块文件默认搜索路径
+
 ## python 版本管理工具
+
+> 推荐
+>
+> - 如果你是新手或追求快： 直接用 uv。它能安装 Python，能装包，快到让你怀疑人生。
+> - 如果你做数据科学/AI： 请使用 Micromamba (conda 的高速替代品)。
+> - 如果你是后端开发/写项目： 推荐 Poetry，它的依赖锁定功能在多人协作中非常可靠。
+> - 如果你只是临时写写小脚本： 系统自带的 Python + venv 模块 + pip 依然是最简单不需要安装的选择
+
+> 如果你希望一个工具搞定版本管理、环境隔离和依赖包管理，首选以下两个
+>
+> - uv (强烈推荐):使用 Rust 编写，速度比 pip 快 10-100 倍,它集成了 Python 版本管理（替代 pyenv）、包管理（替代 pip）和虚拟环境管理。
+
+> - Rye: uv 的“老大哥”，同样是集成式工具，目前已将核心逻辑交给 uv 驱动。它提供了非常科学的开发工作流
+
+- `uv`
+
+  > 项目管理模式
+  >
+  > - uv init: 初始化项目
+  > - uv add requests(自动安装并写入配置文件)
+  > - uv add --dev pytest (添加开发环境专用依赖)
+  > - uv remove flask (移除依赖)
+  > - uv sync (根据 uv.lock 强制同步虚拟环境，多退少补)
+  > - uv run main.py (自动在虚拟环境中执行，无需手动激活环境)
+  > - uv run python (进入带项目依赖的交互式 REPL)
+  >   Python 版本管理（替代 pyenv）
+  > - uv python install 3.12 3.13 (安装 Python 版本)
+  > - uv python list(查看已安装/可用的版本)
+  > - uv python pin 3.12(为当前项目指定版本)
+  > - uv python find(查找 Python 路径)
+  >   兼容 venv 和 pip 模式,如果你只想在现有的 venv 或 requirements.txt 模式下提速，使用 uv pip 接口
+  > - uv venv (默认在 .venv 目录，速度比 python -m venv 快得多)(创建虚拟环境)
+  > - uv pip install -r requirements.txt (支持极速多线程下载)
+  > - uv pip install mysqlclient
+  > - uv pip list 或 uv pip tree (以树状图显示依赖关系，非常实用)
+  > - uv pip compile pyproject.toml -o requirements.txt (类似 pip-compile)
+  >   工具管理（替代 pipx）
+  > - uvx black . (自动下载、运行并缓存，保持全局环境干净)
+  > - uvx --python 3.10 ruff check(指定版本运行)
+  >   缓存与维护
+  > - uv cache clean (如果磁盘空间不足,清理缓存)
+  > - uv cache dir(查看缓存位置)
+  > - uv self update (2025 年 uv 更新非常快，建议定期运行。更新 uv 自身)
 
 - `pyenv`
 
