@@ -747,22 +747,89 @@ class CommentForm(forms.Form):
 
 ## Django 其它技术点
 
+### Django 自动化管理后台（Admin）
+
+### Django 认证与权限系统（Auth）
+
+> 功能：内置用户注册、登录、密码哈希加密、权限控制、组管理。支持自定义用户模型（如手机号登录）。
+
+### 会话管理（Sessions）
+
+> 支持基于数据库、缓存或加密 Cookie 的会话跟踪，维护用户状态
+>
+> 对应包是 Session，对应 ORM 是 django.contrib.sessions.models
+
+- 配置项：SESSION_ENGINE，配置数据存储在哪里
+
+  > - 数据库存储（默认）： django.contrib.sessions.backends.db
+  > - - 持久化稳定，但是每次请求都要读写数据库，高并发性能有瓶颈
+  > - 缓存存储(推荐):django.contrib.sessions.backends.cache
+  > - - 配合 Redis 使用，速度极快；如果缓存重启且未持久化，用户会掉线
+  > - 混合存储：django.contrib.sessions.backends.cached_db
+  > - - 读操作走缓存，写操作同步到数据库。兼顾性能与安全性。
+  > - 加密 cookie 存储：django.contrib.sessions.backends.signed_cookies
+  > - - 数据存储在客户端，服务端不存。Cooike 有 4KB 大小限制，敏感数据暴露在客户端
+
+- SESSION_COOKIE_AGE：过期时间（默认 1209600 秒，即 2 周）
+- SESSION_EXPIRE_AT_BROWSER_CLOSE：如果设为 True，用户关闭浏览器 Session 即失效。
+- SESSION_COOKIE_HTTPONLY (默认 True)：防止 JavaScript 读取 Cookie，抵御 XSS 攻击。
+- SESSION_SAVE_EVERY_REQUEST：是否每次请求都保存（通常不需要，除非你需要精确刷新过期时间）。
+- SESSION_COOKIE_SECURE：建议设为 True。仅允许在 HTTPS 下传输 Cookie。
+
+- 读写 session
+
+```python
+def my_view(request):
+    # 1. 设置 Session 数据
+    request.session['fav_color'] = 'blue'
+
+    # 2. 获取 Session 数据
+    color = request.session.get('fav_color', 'red')
+
+    # 3. 删除特定键
+    del request.session['fav_color']
+
+    # 4. 清除当前用户所有 Session
+    request.session.flush()
+```
+
+- 表设计
+  > 在 Django 的数据库存储模式下（默认模式），Session（会话）主要由名为 django_session 的单张表管理。这张表的设计极其简洁，通过高度抽象来实现通用的键值存储。
+  >
+  > - 表明：django_session
+  > - - session_key varchar(40) 主键。一个随机生成的 40 位字符串，存储在客户端 Cookie 中的 sessionid 就是这个值。
+  > - - session_data longtext 序列化数据。存储会话中的所有键值对（如用户 ID、购物车信息等），经过 Base64 编码和加密签名。
+  > - - expire_date datetime 过期时间。Django 每次查询时会检查该时间，如果当前时间晚于此时间，则认为会话失效。
+
+### 消息框架（Messages）
+
+> 在不同页面间传递临时通知（如“提交成功”或“登录失败”的弹窗）
+
+### 多极缓存框架（Cache）
+
+> 支持 Redis、Memcached、数据库缓存等，可缓存整站、视图或特定代码片段。
+
+### 中间件系统（Middleware）
+
 ### Django 日志
 
 ### Django APIs
+
 - `@login_required`
 - `@permission_required`
-### REST framework包含许多默认的权限类
+
+### REST framework 包含许多默认的权限类
+
 - `IsAuthenticationOrReadOnly`：将确保经过身份验证的请求获得读写权限；未经过身份验证的请求获得只读权限
 - `IsAuthenticated`：仅限已经通过身份验证的用户访问
 - `AllowAny`：允许任何用户访问
 - `DjangoModelPermissions`：只有用户经过身份验证并分配了相关模型权限时，才会获得授权访问相关模型
-- `DjangoModelPermissionsOrReadOnly`：与前者类似，但可以给匿名用户访问API的可读权限
-- `DjangoObjectPermissions`：只有在用户经过身份验证并分配了相关对象权限时，才会获得授权访问相关对象，通常与django-gaurdian联用实现对象级别的权限控制
-> - serializer_class
-> - permission_classes
-### 自定义权限，需要继承BasePermission，并根据需求重写has_permission(self,request,view)和has_object_permission(self,request,view,obj)方法
+- `DjangoModelPermissionsOrReadOnly`：与前者类似，但可以给匿名用户访问 API 的可读权限
+- `DjangoObjectPermissions`：只有在用户经过身份验证并分配了相关对象权限时，才会获得授权访问相关对象，通常与 django-gaurdian 联用实现对象级别的权限控制
+  > - serializer_class
+  > - permission_classes
 
+### 自定义权限，需要继承 BasePermission，并根据需求重写 has_permission(self,request,view)和 has_object_permission(self,request,view,obj)方法
 
 ## Django Settings
 
