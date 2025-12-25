@@ -260,6 +260,23 @@ class Color(Enum):
 
 ## python 基础
 
+### main 函数
+
+- 技术上：不需要。Python 没有任何强制要求定义 main 的语法限制。
+- 工程上：必须有。使用 if **name** == "**main**": 是 Python 程序员的“行业标准”，它能保证代码的健壮性、可测试性和可重用性。
+- python 模块运行时，怎么知道运行哪一个文件？
+  > - 直接指定：谁被“点名”，谁就是入口: python xxx.py,xxx.py 就会被解释器识别为顶级执行脚本，该文件内置变量**name**被赋值为"**main**"
+  > - python -m module_name，modiule_name 包会提供**main**.py 文件，解释器会搜索并执行该文件
+  > - 工程化指定： pyproject.toml 中的 scripts
+  > - 自动搜索：FastAPI / Flask 等框架，在使用现代 Web 框架时，通常由框架指定入口：
+  > - - FastAPI：运行 fastapi dev main.py，它会加载 main.py 并寻找其中的 app 实例
+  > - - Streamlit：运行 streamlit run app.py
+
+```python
+if __name__ == "__main__":
+  print("我是入口脚本")
+```
+
 ### special variables（特殊变量）
 
 > 用双下划线开头且结尾的变量，在 Python 中被称为`特殊变量（special variables）`，它是内置的，可以直接访问

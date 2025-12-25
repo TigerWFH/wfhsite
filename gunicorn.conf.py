@@ -8,6 +8,9 @@ timeout = 1800  # Workers silent for more than this many seconds are killed and 
 graceful_timeout = 10
 worker_class = 'gevent'  # 使用gevent(协程)模式，还可以使用sync 模式，默认的是sync模式
 loglevel = 'debug'
+# 进程名称
+proc_name = "wfhsite"
+
 # LOG_DIR=str(Path(__file__).resolve().parent / )
 # access_log_format = '%(t)s %(p)s %(h)s "%(r)s" %(s)s %(L)s %(b)s %(f)s" "%(a)s"'
 # errorlog = LOG_DIR
