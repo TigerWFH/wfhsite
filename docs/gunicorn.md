@@ -7,7 +7,13 @@
 ## 启动命令
 
 ```bash
-gunicorn -c gunicorn_config.py wfhsite.wsgi:application
+gunicorn -c gunicorn_config.py wfhsite.wsgi:application --env PYTHON_ENV=prod
+
+gunicorn -c gunicorn_config.py wfhsite.wsgi:application --env PYTHON_ENV=pre
+
+gunicorn -c gunicorn_config.py wfhsite.wsgi:application --env PYTHON_ENV=sit
+
+gunicorn -c gunicorn_config.py wfhsite.wsgi:application --env PYTHON_ENV=development
 ```
 
 ## gunicorn 提供服务方式
