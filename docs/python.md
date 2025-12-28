@@ -187,6 +187,30 @@
 
 ### 元祖（tuple）：()，元组不可修改
 
+- in 和 not in：檢查元素是否存在
+- 元組的核心特性
+  > - 不可變性 (Immutable): 優點：數據更安全，不會被意外修改,性能：由於長度和內容固定，Python 對元組的內存分配比列表更高效
+  > - 有序性：元素有固定的順序，可以通過索引（Index）訪問
+  > - 因為不可變，元組可以作為字典（Dict）的鍵（Key）或集合（Set）的元素，而列表則不行。
+- 应用场景
+
+  > - 函數的多個返回值
+  > - 結構化數據: 列表通常用於存放“同類”數據（如一串 ID），而元組常用於存放“一個實體的不同屬性”（如經緯度、用戶信息）。
+  > - 配置文件與常量
+
+- 進階工具：具名元組 (NamedTuple)
+
+```python
+from typing import NamedTuple
+
+class User(NamedTuple):
+    name: str # 具有可读性
+    age: int # 具有可读性
+
+u = User(name="Monkey", age=25)
+print(u.name)  # 像對象一樣訪問，代碼可讀性極高
+```
+
 ### 字典（dict）：{}，无序
 
 > 访问字典：dict['key']或者 dict.get('key')

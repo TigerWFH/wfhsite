@@ -751,7 +751,14 @@ class CommentForm(forms.Form):
 
 ### Django 认证与权限系统（Auth）
 
-> 功能：内置用户注册、登录、密码哈希加密、权限控制、组管理。支持自定义用户模型（如手机号登录）。
+> 功能：内置用户注册、登录、密码哈希加密、权限控制、组管理。支持自定义用户模型（如手机号登录）。它不仅处理用户登录/登出，还涵盖了权限管理（RBAC，Role-Based Access Control，基于角色的访问控制）
+
+- 对应模块：django.contrib.auth
+- RBAC 的演进等级
+- 用户 (User)：系统的使用者。
+- 角色 (Role)：一组权限的集合（如：管理员、编辑、普通用户、财务）。
+- 权限 (Permission)：对特定资源的访问许可（如：可读、可写、可删除）。
+- 会话 (Session)：用户在登录后，系统为其分配当前激活的角色。
 
 ### 会话管理（Sessions）
 
@@ -810,6 +817,9 @@ def my_view(request):
 > 支持 Redis、Memcached、数据库缓存等，可缓存整站、视图或特定代码片段。
 
 ### 中间件系统（Middleware）
+
+- SessionMiddleware（会话中间件）
+- AuthenticationMiddleware（认证中间件）
 
 ### Django 日志
 
